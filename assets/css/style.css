@@ -93,89 +93,36 @@ button {
   align-items: center;
   justify-content: center;
   min-height: 94vh;
-  background-color: var(--bg-primary);
+  background-color: #0F172A;
+  /* Data Grid Pattern - Minimal & Professional */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 45px 45px;
   border-bottom: 0.1rem solid rgba(148, 163, 184, 0.1);
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-/* ─── Minimalist Blob Background ─── */
-.hero-blob-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.regular-blob {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.45;
-  will-change: transform;
-  animation: blobDrift 22s ease-in-out infinite alternate;
-}
-
-/* Blue blob — top-left quadrant */
-.blob-blue {
-  width: 70vmax;
-  height: 70vmax;
-  background: radial-gradient(circle at 40% 40%, #7EC1FF 0%, transparent 70%);
-  filter: blur(9rem);
-  top: -20%;
-  left: -15%;
-  animation-delay: 0s;
-  animation-duration: 22s;
-}
-
-/* Mint blob — bottom-right quadrant */
-.blob-mint {
-  width: 65vmax;
-  height: 65vmax;
-  background: radial-gradient(circle at 60% 60%, #4DE9AB 0%, transparent 70%);
-  filter: blur(10rem);
-  bottom: -15%;
-  right: -10%;
-  animation-delay: -8s;
-  animation-duration: 28s;
-  animation-direction: alternate-reverse;
-}
-
-@keyframes blobDrift {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  33% {
-    transform: translate(6%, -4%) scale(1.08);
-  }
-
-  66% {
-    transform: translate(-4%, 6%) scale(0.94);
-  }
-
-  100% {
-    transform: translate(-8%, -3%) scale(1.04);
-  }
-}
-
 /* ─── Hero Content ─── */
 .hero-content {
   position: relative;
   z-index: 10;
-  padding: 2rem 0 8rem;
-  /* bottom padding clears scroll indicator */
+  padding: 6rem 0;
+  /* Increased padding for spaciousness */
 }
 
 .hero-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.4rem;
+  gap: 4rem;
+  /* Increased gap from 2.4rem to 4rem (1.67x) */
   width: 100%;
   max-width: 96rem;
-  padding-inline: clamp(2.4rem, 6vw, 10rem);
+  padding-inline: clamp(3.6rem, 8vw, 12rem);
+  /* Increased horizontal padding (1.5x) */
   text-align: center;
   position: relative;
   z-index: 1;
@@ -183,222 +130,107 @@ button {
 
 .hero-title {
   margin: 0;
-  /* 기존 대비 약 1.4배 확대 */
-  font-size: clamp(4.4rem, 7vw, 7.6rem);
+  /* Increased size for emphasis */
+  font-size: clamp(5.6rem, 9vw, 8rem);
+  /* Increased from 4.4rem-7.6rem to 5.6rem-9.6rem */
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.25;
   letter-spacing: -0.03em;
   color: #FFFFFF;
   text-shadow:
-    0 2px 10px rgba(0, 0, 0, 0.85),
-    0 0 50px rgba(126, 193, 255, 0.18);
+    0 2px 12px rgba(0, 0, 0, 0.95),
+    0 4px 24px rgba(0, 0, 0, 0.8);
+}
+
+/* Mint Green Highlight for "1초" */
+.highlight-mint {
+  color: #4DE9AB;
+  font-weight: 900;
 }
 
 .hero-subtitle {
   margin: 0;
-  /* 기존 대비 약 1.3배 확대 */
-  font-size: clamp(1.9rem, 2.6vw, 2.6rem);
+  /* Increased size */
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  /* Increased from 1.9rem-2.6rem to 2.2rem-3rem */
   font-weight: 400;
   line-height: 1.8;
   letter-spacing: 0.01em;
   color: var(--text-secondary);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
-  max-width: 64rem;
+  text-shadow: 
+    0 1px 10px rgba(0, 0, 0, 0.8),
+    0 2px 18px rgba(0, 0, 0, 0.6);
+  max-width: 70rem;
 }
 
-/* ─── Speech Bubbles ─── */
-.speech-bubbles {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.bubble {
-  position: absolute;
-  padding: 1.6rem 1.5rem;
-  border-radius: 1.6rem;
-  font-size: 1.45rem;
-  font-weight: 600;
-  line-height: 1.65;
-  color: #0F172A;
-  /* 짘은 다크 네이비 텍스트 */
-  background: rgba(255, 255, 255, 0.90);
-  /* 신센한 흰 배경 */
-  box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.18);
-  max-width: 26rem;
-  white-space: normal;
-  animation: bubbleFloat 7s ease-in-out infinite alternate;
-  /* 말풍선 꿈리: bubble::before 사용 */
-}
-
-/* 말풍선 꼬리 — 아래 삼각형 */
-.bubble::before {
-  content: '';
-  position: absolute;
-  bottom: -1.1rem;
-  left: 2.4rem;
-  width: 0;
-  height: 0;
-  border-left: 1rem solid transparent;
-  border-right: 1rem solid transparent;
-  border-top: 1.2rem solid rgba(255, 255, 255, 0.90);
-}
-
-/* 말풍선 1 — 상단 좌측 */
-.bubble-1 {
-  top: 35%;
-  left: 7%;
-  animation-duration: 7s;
-  animation-delay: 0s;
-}
-
-/* 말풍선 2 — 상단 우측 */
-.bubble-2 {
-  top: 15%;
-  right: 10%;
-  animation-duration: 9.5s;
-  animation-delay: -3.5s;
-  animation-direction: alternate-reverse;
-}
-
-/* 말풍선 3 — 하단 우측 */
-.bubble-3 {
-  bottom: 18%;
-  right: 25%;
-  animation-duration: 8.5s;
-  animation-delay: -6s;
-}
-
-@keyframes bubbleFloat {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-1.6rem);
-  }
-
-  100% {
-    transform: translateY(-0.4rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .bubble-2 {
-    display: none;
-  }
-
-  .bubble-1 {
-    top: 15%;
-    left: 2%;
-    font-size: 1.25rem;
-    max-width: 20rem;
-  }
-
-  .bubble-3 {
-    bottom: 20%;
-    right: 2%;
-    font-size: 1.25rem;
-    max-width: 20rem;
-  }
-}
-
-/* ─── Scroll Indicator ─── */
-.scroll-indicator {
-  position: absolute;
-  bottom: 3.2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
+/* Hero CTA Button - Solid Gradient with Mint Glow */
+.hero-cta-btn {
+  display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
-  z-index: 10;
-  user-select: none;
-}
-
-.mouse-icon {
-  width: 2.4rem;
-  height: 4rem;
-  border: 2px solid rgba(148, 163, 184, 0.5);
-  border-radius: 1.4rem;
-  display: flex;
   justify-content: center;
-  padding-top: 0.7rem;
-}
-
-.mouse-wheel {
-  width: 0.3rem;
-  height: 0.8rem;
-  background: rgba(126, 193, 255, 0.9);
-  border-radius: 0.4rem;
-  animation: wheelScroll 1.8s ease-in-out infinite;
-}
-
-@keyframes wheelScroll {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  70% {
-    transform: translateY(1.2rem);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-}
-
-.scroll-arrow {
-  font-size: 1.6rem;
-  color: rgba(148, 163, 184, 0.6);
-  animation: arrowBounce 2s ease-in-out infinite;
-  line-height: 1;
-}
-
-@keyframes arrowBounce {
-
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.6;
-  }
-
-  50% {
-    transform: translateY(0.5rem);
-    opacity: 1;
-  }
-}
-
-.scroll-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.2rem;
-}
-
-.scroll-text .en-text {
-  font-size: 1.0rem;
+  min-height: 6.4rem;
+  padding-inline: 4.8rem;
+  margin-top: 2rem;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  color: rgba(148, 163, 184, 0.7);
+  letter-spacing: 0.02em;
+  color: #0F172A;
+  background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
+  border-radius: 1.2rem;
+  box-shadow: 
+    0 0 3rem rgba(77, 233, 171, 0.5),
+    0 1rem 3rem rgba(126, 193, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.scroll-text .ko-text {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: rgba(148, 163, 184, 0.5);
-  letter-spacing: 0.02em;
+.hero-cta-btn:hover {
+  transform: translateY(-0.4rem) scale(1.02);
+  box-shadow: 
+    0 0 4rem rgba(77, 233, 171, 0.7),
+    0 1.4rem 4rem rgba(126, 193, 255, 0.4);
+}
+
+.hero-cta-btn:active {
+  transform: translateY(-0.2rem) scale(1.01);
 }
 
 @media (max-width: 768px) {
-  .regular-blob {
-    filter: blur(6rem) !important;
+  .hero-container {
+    padding-inline: clamp(2.4rem, 6vw, 8rem);
+    gap: 3rem;
+  }
+
+  .hero-title {
+    font-size: clamp(4rem, 8vw, 6rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  }
+
+  .hero-cta-btn {
+    min-height: 5.6rem;
+    padding-inline: 3.6rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    background-size: 35px 35px;
+    /* Smaller grid on mobile */
+  }
+
+  .hero-container {
+    gap: 2.4rem;
+  }
+
+  .hero-cta-btn {
+    min-height: 5.2rem;
+    padding-inline: 3.2rem;
+    font-size: 1.7rem;
   }
 }
 
