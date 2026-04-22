@@ -1195,6 +1195,16 @@ button {
   color: rgba(148, 163, 184, 0.3);
 }
 
+/* —— Ad Banner —— */
+.ad-banner-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  padding: 4rem 2rem;
+  background: transparent;
+}
+
 /* —— About Page Styles —— */
 
 /* About Hero Section */
