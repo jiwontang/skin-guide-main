@@ -24,9 +24,13 @@
   <meta name="twitter:title" content="여드름 흉터 및 색소침착 케어 가이드: 흔적 없는 피부를 위한 과학적 루틴 | 피부 성향 가이드" />
   <meta name="twitter:description" content="붉은 자국과 갈색 자국 판별법, 흔적 케어 핵심 성분과 과학적 사용법을 확인하세요." />
   <meta name="twitter:image" content="https://skincare-guide.netlify.app/assets/images/og-img.webp" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="피부 성향 가이드 & 홈케어 도우미" />
+  <link rel="canonical" href="https://skincare-guide.netlify.app/subpages/trace.html" />
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="icon" href="../assets/images/icon/favicon.png" type="image/png">
   <link rel="shortcut icon" href="../assets/images/icon/favicon.ico" type="image/x-icon">
+  <meta name="google-site-verification" content="UA1KobkCGarO5EUPSF1ypSLV_5jZ20ePpMEkCXF855A" />
 </head>
 
 <body>
@@ -67,45 +71,27 @@
     <!-- Semantic SEO H1 -->
     <h1 class="visually-hidden">여드름 흉터 및 색소침착 케어 가이드: 흔적 없는 피부를 위한 과학적 루틴</h1>
 
-    <section class="ingredient-tool">
+    <section class="ingredient-tool" id="tool-area">
       <div class="ingredient-tool__container">
-        <h2 class="ingredient-tool__title">🩹 흔적 & 케어 루틴 가이드</h2>
-        <p class="ingredient-tool__subtitle">비타민C, 레티놀 활용을 통한 맑은 피부톤 스킨케어 팁</p>
+        <h2 class="ingredient-tool__title">🩹 흔적 컬러 매칭</h2>
+        <p class="ingredient-tool__subtitle">지금 남아 있는 흔적의 색상을 선택하면 전용 케어 루틴을 드립니다.</p>
 
-        <!-- 유명템 매칭 체크 영역 -->
-        <div class="matching-check-glow" style="margin-top: 3.2rem;">
-          <h3 class="matching-check-glow__title">🔍 유명템 매칭 체크</h3>
-          <p class="matching-check-glow__desc">유명한 제품이라도 내 피부에 안 맞으면 독이 될 수 있습니다. 루틴 시작 전 성분 궁합을 확인해 보세요.</p>
-          <div class="matching-btn-group">
-            <button class="matching-btn-primary" id="matching-toggle-btn">제품 성분 입력하고 내 피부와 매칭하기</button>
-            <a href="ingredient.html" class="matching-btn-secondary">나에게 맞는 성분이 무엇인지 모른다면? (성분 신호등 가기)</a>
+        <!-- 흔적 색상 선택 카드 -->
+        <div class="concern-grid" id="trace-concern-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 64rem; margin-inline: auto;">
+          <div class="concern-card" data-type="red">
+            <span class="concern-card__icon">🔴</span>
+            <h3 class="concern-card__title">붉은 자국</h3>
+            <p class="concern-card__sub">PIE · 혈관성 홍반</p>
           </div>
-
-          <div id="matching-form-area" style="margin-top: 2.4rem;">
-            <textarea id="matching-ingredient-input" class="ingredient-textarea"
-              placeholder="화해나 올리브영에서 복사한 미백/재생 제품의 전성분을 여기에 붙여넣어 주세요."></textarea>
-            <button id="matching-submit-btn" class="ingredient-btn" style="margin-top: 1.6rem; width: 100%;">성분 매칭
-              시작</button>
+          <div class="concern-card" data-type="brown">
+            <span class="concern-card__icon">🟤</span>
+            <h3 class="concern-card__title">갈색 자국</h3>
+            <p class="concern-card__sub">PIH · 색소침착</p>
           </div>
-
-          <div id="matching-result-area" style="display: none;"></div>
         </div>
 
-        <!-- Trace Care Content -->
-        <div class="skintype-form">
-          <h3 style="color: #F1f5f9; font-size: 2rem; margin-bottom: 1.6rem;">🌙 밤 전용 미백 & 재생 루틴</h3>
-          <ul style="color: #E2E8F0; font-size: 1.6rem; line-height: 1.8; list-style-type: disc; padding-left: 2rem;">
-            <li style="margin-bottom: 1rem;"><strong>1단계: 피부 결 정돈.</strong> 세안 후 자극이 적은 토너로 피부 결을 가볍게 정돈하여 다음 단계의 흡수율을
-              높입니다.</li>
-            <li style="margin-bottom: 1rem;"><strong>2단계: 고효능 성분 투입.</strong> 순수 비타민C 앰플이나 레티놀 세럼을 완두콩 크기만큼 덜어 고민 부위 위주로
-              얇게 바릅니다. <br><em style="color: #FF6B6B; font-size:1.4rem;">(주의: 비타민C와 레티놀, AHA/BHA는 절대 한 번에 섞어 쓰지 마세요. 격일로
-                사용하거나 아침/저녁으로 나누어 사용하세요.)</em></li>
-            <li style="margin-bottom: 1rem;"><strong>3단계: 충분한 보습.</strong> 고효능 성분은 피부를 건조하게 만들 수 있으므로 세라마이드 등 장벽 강화 크림을
-              덧발라 줍니다.</li>
-            <li style="margin-bottom: 1rem;"><strong>4단계: 낮 시간 필수 방어.</strong> 다음 날 아침 세안 후에는 반드시 선크림을 500원 동전 크기만큼 꼼꼼히
-              발라 자외선으로 인한 색소 침착을 막아주세요.</li>
-          </ul>
-        </div>
+        <!-- 블러 리빌 처방전 -->
+        <div class="prescription-area hidden" id="trace-prescription"></div>
       </div>
     </section>
 
@@ -489,7 +475,7 @@
   </footer>
 
   <script src="../assets/js/menu.js" defer></script>
-  <script src="../assets/js/matching.js" defer></script>
+  <script src="../assets/js/trace.js" defer></script>
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">

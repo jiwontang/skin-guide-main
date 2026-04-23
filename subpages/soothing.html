@@ -24,9 +24,13 @@
   <meta name="twitter:title" content="오늘 밤 긴급 진정 가이드: 피부 뒤집어짐 SOS 응급처치 | 피부 성향 가이드" />
   <meta name="twitter:description" content="갑작스러운 피부 트러블과 붉은기를 빠르게 잠재우는 쿨링 진정 응급처치법을 확인하세요." />
   <meta name="twitter:image" content="https://skincare-guide.netlify.app/assets/images/og-img.webp" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="피부 성향 가이드 & 홈케어 도우미" />
+  <link rel="canonical" href="https://skincare-guide.netlify.app/subpages/soothing.html" />
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="icon" href="../assets/images/icon/favicon.png" type="image/png">
   <link rel="shortcut icon" href="../assets/images/icon/favicon.ico" type="image/x-icon">
+  <meta name="google-site-verification" content="UA1KobkCGarO5EUPSF1ypSLV_5jZ20ePpMEkCXF855A" />
 </head>
 
 <body>
@@ -67,43 +71,32 @@
     <!-- Semantic SEO H1 -->
     <h1 class="visually-hidden">오늘 밤 긴급 진정 가이드: 피부 뒤집어짐 SOS 응급처치</h1>
 
-    <section class="ingredient-tool">
+    <section class="ingredient-tool" id="tool-area">
       <div class="ingredient-tool__container">
-        <h2 class="ingredient-tool__title">🚨 오늘 밤 긴급 진정 가이드</h2>
-        <p class="ingredient-tool__subtitle">갑작스러운 피부 고민을 빠르게 잠재우는 응급 처치 순서</p>
+        <h2 class="ingredient-tool__title">🚨 열감 원인 찾기</h2>
+        <p class="ingredient-tool__subtitle">지금 피부가 달아오른 원인을 선택하면 최적의 쿨링 성분 카드를 드립니다.</p>
 
-        <!-- 유명템 매칭 체크 영역 -->
-        <div class="matching-check-glow" style="margin-top: 3.2rem;">
-          <h3 class="matching-check-glow__title">🔍 유명템 매칭 체크</h3>
-          <p class="matching-check-glow__desc">유명한 제품이라도 내 피부에 안 맞으면 독이 될 수 있습니다. 루틴 시작 전 성분 궁합을 확인해 보세요.</p>
-          <div class="matching-btn-group">
-            <button class="matching-btn-primary" id="matching-toggle-btn">제품 성분 입력하고 내 피부와 매칭하기</button>
-            <a href="ingredient.html" class="matching-btn-secondary">나에게 맞는 성분이 무엇인지 모른다면? (성분 신호등 가기)</a>
+        <!-- 원인 선택 카드 -->
+        <div class="concern-grid" id="soothing-concern-grid">
+          <div class="concern-card" data-type="product">
+            <span class="concern-card__icon">🧴</span>
+            <h3 class="concern-card__title">제품 자극</h3>
+            <p class="concern-card__sub">새 제품·성분 반응</p>
           </div>
-
-          <div id="matching-form-area" style="margin-top: 2.4rem;">
-            <textarea id="matching-ingredient-input" class="ingredient-textarea"
-              placeholder="화해나 올리브영에서 복사한 진정/쿨링 제품의 전성분을 여기에 붙여넣어 주세요."></textarea>
-            <button id="matching-submit-btn" class="ingredient-btn" style="margin-top: 1.6rem; width: 100%;">성분 매칭
-              시작</button>
+          <div class="concern-card" data-type="environment">
+            <span class="concern-card__icon">🌡️</span>
+            <h3 class="concern-card__title">환경 자극</h3>
+            <p class="concern-card__sub">자외선·온도·건조함</p>
           </div>
-
-          <div id="matching-result-area" style="display: none;"></div>
+          <div class="concern-card" data-type="physical">
+            <span class="concern-card__icon">🤲</span>
+            <h3 class="concern-card__title">물리적 자극</h3>
+            <p class="concern-card__sub">마찰·과도한 세안</p>
+          </div>
         </div>
 
-        <!-- Soothing Content -->
-        <div class="skintype-form">
-          <h3 style="color: #F1F5F9; font-size: 2rem; margin-bottom: 1.6rem;">🌿 쿨링 & 진정 응급처치 순서</h3>
-          <ul style="color: #E2E8F0; font-size: 1.6rem; line-height: 1.8; list-style-type: disc; padding-left: 2rem;">
-            <li style="margin-bottom: 1rem;"><strong>1단계: 즉각 쿨링.</strong> 냉장고에 10분간 보관한 병풀(시카) 또는 알로에 베라 토너 패드를 붉은 부위에
-              3분간 올려둡니다.</li>
-            <li style="margin-bottom: 1rem;"><strong>2단계: 진정 성분 투입.</strong> 판테놀이나 마데카소사이드가 함유된 고농축 진정 앰플을 해당 부위에 톡톡 두드려
-              흡수시킵니다.</li>
-            <li style="margin-bottom: 1rem;"><strong>3단계: 국소 부위 케어.</strong> 고름이 차오른 트러블이라면 압출 전 티트리 오일을 면봉으로 콕 찍어
-              발라주세요. 이미 터졌다면 하이드로콜로이드 패치를 붙입니다.</li>
-            <li style="margin-bottom: 1rem;"><strong>4단계: 장벽 보호.</strong> 가벼운 시카 크림으로 피부 전체에 보호막을 형성하여 밤새 회복을 돕습니다.</li>
-          </ul>
-        </div>
+        <!-- 블러 리빌 처방전 -->
+        <div class="prescription-area hidden" id="soothing-prescription"></div>
       </div>
     </section>
 
@@ -455,7 +448,7 @@
   </footer>
 
   <script src="../assets/js/menu.js" defer></script>
-  <script src="../assets/js/matching.js" defer></script>
+  <script src="../assets/js/soothing.js" defer></script>
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">

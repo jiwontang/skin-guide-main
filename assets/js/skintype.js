@@ -79,21 +79,24 @@ window.addEventListener('load', () => {
   function generateResult(skinType, isSensitive) {
     const typeMap = {
       dry: {
-        name: '💧 악건성 / 건성 피부',
+        catchphrase: '💧 수분을 갈망하는 메마른 대지',
+        typename: '건조/악건성 피부',
         description: '유분과 수분이 모두 심각하게 부족하여 쉽게 당기고 푸석해지며 잔주름이 생기기 쉬운 타입입니다.',
         goodTexture: '고농축 오일 세럼, 피부 장벽을 모사하는 세라마이드 크림, 저분자 히알루론산 에센스',
         badTexture: '알코올(에탄올) 함량이 높은 토너, 뽀득하게 닦이는 알칼리성 폼 클렌저, 고점도 밤 제형',
         coreAdvice: '세안 직후 물기가 마르기 전 1분 이내에 즉각적인 보습을 해주는 것이 매우 중요합니다. 특히 겨울철에는 크림을 한 겹 더 덧바르는 스킵케어가 필수입니다.'
       },
       oily: {
-        name: '🛢️ 극지성 / 지성 피부',
+        catchphrase: '🛢️ 24시간 멈추지 않는 유분 활성',
+        typename: '지성 피부',
         description: '피지 분비가 매우 활발하여 얼굴 전체가 쉽게 번들거리고 모공이 넓어 트러블이 잦은 타입입니다.',
         goodTexture: '산뜻한 워터리 젤 로션, 약산성 클렌저, 모공 컨트롤 BHA 토너, 가벼운 수분 에센스',
         badTexture: '모공을 막을 수 있는 고점도 밤(Balm) 제형, 미네랄 오일이나 시어버터가 다량 함유된 제품, 유분기 많은 크림',
         coreAdvice: '유분을 과도하게 닦아내면 보상성 피지가 분비되므로, 부드러운 약산성 세안과 수분 보충에 집중하세요. 주 1-2회 딥클렌징으로 모공 관리를 병행하면 효과적입니다.'
       },
       combo: {
-        name: '🌗 수부지 / 복합성 피부',
+        catchphrase: '🌗 겉바속촉이 아닌 겉번속당',
+        typename: '수분 부족형 지성',
         description: 'T존은 번들거리지만 U존은 건조한, 수분은 부족하고 유분은 부분적으로 넘치는 복합성 타입입니다.',
         goodTexture: '수분감 가득한 앰플, T존과 U존을 나눠 바르기 좋은 가벼운 수분 크림, 멀티 존 케어 제품',
         badTexture: '얼굴 전체에 바르는 꾸덕한 영양 크림, 유분기가 과도한 선크림, 고점도 밤 제형',
@@ -105,7 +108,7 @@ window.addEventListener('load', () => {
 
     // Add sensitivity note
     if (isSensitive) {
-      result.sensitivityNote = '⚠️ 민감성 피부 주의: 외부 자극에 쉽게 반응하므로 저자극 제품을 선택하고, 새로운 제품은 패치 테스트 후 사용하세요. 향료, 알코올, 방부제 함량이 낮은 제품을 우선적으로 고려하세요.';
+      result.sensitivityNote = '⚠️ 초민감성 피부 주의: 외부 자극에 쉽게 반응하므로 저자극 제품을 선택하고, 새로운 제품은 패치 테스트 후 사용하세요. 향료, 알코올, 방부제 함량이 낮은 제품을 우선적으로 고려하세요.';
     }
 
     return result;
@@ -125,7 +128,7 @@ window.addEventListener('load', () => {
     resultArea.innerHTML = `
       <div class="result-card">
         <div class="result-card__header">
-          <h3 class="result-card__type">${result.name}</h3>
+          <h3 class="result-card__type">${result.catchphrase}<br><small class="result-card__typename">${result.typename}</small></h3>
           <p class="result-card__description">${result.description}</p>
         </div>
 
