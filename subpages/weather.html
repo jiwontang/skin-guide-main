@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘의 피부 날씨: 계절별 맞춤 스킨케어 예보 | 피부 성향 가이드</title>
+  <meta name="description" content="현재 계절에 맞춘 피부 날씨 예보를 확인하세요. 봄 환절기 건조, 여름 유분 과잉, 가을 수분 증발, 겨울 극한 건조까지 계절별 맞춤 스킨케어 루틴을 제안합니다." />
+  <meta name="keywords" content="계절별 스킨케어, 봄 피부 관리, 여름 피부 관리, 가을 피부 관리, 겨울 피부 관리, 환절기 피부, 피부 날씨, 계절 루틴" />
+
+  <meta property="og:title" content="오늘의 피부 날씨: 계절별 맞춤 스킨케어 예보 | 피부 성향 가이드" />
+  <meta property="og:description" content="현재 계절에 맞춘 피부 날씨 예보를 확인하고, 맞춤 스킨케어 루틴을 시작하세요." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://skincare-guide.netlify.app/subpages/weather.html" />
+  <meta property="og:image" content="https://skincare-guide.netlify.app/assets/images/og-img.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="피부 성향 가이드 & 홈케어 도우미 - 오늘의 피부 날씨" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="오늘의 피부 날씨: 계절별 맞춤 스킨케어 예보 | 피부 성향 가이드" />
+  <meta name="twitter:description" content="현재 계절에 맞춘 피부 날씨 예보를 확인하고, 맞춤 스킨케어 루틴을 시작하세요." />
+  <meta name="twitter:image" content="https://skincare-guide.netlify.app/assets/images/og-img.webp" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="피부 성향 가이드 & 홈케어 도우미" />
+  <link rel="canonical" href="https://skincare-guide.netlify.app/subpages/weather.html" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="icon" href="../assets/images/icon/favicon.png" type="image/png">
+  <meta name="google-site-verification" content="UA1KobkCGarO5EUPSF1ypSLV_5jZ20ePpMEkCXF855A" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <p class="site-header__logo"><a href="../index.html">✨ 피부 성향 가이드 & 홈케어 도우미</a></p>
+      <div class="site-header__right">
+        <span class="current-location">🌤️ 오늘의 피부 날씨</span>
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="메뉴 열기">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <div class="menu-overlay" id="menu-overlay">
+    <nav class="menu-nav" aria-label="주 메뉴">
+      <div class="menu-header">
+        <h2 class="menu-title">모든 기능</h2>
+        <button class="menu-close" id="menu-close-btn" aria-label="메뉴 닫기">✕</button>
+      </div>
+      <ul class="menu-list">
+        <li class="menu-item"><a href="../index.html" class="menu-link">🏠 홈</a></li>
+        <li class="menu-item"><a href="skintype.html" class="menu-link">🔍 내 피부 타입 확인 가이드</a></li>
+        <li class="menu-item"><a href="ingredient.html" class="menu-link">🚦 화장품 성분 신호등</a></li>
+        <li class="menu-item"><a href="homecare.html" class="menu-link">💆‍♀️ 0원 나쁜 습관 파괴기</a></li>
+        <li class="menu-item"><a href="d-1.html" class="menu-link">✨ D-1 중요날 찰떡 루틴</a></li>
+        <li class="menu-item"><a href="soothing.html" class="menu-link">🚨 오늘 밤 긴급 진정 가이드</a></li>
+        <li class="menu-item"><a href="trace.html" class="menu-link">🩹 흔적 & 케어 루틴 가이드</a></li>
+        <li class="menu-item"><a href="personal-color.html" class="menu-link">🎨 퍼스널 무드 팔레트</a></li>
+        <li class="menu-item"><a href="weather.html" class="menu-link current">🌤️ 오늘의 피부 날씨</a></li>
+        <li class="menu-item"><a href="texture.html" class="menu-link">🧴 텍스처 레이어링 슬라이더</a></li>
+        <li class="menu-item"><a href="../about.html" class="menu-link">📖 사이트 소개</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <h1 class="visually-hidden">오늘의 피부 날씨: 계절별 맞춤 스킨케어 예보</h1>
+
+    <!-- [Tool] 오늘의 피부 날씨 -->
+    <section class="ingredient-tool" id="tool-area">
+      <div class="ingredient-tool__container">
+        <h2 class="ingredient-tool__title">🌤️ 오늘의 피부 날씨</h2>
+        <p class="ingredient-tool__subtitle">접속 시점의 계절을 분석해 지금 피부에 꼭 필요한 스킨케어 예보를 알려드립니다.</p>
+
+        <!-- 분석 중 상태 -->
+        <div class="wx-loader" id="wx-loader">
+          <div class="wx-loader__icon" id="wx-loader-icon">🌡️</div>
+          <p class="wx-loader__text">날씨 분석 중<span class="wx-dots"></span></p>
+          <p class="wx-loader__sub" id="wx-loader-sub">현재 계절 데이터를 불러오고 있습니다</p>
+          <button class="ingredient-btn wx-reveal-btn" id="wx-reveal-btn" style="display:none;">
+            오늘의 스킨케어 예보 확인하기
+          </button>
+        </div>
+
+        <!-- 결과 영역 (블러 리빌) -->
+        <div class="wx-result-wrap" id="wx-result-wrap">
+          <div class="wx-blur-overlay" id="wx-blur-overlay"></div>
+          <div class="wx-result-card" id="wx-result-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 목차 -->
+    <nav class="toc" aria-label="페이지 목차">
+      <div class="toc__inner">
+        <p class="toc__label">📋 목차</p>
+        <ol class="toc__list">
+          <li><a href="#tool-area" class="toc__link">오늘의 피부 날씨 예보</a></li>
+          <li><a href="#season-science" class="toc__link">계절이 피부에 미치는 과학적 영향</a></li>
+          <li><a href="#spring-summer" class="toc__link">봄·여름 피부 관리 전략</a></li>
+          <li><a href="#autumn-winter" class="toc__link">가을·겨울 피부 관리 전략</a></li>
+          <li><a href="#faq-section" class="toc__link">자주 묻는 질문 (FAQ)</a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- [Article 1] 계절과 피부 -->
+    <article id="season-science" class="seo-article">
+      <div class="seo-article__container">
+        <h2 class="seo-article__title">🧬 계절이 피부에 미치는 과학적 영향</h2>
+        <div class="seo-article__body">
+          <p>피부는 외부 환경 변화에 가장 민감하게 반응하는 기관입니다. 기온과 습도의 변화는 피지선 활성도와 <strong>경표피 수분 손실(TEWL)</strong>에 직접적인 영향을 미치며, 계절마다 전혀 다른 피부 컨디션을 만들어냅니다.</p>
+
+          <h3 class="seo-section-h3">온도와 피지 분비의 상관관계</h3>
+          <p>기온이 1°C 상승할 때마다 피지 분비량은 약 10% 증가합니다. 이는 여름철 피부가 번들거리는 주된 이유입니다. 반대로 겨울철 낮은 기온은 피지선 활동을 억제하여 피부 보호막이 얇아지고, 수분 증발이 가속화됩니다.</p>
+
+          <h3 class="seo-section-h3">습도와 피부 장벽의 관계</h3>
+          <p>상대 습도가 40% 이하로 떨어지면 피부 각질층의 수분 함량이 급격히 감소합니다. 특히 겨울철 실내 난방으로 인한 건조한 환경은 <span class="brand-highlight">세라마이드 결핍</span>을 유발하여 피부 장벽 기능을 저하시킵니다. 이때 적절한 보습제 선택이 피부 건강의 핵심이 됩니다.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- [Article 2] 봄·여름 -->
+    <article id="spring-summer" class="seo-article">
+      <div class="seo-article__container">
+        <h2 class="seo-article__title">🌸 봄·여름 피부 관리 전략</h2>
+        <div class="seo-article__body">
+          <h3 class="seo-section-h3">봄 (3~5월): 환절기 장벽 재건</h3>
+          <p>겨울 동안 손상된 피부 장벽이 회복되는 시기이지만, 미세먼지와 황사로 인한 산화 스트레스가 극대화됩니다. 클렌징은 <strong>약산성(pH 5.5)</strong> 제품으로 가볍게 마무리하고, 수분 레이어링으로 장벽을 단계적으로 채워주는 것이 핵심입니다.</p>
+          <ul class="ingredient-list">
+            <li class="ingredient-item ingredient-item--vertical">
+              <span class="info-badge">핵심 성분</span>
+              <p class="ingredient-desc">판테놀(비타민 B5), 마데카소사이드, 저분자 히알루론산 — 손상된 장벽을 진정시키고 수분을 빠르게 채워줍니다.</p>
+            </li>
+            <li class="ingredient-item ingredient-item--vertical">
+              <span class="info-badge">주의 성분</span>
+              <p class="ingredient-desc">고농도 레티놀, 강산성 AHA — 민감해진 환절기 피부에 자극을 줄 수 있으므로 사용 빈도를 줄이세요.</p>
+            </li>
+          </ul>
+
+          <h3 class="seo-section-h3">여름 (6~8월): 유분 밸런스 컨트롤</h3>
+          <p>고온다습한 환경에서 피지 분비가 폭발적으로 증가합니다. 무거운 크림 대신 <strong>쿨링 젤 크림</strong>으로 수분을 공급하고, <a href="ingredient.html" class="intext-link">BHA(살리실산)</a> 성분의 토너로 모공 속 피지를 관리하는 것이 효과적입니다.</p>
+          <ul class="ingredient-list">
+            <li class="ingredient-item ingredient-item--vertical">
+              <span class="info-badge">핵심 성분</span>
+              <p class="ingredient-desc">나이아신아마이드, 살리실산(BHA), 녹차 추출물 — 피지 조절과 항산화 효과를 동시에 제공합니다.</p>
+            </li>
+            <li class="ingredient-item ingredient-item--vertical">
+              <span class="info-badge">자외선 차단 필수</span>
+              <p class="ingredient-desc">SPF 50+ PA++++ 제품을 2~3시간마다 덧바르는 것이 여름 피부 관리의 가장 중요한 단계입니다.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- [Article 3] 가을·겨울 -->
+    <article id="autumn-winter" class="seo-article">
+      <div class="seo-article__container">
+        <h2 class="seo-article__title">🍂 가을·겨울 피부 관리 전략</h2>
+        <div class="seo-article__body">
+          <h3 class="seo-section-h3">가을 (9~11월): 수분 장벽 선제 강화</h3>
+          <p>여름 동안 자외선과 피지 과잉으로 지친 피부가 급격한 기온 하강을 맞이하는 시기입니다. 이때 <strong>세라마이드</strong>를 중심으로 한 장벽 크림을 선제적으로 도입하면 겨울철 극건조를 예방할 수 있습니다.</p>
+          <ul class="ingredient-list">
+            <li class="ingredient-item ingredient-item--vertical">
+              <span class="info-badge">핵심 성분</span>
+              <p class="ingredient-desc">세라마이드 NP/AP/EOP, 스쿠알란, 콜레스테롤 — 피부 지질 구조를 복원하여 수분 증발을 차단합니다.</p>
+            </li>
+          </ul>
+
+          <h3 class="seo-section-h3">겨울 (12~2월): 극한 보습 & 장벽 사수</h3>
+          <p>실내외 온도차와 난방으로 인한 건조함이 극대화되는 시기입니다. <strong>페이스 오일</strong>을 크림 위에 마지막 단계로 덧바르면 수분 증발을 막는 밀봉 효과를 얻을 수 있습니다. <a href="homecare.html" class="intext-link">홈케어 루틴</a>에서 가습기 사용과 함께 병행하면 효과가 배가됩니다.</p>
+          <ul class="ingredient-list">
+            <li class="ingredient-item ingredient-item--vertical">
+              <span class="info-badge">핵심 성분</span>
+              <p class="ingredient-desc">로즈힙 오일, 아르간 오일, 시어버터, 글리세린 — 고보습 성분으로 피부 표면에 보호막을 형성합니다.</p>
+            </li>
+            <li class="ingredient-item ingredient-item--vertical">
+              <span class="info-badge">루틴 팁</span>
+              <p class="ingredient-desc">세안 후 3분 이내에 스킨케어를 완료하세요. 물기가 증발하면서 피부 수분까지 함께 빼앗아 갑니다.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- FAQ -->
+    <section id="faq-section" class="seo-article">
+      <div class="seo-article__container">
+        <h2 class="seo-article__title">❓ 자주 묻는 질문 (FAQ)</h2>
+        <div class="seo-article__body">
+          <div class="faq-item">
+            <h3 class="faq-question">Q. 계절이 바뀔 때마다 화장품을 전부 교체해야 하나요?</h3>
+            <p class="faq-answer">전부 교체할 필요는 없습니다. 핵심은 '제형'을 바꾸는 것입니다. 여름에는 가벼운 젤 타입으로, 겨울에는 크리미한 크림 타입으로 보습제만 교체해도 계절 변화에 충분히 대응할 수 있습니다. 세럼과 에센스는 연중 동일하게 사용해도 무방합니다.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Q. 환절기에 피부가 갑자기 예민해지는 이유는?</h3>
+            <p class="faq-answer">기온과 습도의 급격한 변화로 피부 장벽이 적응하지 못하기 때문입니다. 특히 봄·가을 환절기에는 피부의 항상성 유지 능력이 일시적으로 저하되어 외부 자극에 민감하게 반응합니다. 이 시기에는 새로운 제품 도입을 자제하고 기존 루틴을 단순화하는 것이 좋습니다.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Q. 여름에도 오일 제품을 사용해도 되나요?</h3>
+            <p class="faq-answer">피부 타입에 따라 다릅니다. 건성 피부라면 여름에도 가벼운 드라이 오일(로즈힙, 스쿠알란)을 소량 사용하면 도움이 됩니다. 지성·복합성 피부라면 여름에는 오일 사용을 최소화하고, 수분 공급에 집중하는 것이 좋습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Ad Banner -->
+  <div class="ad-banner-wrap">
+    <ins class="kakao_ad_area" style="display:none;"
+      data-ad-unit="DAN-Rzr5eQlAUVjO0WUi"
+      data-ad-width="300"
+      data-ad-height="250"></ins>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-about" style="color: #94A3B8; font-size: 1.4rem; margin-bottom: 1.6rem; text-align: center;">
+        피부 성향 가이드 & 홈케어 도우미는 복잡한 화장품 성분과 뷰티 정보를 누구나 알기 쉽게 번역하여, 건강한 피부 장벽 관리를 돕는 웹사이트입니다.
+      </p>
+      <nav class="footer-nav">
+        <a href="about.html" class="footer-link">사이트 소개</a>
+        <span class="footer-divider">|</span>
+        <a href="privacy.html" class="footer-link">개인정보처리방침</a>
+        <span class="footer-divider">|</span>
+        <a href="terms.html" class="footer-link">이용약관</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/menu.js" defer></script>
+  <script src="../assets/js/weather.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "오늘의 피부 날씨: 계절별 맞춤 스킨케어 예보",
+        "description": "현재 계절을 자동 감지하여 봄·여름·가을·겨울 맞춤 스킨케어 루틴과 추천 성분을 제공합니다.",
+        "author": { "@type": "Person", "name": "Skin Guide Expert" },
+        "publisher": { "@type": "Organization", "name": "Skin Guide" },
+        "datePublished": "2024-01-01",
+        "dateModified": "2026-04-23",
+        "image": "https://skincare-guide.netlify.app/assets/images/og-img.webp"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "계절이 바뀔 때마다 화장품을 전부 교체해야 하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "전부 교체할 필요는 없습니다. 핵심은 제형을 바꾸는 것입니다. 여름에는 가벼운 젤 타입으로, 겨울에는 크리미한 크림 타입으로 보습제만 교체해도 충분합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "환절기에 피부가 갑자기 예민해지는 이유는?",
+            "acceptedAnswer": { "@type": "Answer", "text": "기온과 습도의 급격한 변화로 피부 장벽이 적응하지 못하기 때문입니다. 이 시기에는 새로운 제품 도입을 자제하고 기존 루틴을 단순화하는 것이 좋습니다." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</body>
+
+</html>
