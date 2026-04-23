@@ -1,4 +1,56 @@
+# =============================================
+# robots.txt — 피부 성향 가이드 & 홈케어 도우미
+# https://skincare-guide.netlify.app/
+# =============================================
+
+# 모든 크롤러 허용
 User-agent: *
 Allow: /
 
+# 불필요한 에셋 크롤링 차단 (크롤 예산 절약)
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# ── Google ──────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+# ── Naver ───────────────────────────────────
+User-agent: Yeti
+Allow: /
+Crawl-delay: 1
+
+# ── Bing / Microsoft ────────────────────────
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: msnbot
+Allow: /
+
+# ── 기타 주요 크롤러 ─────────────────────────
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# ── 악성 크롤러 차단 ─────────────────────────
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# ── Sitemap ──────────────────────────────────
 Sitemap: https://skincare-guide.netlify.app/sitemap.xml

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>퍼스널 무드 팔레트: 내 톤에 맞는 화장품 컬러 매칭 | 피부 성향 가이드</title>
+  <meta name="description" content="퍼스널 컬러 진단으로 나에게 어울리는 립, 블러셔 제형과 컬러를 추천받으세요. 웜톤·쿨톤 맞춤 화장품 매칭 가이드." />
+  <meta name="keywords" content="퍼스널 컬러, 웜톤, 쿨톤, 봄웜, 여름쿨, 가을웜, 겨울쿨, 립 추천, 블러셔 추천, 화장품 컬러 매칭" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="피부 성향 가이드 & 홈케어 도우미" />
+  <link rel="canonical" href="https://skincare-guide.netlify.app/subpages/personal-color.html" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="퍼스널 무드 팔레트: 내 톤에 맞는 화장품 컬러 매칭 | 피부 성향 가이드" />
+  <meta property="og:description" content="퍼스널 컬러 진단으로 나에게 어울리는 립, 블러셔 제형과 컬러를 추천받으세요." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://skincare-guide.netlify.app/subpages/personal-color.html" />
+  <meta property="og:image" content="https://skincare-guide.netlify.app/assets/images/og-img.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="피부 성향 가이드 & 홈케어 도우미 - 퍼스널 무드 팔레트" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="퍼스널 무드 팔레트: 내 톤에 맞는 화장품 컬러 매칭 | 피부 성향 가이드" />
+  <meta name="twitter:description" content="퍼스널 컬러 진단으로 나에게 어울리는 립, 블러셔 제형과 컬러를 추천받으세요." />
+  <meta name="twitter:image" content="https://skincare-guide.netlify.app/assets/images/og-img.webp" />
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="icon" href="../assets/images/icon/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="../assets/images/icon/favicon.ico" type="image/x-icon">
+  <meta name="google-site-verification" content="UA1KobkCGarO5EUPSF1ypSLV_5jZ20ePpMEkCXF855A" />
+
+  <style>
+    /* ── 컬러 칩 진단 ── */
+    .pc-tool {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 4rem 2.4rem 6rem;
+    }
+
+    .pc-tool__title {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .pc-tool__subtitle {
+      text-align: center;
+      font-size: 1.6rem;
+      color: #94A3B8;
+      margin-bottom: 4.8rem;
+    }
+
+    /* 질문 블록 */
+    .pc-question {
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(1.6rem);
+      animation: pcFadeUp 0.5s ease forwards;
+    }
+
+    .pc-question:nth-child(1) { animation-delay: 0.1s; }
+    .pc-question:nth-child(2) { animation-delay: 0.25s; }
+    .pc-question:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pcFadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pc-question__label {
+      display: inline-block;
+      padding: 0.4rem 1.4rem;
+      background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
+      color: #0F172A;
+      font-size: 1.2rem;
+      font-weight: 800;
+      border-radius: 2rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+    }
+
+    .pc-question__title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #F1F5F9;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    /* 컬러 칩 그리드 */
+    .chip-grid {
+      display: flex;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+
+    .chip-card {
+      flex: 1;
+      min-width: 14rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 2rem 1.6rem 1.8rem;
+      background: rgba(15, 23, 42, 0.6);
+      border: 0.2rem solid rgba(126, 193, 255, 0.15);
+      border-radius: 1.6rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .chip-card::after {
+      content: '';
+      position: absolute;
+      inset: -0.2rem;
+      border-radius: 1.6rem;
+      background: linear-gradient(135deg, #7EC1FF, #4DE9AB);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .chip-card.is-selected {
+      border-color: transparent;
+      background: rgba(15, 23, 42, 0.85);
+      box-shadow: 0 0 2rem rgba(77, 233, 171, 0.3);
+    }
+
+    .chip-card.is-selected::after {
+      opacity: 1;
+    }
+
+    .chip-card:hover:not(.is-selected) {
+      border-color: rgba(126, 193, 255, 0.4);
+      transform: translateY(-0.4rem);
+    }
+
+    /* 컬러 원형 칩 */
+    .chip-swatch {
+      width: 6.4rem;
+      height: 6.4rem;
+      border-radius: 50%;
+      box-shadow: 0 0.4rem 1.2rem rgba(0,0,0,0.4);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .chip-card.is-selected .chip-swatch {
+      transform: scale(1.12);
+    }
+
+    .chip-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #F1F5F9;
+      text-align: center;
+    }
+
+    .chip-desc {
+      font-size: 1.2rem;
+      color: #94A3B8;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* 결과 열기 버튼 */
+    .pc-reveal-btn {
+      display: block;
+      width: 100%;
+      max-width: 40rem;
+      margin: 4rem auto 0;
+      padding: 1.8rem 3.2rem;
+      background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
+      color: #0F172A;
+      font-size: 1.7rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 2.4rem rgba(77, 233, 171, 0.35);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .pc-reveal-btn.is-ready {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .pc-reveal-btn.is-ready:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 0.8rem 3.2rem rgba(77, 233, 171, 0.5);
+    }
+
+    /* ── 결과 영역 ── */
+    .pc-result-wrap {
+      display: none;
+      margin-top: 4.8rem;
+      position: relative;
+    }
+
+    .pc-result-wrap.is-visible {
+      display: block;
+    }
+
+    /* 블러 오버레이 */
+    .pc-blur-overlay {
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      background: rgba(15, 23, 42, 0.3);
+      border-radius: 2rem;
+      z-index: 2;
+      transition: backdrop-filter 1.5s ease, opacity 1.5s ease;
+    }
+
+    .pc-blur-overlay.is-revealed {
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* 결과 카드 */
+    .pc-result-card {
+      background: linear-gradient(135deg, rgba(126, 193, 255, 0.07) 0%, rgba(77, 233, 171, 0.07) 100%);
+      border: 0.2rem solid rgba(126, 193, 255, 0.25);
+      border-radius: 2rem;
+      padding: 4rem 3.2rem;
+      animation: pcFadeUp 0.4s ease;
+    }
+
+    /* 결과 헤더 */
+    .pc-result__persona {
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      color: var(--color-accent, #7EC1FF);
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin: 0 0 0.6rem 0;
+    }
+
+    .pc-result__typename {
+      display: block;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #7EC1FF;
+      opacity: 0.85;
+      margin-top: 0.4rem;
+    }
+
+    .pc-result__desc {
+      font-size: 1.6rem;
+      color: #CBD5E1;
+      line-height: 1.8;
+      margin: 1.6rem 0 3.2rem;
+    }
+
+    /* 컬러 팔레트 블록 */
+    .pc-palette {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 3.2rem;
+      flex-wrap: wrap;
+    }
+
+    .pc-palette__block {
+      flex: 1;
+      min-width: 10rem;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 0.4rem 1.6rem rgba(0,0,0,0.35);
+    }
+
+    .pc-palette__color {
+      height: 9.6rem;
+    }
+
+    .pc-palette__label {
+      background: rgba(15, 23, 42, 0.7);
+      padding: 0.8rem 1.2rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #E2E8F0;
+      text-align: center;
+    }
+
+    /* 추천 섹션 그리드 */
+    .pc-recommend-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+      margin-top: 2.4rem;
+    }
+
+    @media (max-width: 768px) {
+      .pc-recommend-grid {
+        grid-template-columns: 1fr;
+      }
+      .chip-grid {
+        flex-direction: column;
+      }
+      .chip-card {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 1.6rem;
+        min-width: unset;
+      }
+      .chip-swatch {
+        width: 4.8rem;
+        height: 4.8rem;
+        flex-shrink: 0;
+      }
+      .chip-name, .chip-desc {
+        text-align: left;
+      }
+    }
+
+    .pc-rec-section {
+      background: rgba(15, 23, 42, 0.4);
+      border-left: 0.3rem solid rgba(126, 193, 255, 0.4);
+      border-radius: 0 1rem 1rem 0;
+      padding: 1.6rem 2rem;
+    }
+
+    .pc-rec-section--warn {
+      border-left-color: rgba(255, 107, 107, 0.5);
+    }
+
+    .pc-rec-section--tip {
+      border-left-color: rgba(77, 233, 171, 0.5);
+    }
+
+    .pc-rec-section__title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #7EC1FF;
+      margin: 0 0 0.8rem;
+    }
+
+    .pc-rec-section--warn .pc-rec-section__title { color: #FF6B6B; }
+    .pc-rec-section--tip .pc-rec-section__title { color: #4DE9AB; }
+
+    .pc-rec-section__text {
+      font-size: 1.4rem;
+      color: #CBD5E1;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .pc-disclaimer {
+      margin-top: 2.4rem;
+      font-size: 1.2rem;
+      color: #475569;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* 재진단 버튼 */
+    .pc-retry-btn {
+      display: block;
+      margin: 2.4rem auto 0;
+      padding: 1.2rem 3.2rem;
+      background: transparent;
+      border: 0.15rem solid rgba(126, 193, 255, 0.4);
+      color: #7EC1FF;
+      font-size: 1.5rem;
+      font-weight: 600;
+      border-radius: 0.8rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .pc-retry-btn:hover {
+      background: rgba(126, 193, 255, 0.08);
+      border-color: #7EC1FF;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <p class="site-header__logo"><a href="../index.html">✨ 피부 성향 가이드 & 홈케어 도우미</a></p>
+      <div class="site-header__right">
+        <span class="current-location">🎨 퍼스널 컬러</span>
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="메뉴 열기">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <div class="menu-overlay" id="menu-overlay">
+    <nav class="menu-nav" aria-label="주 메뉴">
+      <div class="menu-header">
+        <h2 class="menu-title">모든 기능</h2>
+        <button class="menu-close" id="menu-close-btn" aria-label="메뉴 닫기">✕</button>
+      </div>
+      <ul class="menu-list">
+        <li class="menu-item"><a href="../index.html" class="menu-link">🏠 홈</a></li>
+        <li class="menu-item"><a href="skintype.html" class="menu-link">🔍 내 피부 타입 확인 가이드</a></li>
+        <li class="menu-item"><a href="ingredient.html" class="menu-link">🚦 화장품 성분 신호등</a></li>
+        <li class="menu-item"><a href="homecare.html" class="menu-link">💆‍♀️ 0원 나쁜 습관 파괴기</a></li>
+        <li class="menu-item"><a href="d-1.html" class="menu-link">✨ D-1 중요날 찰떡 루틴</a></li>
+        <li class="menu-item"><a href="soothing.html" class="menu-link">🚨 오늘 밤 긴급 진정 가이드</a></li>
+        <li class="menu-item"><a href="trace.html" class="menu-link">🩹 흔적 & 케어 루틴 가이드</a></li>
+        <li class="menu-item"><a href="personal-color.html" class="menu-link current">🎨 퍼스널 무드 팔레트</a></li>
+        <li class="menu-item"><a href="../about.html" class="menu-link">📖 사이트 소개</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <h1 class="visually-hidden">퍼스널 무드 팔레트: 내 톤에 맞는 화장품 컬러 매칭</h1>
+
+    <section class="ingredient-tool" id="tool-area">
+      <div class="ingredient-tool__container">
+        <div class="pc-tool">
+          <h2 class="pc-tool__title">🎨 퍼스널 무드 팔레트</h2>
+          <p class="pc-tool__subtitle">3가지 컬러 칩을 선택하면 나만의 화장품 팔레트를 열어드립니다.</p>
+
+          <!-- Q1 -->
+          <div class="pc-question">
+            <span class="pc-question__label">Q 1</span>
+            <h3 class="pc-question__title">당신의 피부를 가장 생기 있게 만드는 액세서리는?</h3>
+            <div class="chip-grid" data-q="q1">
+              <div class="chip-card" data-q="q1" data-value="warm">
+                <div class="chip-swatch" style="background: linear-gradient(135deg, #D4A843 0%, #F0C060 100%);"></div>
+                <span class="chip-name">골드</span>
+                <span class="chip-desc">따뜻하고 빛나는 황금빛</span>
+              </div>
+              <div class="chip-card" data-q="q1" data-value="cool">
+                <div class="chip-swatch" style="background: linear-gradient(135deg, #A8B8C8 0%, #D8E4F0 100%);"></div>
+                <span class="chip-name">실버</span>
+                <span class="chip-desc">차갑고 선명한 은빛</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="pc-question">
+            <span class="pc-question__label">Q 2</span>
+            <h3 class="pc-question__title">평소 피부 톤의 베이스는 어느 쪽에 가까운가?</h3>
+            <div class="chip-grid" data-q="q2">
+              <div class="chip-card" data-q="q2" data-value="warm">
+                <div class="chip-swatch" style="background: linear-gradient(135deg, #E8A882 0%, #F5C4A0 100%);"></div>
+                <span class="chip-name">피치 옐로우</span>
+                <span class="chip-desc">노란빛·복숭아빛 베이스</span>
+              </div>
+              <div class="chip-card" data-q="q2" data-value="cool">
+                <div class="chip-swatch" style="background: linear-gradient(135deg, #E8A0B0 0%, #F5C0CC 100%);"></div>
+                <span class="chip-name">로지 핑크</span>
+                <span class="chip-desc">분홍빛·장밋빛 베이스</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="pc-question">
+            <span class="pc-question__label">Q 3</span>
+            <h3 class="pc-question__title">어떤 색상의 옷을 입었을 때 얼굴색이 가장 밝아 보이는가?</h3>
+            <div class="chip-grid" data-q="q3">
+              <div class="chip-card" data-q="q3" data-value="vivid">
+                <div class="chip-swatch" style="background: linear-gradient(135deg, #E84040 0%, #F06020 100%);"></div>
+                <span class="chip-name">선명한 원색</span>
+                <span class="chip-desc">레드·오렌지·코랄</span>
+              </div>
+              <div class="chip-card" data-q="q3" data-value="pastel">
+                <div class="chip-swatch" style="background: linear-gradient(135deg, #B8D4F0 0%, #D4B8E8 100%);"></div>
+                <span class="chip-name">부드러운 파스텔</span>
+                <span class="chip-desc">라벤더·베이비블루·민트</span>
+              </div>
+              <div class="chip-card" data-q="q3" data-value="muted">
+                <div class="chip-swatch" style="background: linear-gradient(135deg, #8090A0 0%, #B0B8C0 100%);"></div>
+                <span class="chip-name">차분한 무채색</span>
+                <span class="chip-desc">그레이·오프화이트·카키</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 결과 열기 버튼 -->
+          <button class="pc-reveal-btn" id="pc-reveal-btn" disabled>
+            🎨 나의 무드 팔레트 열어보기
+          </button>
+
+          <!-- 결과 영역 -->
+          <div class="pc-result-wrap" id="pc-result-wrap">
+            <div class="pc-blur-overlay" id="pc-blur-overlay"></div>
+            <div class="pc-result-card" id="pc-result-card">
+              <!-- JS로 채워짐 -->
+            </div>
+          </div>
+
+          <button class="pc-retry-btn" id="pc-retry-btn" style="display:none;">↩ 다시 진단하기</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO 아티클 -->
+    <article class="seo-article" style="margin-top: 2rem;">
+      <div class="seo-article__container">
+        <h2 class="seo-article__title">🌸 퍼스널 컬러란 무엇인가요?</h2>
+        <div class="seo-article__body">
+          <p>퍼스널 컬러는 개인의 피부 톤, 눈동자 색, 머리카락 색과 조화를 이루는 색상 체계입니다. 크게 <strong>웜톤(Warm Tone)</strong>과 <strong>쿨톤(Cool Tone)</strong>으로 나뉘며, 각각 봄·가을(웜), 여름·겨울(쿨)로 세분화됩니다.</p>
+          <h3 class="seo-section-h3">웜톤 vs 쿨톤, 화장품 선택이 왜 달라지나요?</h3>
+          <p>웜톤 피부에 쿨톤 계열의 핑크 립을 바르면 얼굴이 창백해 보이고, 반대로 쿨톤 피부에 오렌지 립을 바르면 피부가 칙칙해 보입니다. 퍼스널 컬러에 맞는 화장품을 선택하면 <span class="brand-highlight">피부가 자연스럽게 빛나 보이는 효과</span>를 얻을 수 있습니다.</p>
+          <h3 class="seo-section-h3">제형 선택도 중요합니다</h3>
+          <p>봄 웜톤은 글로우·듀이 제형이 잘 어울리고, 여름 쿨톤은 촉촉한 워터 제형이 자연스럽습니다. 가을 웜톤은 매트·벨벳 제형이 고급스럽고, 겨울 쿨톤은 선명한 발색의 크리미 제형이 강렬한 인상을 줍니다.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Ad Banner -->
+  <div class="ad-banner-wrap">
+    <ins class="kakao_ad_area" style="display:none;"
+      data-ad-unit="DAN-Rzr5eQlAUVjO0WUi"
+      data-ad-width="300"
+      data-ad-height="250"></ins>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-about" style="color: #94A3B8; font-size: 1.4rem; margin-bottom: 1.6rem; text-align: center;">
+        피부 성향 가이드 & 홈케어 도우미는 복잡한 화장품 성분과 뷰티 정보를 누구나 알기 쉽게 번역하여, 건강한 피부 장벽 관리를 돕는 웹사이트입니다.
+      </p>
+      <nav class="footer-nav">
+        <a href="../about.html" class="footer-link">사이트 소개</a>
+        <span class="footer-divider">|</span>
+        <a href="../privacy.html" class="footer-link">개인정보처리방침</a>
+        <span class="footer-divider">|</span>
+        <a href="../terms.html" class="footer-link">이용약관</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/menu.js" defer></script>
+  <script src="../assets/js/personal-color.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "퍼스널 무드 팔레트: 내 톤에 맞는 화장품 컬러 매칭",
+    "description": "퍼스널 컬러 진단으로 나에게 어울리는 립, 블러셔 제형과 컬러를 추천받으세요. 웜톤·쿨톤 맞춤 화장품 매칭 가이드.",
+    "author": { "@type": "Organization", "name": "피부 성향 가이드 & 홈케어 도우미" },
+    "publisher": { "@type": "Organization", "name": "피부 성향 가이드 & 홈케어 도우미" },
+    "datePublished": "2026-04-23",
+    "dateModified": "2026-04-23"
+  }
+  </script>
+</body>
+
+</html>
