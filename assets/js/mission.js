@@ -92,7 +92,7 @@
 
   // DOM 요소
   var canvas      = document.getElementById('scratch-canvas');
-  var ctx         = canvas.getContext('2d');
+  var ctx         = canvas.getContext('2d', { willReadFrequently: true });
   var hintEl      = document.getElementById('scratch-hint');
   var resultInner = document.getElementById('scratch-result-inner');
   var retryWrap   = document.getElementById('scratch-retry-wrap');
@@ -109,26 +109,29 @@
     drawCover();
   }
 
-  // 덮개 그리기 (라임 그린 & 피치 그라데이션)
+  // 덮개 그리기 (다크 네이비 + 하늘색 그라데이션)
   function drawCover() {
     var grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    grad.addColorStop(0,   '#84cc16');
-    grad.addColorStop(0.5, '#bef264');
-    grad.addColorStop(1,   '#fb923c');
+    grad.addColorStop(0,   '#0d1b3e');
+    grad.addColorStop(0.4, '#0f2a5e');
+    grad.addColorStop(0.7, '#1a3a6e');
+    grad.addColorStop(1,   '#7EC1FF');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // 덮개 위 메타포 텍스트
-    ctx.fillStyle = 'rgba(255,255,255,0.85)';
-    ctx.font = 'bold 1.8rem Pretendard, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
+    // 덮개 위 텍스트 (중앙 정렬, 겹침 없음)
     var cx = canvas.width / 2;
     var cy = canvas.height / 2;
-    ctx.fillText('✦  문질러서 미션 공개  ✦', cx, cy - 16);
-    ctx.font = '1.4rem Pretendard, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    ctx.font = 'bold 18px Pretendard, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    ctx.fillText('✦  문질러서 미션 공개  ✦', cx, cy - 18);
+
+    ctx.font = '14px Pretendard, sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.65)';
-    ctx.fillText('맑은 숲의 이슬  ·  탄탄한 코어', cx, cy + 20);
+    ctx.fillText('손가락으로 긁어보세요', cx, cy + 18);
   }
 
   // 결과 카드 렌더링
@@ -172,8 +175,8 @@
 
   // 스크래치 상태
   var isDrawing   = false;
-  var totalPixels = 0;
   var revealed    = false;
+  var lastPos     = null;
 
   // 스크래치 처리
   function getPos(e) {
@@ -194,9 +197,23 @@
 
   function scratch(pos) {
     ctx.globalCompositeOperation = 'destination-out';
-    ctx.beginPath();
-    ctx.arc(pos.x, pos.y, 28, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.lineWidth   = 36;
+    ctx.lineCap     = 'round';
+    ctx.lineJoin    = 'round';
+
+    if (lastPos) {
+      // 이전 좌표 → 현재 좌표를 선으로 이어 끊김 방지
+      ctx.beginPath();
+      ctx.moveTo(lastPos.x, lastPos.y);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+    } else {
+      // 첫 터치는 점으로 찍기
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 18, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    lastPos = pos;
   }
 
   function checkReveal() {
@@ -208,17 +225,16 @@
       if (pixels[i] < 128) transparent++;
     }
     var ratio = transparent / (canvas.width * canvas.height);
-    if (ratio > 0.5) {
+    if (ratio > 0.45) {
       revealed = true;
-      // 캔버스 페이드아웃
-      canvas.style.transition = 'opacity 0.8s ease';
+      canvas.style.transition = 'opacity 0.6s ease';
       canvas.style.opacity = '0';
       hintEl.style.display = 'none';
       setTimeout(function () {
         canvas.style.display = 'none';
         retryWrap.style.display = 'block';
         showModal(currentMission);
-      }, 800);
+      }, 600);
     }
   }
 
@@ -226,6 +242,7 @@
   canvas.addEventListener('mousedown', function (e) {
     if (revealed) return;
     isDrawing = true;
+    lastPos   = null;
     hintEl.style.opacity = '0';
     scratch(getPos(e));
   });
@@ -234,13 +251,14 @@
     scratch(getPos(e));
     checkReveal();
   });
-  canvas.addEventListener('mouseup',   function () { isDrawing = false; });
-  canvas.addEventListener('mouseleave', function () { isDrawing = false; });
+  canvas.addEventListener('mouseup',   function () { isDrawing = false; lastPos = null; });
+  canvas.addEventListener('mouseleave', function () { isDrawing = false; lastPos = null; });
 
   canvas.addEventListener('touchstart', function (e) {
     e.preventDefault();
     if (revealed) return;
     isDrawing = true;
+    lastPos   = null;
     hintEl.style.opacity = '0';
     scratch(getPos(e));
   }, { passive: false });
@@ -250,7 +268,7 @@
     scratch(getPos(e));
     checkReveal();
   }, { passive: false });
-  canvas.addEventListener('touchend', function () { isDrawing = false; });
+  canvas.addEventListener('touchend', function () { isDrawing = false; lastPos = null; });
 
   // 모달 닫기
   modalClose.addEventListener('click', function () {
@@ -267,6 +285,7 @@
     currentMission = pickMission();
     revealed  = false;
     isDrawing = false;
+    lastPos   = null;
 
     canvas.style.display = '';
     canvas.style.opacity = '1';
