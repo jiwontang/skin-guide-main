@@ -15,8 +15,9 @@ window.addEventListener('load', () => {
       persona: '☀️ 햇살을 머금은 코랄 듀이',
       typename: 'Spring Warm Tone · 봄 웜톤',
       desc: '생기 넘치는 복숭아빛 피부에 빛이 스며드는 듯한 글로우 제형이 가장 잘 어울립니다.',
-      aura: 'linear-gradient(135deg, rgba(255,180,100,0.18) 0%, rgba(255,120,80,0.12) 100%)',
-      borderColor: 'rgba(255,160,80,0.5)',
+      aura: '#0F172A',
+      borderColor: '#FEF08A',
+      textDark: false,
       palette: [
         { color: '#F4A460', label: '코랄 피치' },
         { color: '#FF7F7F', label: '살몬 레드' },
@@ -35,8 +36,9 @@ window.addEventListener('load', () => {
       persona: '🍂 낙엽 위의 테라코타 무드',
       typename: 'Autumn Warm Tone · 가을 웜톤',
       desc: '깊고 따뜻한 어스 톤이 피부의 고급스러운 분위기를 살려줍니다. 매트하고 벨벳감 있는 제형이 가장 잘 어울립니다.',
-      aura: 'linear-gradient(135deg, rgba(180,90,40,0.18) 0%, rgba(140,60,20,0.12) 100%)',
+      aura: '#160d07',
       borderColor: 'rgba(192,98,42,0.5)',
+      textDark: false,
       palette: [
         { color: '#C0622A', label: '테라코타' },
         { color: '#8B4513', label: '브릭 레드' },
@@ -55,8 +57,9 @@ window.addEventListener('load', () => {
       persona: '🌸 안개 속의 라벤더 블러',
       typename: 'Summer Cool Tone · 여름 쿨톤',
       desc: '부드럽고 안개 낀 듯한 뮤트 쿨 컬러가 피부의 섬세한 아름다움을 살려줍니다. 촉촉하고 투명한 워터 제형이 가장 잘 어울립니다.',
-      aura: 'linear-gradient(135deg, rgba(180,150,220,0.18) 0%, rgba(140,180,220,0.12) 100%)',
+      aura: '#0e0f1a',
       borderColor: 'rgba(176,196,222,0.6)',
+      textDark: false,
       palette: [
         { color: '#C8A0C8', label: '라벤더 핑크' },
         { color: '#B0C4DE', label: '파우더 블루' },
@@ -75,8 +78,9 @@ window.addEventListener('load', () => {
       persona: '❄️ 서리 내린 체리 블라썸',
       typename: 'Winter Cool Tone · 겨울 쿨톤',
       desc: '선명하고 강렬한 쿨 컬러가 겨울 쿨톤의 날카로운 아름다움을 완성합니다. 크리미하고 발색력 강한 제형이 가장 잘 어울립니다.',
-      aura: 'linear-gradient(135deg, rgba(100,120,200,0.18) 0%, rgba(140,0,80,0.12) 100%)',
+      aura: '#0f0a14',
       borderColor: 'rgba(199,21,133,0.4)',
+      textDark: false,
       palette: [
         { color: '#C71585', label: '딥 로즈' },
         { color: '#8B0000', label: '버건디' },
@@ -114,40 +118,53 @@ window.addEventListener('load', () => {
       ? '<span class="pc-card__match-badge">✨ 나의 톤</span>'
       : '';
 
+    const dark = r.textDark;
+    const textColor     = dark ? '#0F172A' : '';
+    const subTextColor  = dark ? '#334155' : '';
+    const recBg         = dark ? 'rgba(255,255,255,0.4)' : 'rgba(15,23,42,0.4)';
+    const recBorder     = dark ? 'rgba(0,0,0,0.15)'      : 'rgba(126,193,255,0.5)';
+    const tipColor      = dark ? '#166534'                : '#4DE9AB';
+    const warnColor     = dark ? '#991b1b'                : '#FF6B6B';
+    const disclaimerCol = dark ? '#64748B'                : '#64748B';
+    const typenameColor = dark ? '#1d4ed8'                : '#7EC1FF';
+    const glowShadow    = r.borderColor === '#FEF08A'
+      ? '0 0 1rem rgba(254,240,138,0.3)'
+      : '';
+
     return `
       <div class="swiper-slide pc-swiper-slide" data-type="${key}">
-        <div class="pc-swiper-card" style="background:${r.aura}; border-color:${r.borderColor};">
+        <div class="pc-swiper-card" style="background:${r.aura}; border-color:${r.borderColor};${glowShadow ? ' box-shadow:' + glowShadow + ';' : ''}">
           ${matchBadge}
           <div class="pc-card__header">
-            <h3 class="pc-card__persona">${r.persona}<br><small class="pc-card__typename">${r.typename}</small></h3>
-            <p class="pc-card__desc">${r.desc}</p>
+            <h3 class="pc-card__persona" style="${textColor ? 'color:' + textColor + ';' : ''}">${r.persona}<br><small class="pc-card__typename" style="color:${typenameColor};">${r.typename}</small></h3>
+            <p class="pc-card__desc" style="${subTextColor ? 'color:' + subTextColor + ';' : ''}">${r.desc}</p>
           </div>
 
           <div class="pc-palette">${paletteHTML}</div>
 
           <div class="pc-card__recs">
-            <div class="pc-rec-section">
-              <h4 class="pc-rec-section__title">💄 추천 립 제형</h4>
-              <p class="pc-rec-section__text"><strong>${r.lip}</strong><br>${r.lipDesc}</p>
+            <div class="pc-rec-section" style="background:${recBg}; border-left-color:${recBorder};">
+              <h4 class="pc-rec-section__title" style="${textColor ? 'color:' + textColor + ';' : ''}">💄 추천 립 제형</h4>
+              <p class="pc-rec-section__text" style="${subTextColor ? 'color:' + subTextColor + ';' : ''}"><strong>${r.lip}</strong><br>${r.lipDesc}</p>
             </div>
-            <div class="pc-rec-section">
-              <h4 class="pc-rec-section__title">🌸 추천 블러셔</h4>
-              <p class="pc-rec-section__text"><strong>${r.blusher}</strong><br>${r.blusherDesc}</p>
+            <div class="pc-rec-section" style="background:${recBg}; border-left-color:${recBorder};">
+              <h4 class="pc-rec-section__title" style="${textColor ? 'color:' + textColor + ';' : ''}">🌸 추천 블러셔</h4>
+              <p class="pc-rec-section__text" style="${subTextColor ? 'color:' + subTextColor + ';' : ''}"><strong>${r.blusher}</strong><br>${r.blusherDesc}</p>
             </div>
           </div>
 
           <div class="pc-card__footer">
-            <div class="pc-rec-section pc-rec-section--warn">
-              <h4 class="pc-rec-section__title">⛔ 피해야 할 컬러</h4>
-              <p class="pc-rec-section__text">${r.avoid}</p>
+            <div class="pc-rec-section pc-rec-section--warn" style="background:${recBg}; border-left-color:${dark ? 'rgba(153,27,27,0.5)' : 'rgba(255,107,107,0.6)'};">
+              <h4 class="pc-rec-section__title" style="color:${warnColor};">⛔ 피해야 할 컬러</h4>
+              <p class="pc-rec-section__text" style="${subTextColor ? 'color:' + subTextColor + ';' : ''}">${r.avoid}</p>
             </div>
-            <div class="pc-rec-section pc-rec-section--tip">
-              <h4 class="pc-rec-section__title">💡 하이라이터 팁</h4>
-              <p class="pc-rec-section__text">${r.tip}</p>
+            <div class="pc-rec-section pc-rec-section--tip" style="background:${recBg}; border-left-color:${dark ? 'rgba(22,101,52,0.5)' : 'rgba(77,233,171,0.6)'};">
+              <h4 class="pc-rec-section__title" style="color:${tipColor};">💡 하이라이터 팁</h4>
+              <p class="pc-rec-section__text" style="${subTextColor ? 'color:' + subTextColor + ';' : ''}">${r.tip}</p>
             </div>
           </div>
 
-          <p class="pc-disclaimer">※ 본 결과는 참고용 가이드이며, 전문 퍼스널 컬러 진단사의 진단을 대신하지 않습니다.</p>
+          <p class="pc-disclaimer" style="color:${disclaimerCol};">※ 본 결과는 참고용 가이드이며, 전문 퍼스널 컬러 진단사의 진단을 대신하지 않습니다.</p>
         </div>
       </div>
     `;
