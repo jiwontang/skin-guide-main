@@ -31,6 +31,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="icon" href="../assets/images/icon/favicon.png" type="image/png">
   <meta name="google-site-verification" content="UA1KobkCGarO5EUPSF1ypSLV_5jZ20ePpMEkCXF855A" />
+  <meta name="msvalidate.01" content="50BC6D00FF6BF8F5C32CBB675BA2DE04" />
+  <meta name="naver-site-verification" content="694db6952c1e90a040919a514680d38a9fe4e2b4" />
 </head>
 
 <body>
@@ -65,7 +67,7 @@
         <li class="menu-item"><a href="soothing.html" class="menu-link">🚨 오늘 밤 긴급 진정 가이드</a></li>
         <li class="menu-item"><a href="trace.html" class="menu-link">🩹 흔적 & 케어 루틴 가이드</a></li>
         <li class="menu-item"><a href="personal-color.html" class="menu-link current">🎨 퍼스널 무드 팔레트</a></li>
-        <li class="menu-item"><a href="weather.html" class="menu-link">🌤️ 오늘의 피부 날씨</a></li>
+        <li class="menu-item"><a href="weather.html" class="menu-link">🔮 오늘의 피부 타로</a></li>
         <li class="menu-item"><a href="texture.html" class="menu-link">🧴 텍스처 레이어링 슬라이더</a></li>
         <li class="menu-item"><a href="../about.html" class="menu-link">📖 사이트 소개</a></li>
       </ul>
@@ -89,11 +91,13 @@
             <h3 class="pc-question__title">당신의 피부를 가장 생기 있게 만드는 액세서리는?</h3>
             <div class="pc-chip-grid">
               <div class="chip-card" data-q="q1" data-value="warm">
-                <div class="chip-card__color" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);"></div>
+                <div class="chip-card__color" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);">
+                </div>
                 <div class="chip-card__label">골드</div>
               </div>
               <div class="chip-card" data-q="q1" data-value="cool">
-                <div class="chip-card__color" style="background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 100%);"></div>
+                <div class="chip-card__color" style="background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 100%);">
+                </div>
                 <div class="chip-card__label">실버</div>
               </div>
             </div>
@@ -105,11 +109,13 @@
             <h3 class="pc-question__title">평소 피부 톤의 베이스는 어느 쪽에 가까운가?</h3>
             <div class="pc-chip-grid">
               <div class="chip-card" data-q="q2" data-value="warm">
-                <div class="chip-card__color" style="background: linear-gradient(135deg, #FFDAB9 0%, #FFE4B5 100%);"></div>
+                <div class="chip-card__color" style="background: linear-gradient(135deg, #FFDAB9 0%, #FFE4B5 100%);">
+                </div>
                 <div class="chip-card__label">피치 옐로우</div>
               </div>
               <div class="chip-card" data-q="q2" data-value="cool">
-                <div class="chip-card__color" style="background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);"></div>
+                <div class="chip-card__color" style="background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);">
+                </div>
                 <div class="chip-card__label">로지 핑크</div>
               </div>
             </div>
@@ -121,22 +127,28 @@
             <h3 class="pc-question__title">어떤 색상의 옷을 입었을 때 얼굴색이 가장 밝아 보이는가?</h3>
             <div class="pc-chip-grid pc-chip-grid--three">
               <div class="chip-card" data-q="q3" data-value="vivid">
-                <div class="chip-card__color" style="background: linear-gradient(135deg, #FF4500 0%, #FF6347 100%);"></div>
+                <div class="chip-card__color" style="background: linear-gradient(135deg, #FF4500 0%, #FF6347 100%);">
+                </div>
                 <div class="chip-card__label">선명한 원색</div>
               </div>
               <div class="chip-card" data-q="q3" data-value="pastel">
-                <div class="chip-card__color" style="background: linear-gradient(135deg, #E6E6FA 0%, #FFE4E1 100%);"></div>
+                <div class="chip-card__color" style="background: linear-gradient(135deg, #E6E6FA 0%, #FFE4E1 100%);">
+                </div>
                 <div class="chip-card__label">부드러운 파스텔</div>
               </div>
               <div class="chip-card" data-q="q3" data-value="muted">
-                <div class="chip-card__color" style="background: linear-gradient(135deg, #A9A9A9 0%, #D3D3D3 100%);"></div>
+                <div class="chip-card__color" style="background: linear-gradient(135deg, #A9A9A9 0%, #D3D3D3 100%);">
+                </div>
                 <div class="chip-card__label">차분한 무채색</div>
               </div>
             </div>
           </div>
 
-          <button id="pc-reveal-btn" class="ingredient-btn" disabled style="margin-top: 3rem; width: 100%;">나의 무드 팔레트 열어보기</button>
-          <button id="pc-retry-btn" class="ingredient-btn" style="margin-top: 3rem; width: 100%; display: none; background: linear-gradient(135deg, #ff86a9 0%, #3276ff 100%);">다시 진단하기</button>
+          <button id="pc-reveal-btn" class="ingredient-btn" disabled style="margin-top: 3rem; width: 100%;">나의 무드 팔레트
+            열어보기</button>
+          <button id="pc-retry-btn" class="ingredient-btn"
+            style="margin-top: 3rem; width: 100%; display: none; background: linear-gradient(135deg, #ff86a9 0%, #3276ff 100%);">다시
+            진단하기</button>
         </div>
 
         <!-- 결과 영역 (블러 처리) -->
@@ -172,13 +184,17 @@
       <div class="seo-article__container">
         <h2 class="seo-article__title">🎨 퍼스널 컬러란 무엇인가?</h2>
         <div class="seo-article__body">
-          <p>퍼스널 컬러는 개인의 피부 톤, 눈동자 색, 머리카락 색에 가장 조화롭게 어울리는 색상 팔레트를 의미합니다. 이는 단순한 유행이 아니라 <strong>피부의 멜라닌 분포와 헤모글로빈 농도</strong>에 따라 과학적으로 결정되는 색채 이론입니다.</p>
+          <p>퍼스널 컬러는 개인의 피부 톤, 눈동자 색, 머리카락 색에 가장 조화롭게 어울리는 색상 팔레트를 의미합니다. 이는 단순한 유행이 아니라 <strong>피부의 멜라닌 분포와 헤모글로빈
+              농도</strong>에 따라 과학적으로 결정되는 색채 이론입니다.</p>
 
           <h3 class="seo-section-h3">4계절 시스템의 기원</h3>
-          <p>현대 퍼스널 컬러 이론은 1980년대 캐롤 잭슨(Carole Jackson)의 저서 'Color Me Beautiful'에서 체계화되었습니다. 봄(Spring), 여름(Summer), 가을(Autumn), 겨울(Winter)의 4계절로 분류하며, 각 계절은 <span class="brand-highlight">웜톤/쿨톤</span>과 <span class="brand-highlight">명도/채도</span>의 조합으로 구분됩니다.</p>
+          <p>현대 퍼스널 컬러 이론은 1980년대 캐롤 잭슨(Carole Jackson)의 저서 'Color Me Beautiful'에서 체계화되었습니다. 봄(Spring), 여름(Summer),
+            가을(Autumn), 겨울(Winter)의 4계절로 분류하며, 각 계절은 <span class="brand-highlight">웜톤/쿨톤</span>과 <span
+              class="brand-highlight">명도/채도</span>의 조합으로 구분됩니다.</p>
 
           <h3 class="seo-section-h3">왜 퍼스널 컬러가 중요한가?</h3>
-          <p>자신에게 어울리는 컬러를 착용하면 피부가 밝아 보이고, 잡티와 다크서클이 자연스럽게 보정되는 효과가 있습니다. 반대로 어울리지 않는 컬러는 피부를 칙칙하고 피곤해 보이게 만들 수 있습니다. 화장품 선택 시 퍼스널 컬러를 고려하면 <a href="ingredient.html" class="intext-link">성분 신호등</a>과 함께 최적의 제품을 찾을 수 있습니다.</p>
+          <p>자신에게 어울리는 컬러를 착용하면 피부가 밝아 보이고, 잡티와 다크서클이 자연스럽게 보정되는 효과가 있습니다. 반대로 어울리지 않는 컬러는 피부를 칙칙하고 피곤해 보이게 만들 수 있습니다.
+            화장품 선택 시 퍼스널 컬러를 고려하면 <a href="ingredient.html" class="intext-link">성분 신호등</a>과 함께 최적의 제품을 찾을 수 있습니다.</p>
         </div>
       </div>
     </article>
@@ -191,7 +207,8 @@
           <p>웜톤과 쿨톤의 구분은 피부 속 <strong>카로티노이드(Carotenoid)</strong>와 <strong>헤모글로빈(Hemoglobin)</strong>의 비율에 따라 결정됩니다.</p>
 
           <h3 class="seo-section-h3">웜톤 (Warm Tone)</h3>
-          <p>웜톤은 피부에 노란빛(Yellow Undertone)이 도는 톤으로, 카로티노이드 색소가 상대적으로 많습니다. 골드 액세서리가 잘 어울리며, 코랄·피치·테라코타 계열의 화장품이 피부를 생기 있게 만들어줍니다.</p>
+          <p>웜톤은 피부에 노란빛(Yellow Undertone)이 도는 톤으로, 카로티노이드 색소가 상대적으로 많습니다. 골드 액세서리가 잘 어울리며, 코랄·피치·테라코타 계열의 화장품이 피부를 생기
+            있게 만들어줍니다.</p>
           <ul class="ingredient-list">
             <li class="ingredient-item ingredient-item--vertical">
               <span class="info-badge">봄 웜톤 (Spring Warm)</span>
@@ -204,7 +221,8 @@
           </ul>
 
           <h3 class="seo-section-h3">쿨톤 (Cool Tone)</h3>
-          <p>쿨톤은 피부에 핑크빛(Pink Undertone)이 도는 톤으로, 헤모글로빈 색소가 상대적으로 많습니다. 실버 액세서리가 잘 어울리며, 로즈·라벤더·버건디 계열의 화장품이 피부를 맑게 만들어줍니다.</p>
+          <p>쿨톤은 피부에 핑크빛(Pink Undertone)이 도는 톤으로, 헤모글로빈 색소가 상대적으로 많습니다. 실버 액세서리가 잘 어울리며, 로즈·라벤더·버건디 계열의 화장품이 피부를 맑게
+            만들어줍니다.</p>
           <ul class="ingredient-list">
             <li class="ingredient-item ingredient-item--vertical">
               <span class="info-badge">여름 쿨톤 (Summer Cool)</span>
@@ -224,7 +242,8 @@
       <div class="seo-article__container">
         <h2 class="seo-article__title">💄 톤별 화장품 제형 매칭 전략</h2>
         <div class="seo-article__body">
-          <p>퍼스널 컬러에 맞는 제형을 선택하면 화장의 지속력과 발색력이 극대화됩니다. <a href="skintype.html" class="intext-link">피부 타입</a>과 함께 고려하면 더욱 정교한 선택이 가능합니다.</p>
+          <p>퍼스널 컬러에 맞는 제형을 선택하면 화장의 지속력과 발색력이 극대화됩니다. <a href="skintype.html" class="intext-link">피부 타입</a>과 함께 고려하면 더욱
+            정교한 선택이 가능합니다.</p>
 
           <h3 class="seo-section-h3">립 제형 가이드</h3>
           <p><span class="label-inline">글로우 틴트</span>: 봄 웜톤에 최적. 입술에 물기를 머금은 듯한 촉촉한 광택이 특징입니다.</p>
@@ -246,15 +265,18 @@
         <div class="seo-article__body">
           <div class="faq-item">
             <h3 class="faq-question">Q. 퍼스널 컬러는 평생 바뀌지 않나요?</h3>
-            <p class="faq-answer">기본적인 피부 톤은 유전적으로 결정되지만, 나이가 들거나 일광 노출이 많아지면 피부의 멜라닌 분포가 변화하여 톤이 약간 달라질 수 있습니다. 특히 20대 후반부터는 피부가 점차 쿨톤으로 변하는 경향이 있습니다.</p>
+            <p class="faq-answer">기본적인 피부 톤은 유전적으로 결정되지만, 나이가 들거나 일광 노출이 많아지면 피부의 멜라닌 분포가 변화하여 톤이 약간 달라질 수 있습니다. 특히 20대
+              후반부터는 피부가 점차 쿨톤으로 변하는 경향이 있습니다.</p>
           </div>
           <div class="faq-item">
             <h3 class="faq-question">Q. 웜톤인데 쿨톤 컬러를 쓰면 안 되나요?</h3>
-            <p class="faq-answer">절대적인 규칙은 아닙니다. 퍼스널 컬러는 '가장 잘 어울리는' 컬러를 찾는 가이드일 뿐, 개인의 취향과 스타일에 따라 자유롭게 선택할 수 있습니다. 다만 중요한 자리나 사진 촬영 시에는 본인의 톤에 맞는 컬러를 선택하는 것이 유리합니다.</p>
+            <p class="faq-answer">절대적인 규칙은 아닙니다. 퍼스널 컬러는 '가장 잘 어울리는' 컬러를 찾는 가이드일 뿐, 개인의 취향과 스타일에 따라 자유롭게 선택할 수 있습니다. 다만
+              중요한 자리나 사진 촬영 시에는 본인의 톤에 맞는 컬러를 선택하는 것이 유리합니다.</p>
           </div>
           <div class="faq-item">
             <h3 class="faq-question">Q. 온라인 진단과 전문가 진단의 차이는?</h3>
-            <p class="faq-answer">온라인 진단은 참고용 가이드로, 실제 전문가 진단은 자연광 아래에서 드레이핑(Draping) 기법을 통해 수십 가지 색상 천을 대보며 정밀하게 진행됩니다. 본 사이트의 진단 결과는 일상적인 화장품 선택에 도움을 드리기 위한 것이며, 정확한 진단을 원하신다면 전문 퍼스널 컬러 진단사를 방문하시는 것을 권장합니다.</p>
+            <p class="faq-answer">온라인 진단은 참고용 가이드로, 실제 전문가 진단은 자연광 아래에서 드레이핑(Draping) 기법을 통해 수십 가지 색상 천을 대보며 정밀하게 진행됩니다.
+              본 사이트의 진단 결과는 일상적인 화장품 선택에 도움을 드리기 위한 것이며, 정확한 진단을 원하신다면 전문 퍼스널 컬러 진단사를 방문하시는 것을 권장합니다.</p>
           </div>
         </div>
       </div>
@@ -263,9 +285,7 @@
 
   <!-- Ad Banner -->
   <div class="ad-banner-wrap">
-    <ins class="kakao_ad_area" style="display:none;"
-      data-ad-unit="DAN-Rzr5eQlAUVjO0WUi"
-      data-ad-width="300"
+    <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-Rzr5eQlAUVjO0WUi" data-ad-width="300"
       data-ad-height="250"></ins>
     <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
   </div>
