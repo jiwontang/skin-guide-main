@@ -91,50 +91,15 @@
   var currentMission = pickMission();
 
   // DOM 요소
-  var canvas      = document.getElementById('scratch-canvas');
-  var ctx         = canvas.getContext('2d', { willReadFrequently: true });
-  var hintEl      = document.getElementById('scratch-hint');
-  var resultInner = document.getElementById('scratch-result-inner');
-  var retryWrap   = document.getElementById('scratch-retry-wrap');
-  var retryBtn    = document.getElementById('scratch-retry-btn');
+  var resultInner  = document.getElementById('mission-result-inner');
+  var blurCover    = document.getElementById('mission-blur-cover');
+  var retryWrap    = document.getElementById('scratch-retry-wrap');
+  var retryBtn     = document.getElementById('scratch-retry-btn');
   var modalOverlay = document.getElementById('mission-modal-overlay');
   var modalInner   = document.getElementById('mission-modal-inner');
   var modalClose   = document.getElementById('mission-modal-close');
 
-  // 캔버스 크기 설정
-  function resizeCanvas() {
-    var wrap = document.getElementById('scratch-wrap');
-    canvas.width  = wrap.offsetWidth;
-    canvas.height = wrap.offsetHeight;
-    drawCover();
-  }
-
-  // 덮개 그리기 (다크 네이비 + 하늘색 그라데이션)
-  function drawCover() {
-    var grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    grad.addColorStop(0,   '#0d1b3e');
-    grad.addColorStop(0.4, '#0f2a5e');
-    grad.addColorStop(0.7, '#1a3a6e');
-    grad.addColorStop(1,   '#7EC1FF');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // 덮개 위 텍스트 (중앙 정렬, 겹침 없음)
-    var cx = canvas.width / 2;
-    var cy = canvas.height / 2;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-
-    ctx.font = 'bold 18px Pretendard, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.9)';
-    ctx.fillText('✦  문질러서 미션 공개  ✦', cx, cy - 18);
-
-    ctx.font = '14px Pretendard, sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.65)';
-    ctx.fillText('손가락으로 긁어보세요', cx, cy + 18);
-  }
-
-  // 결과 카드 렌더링
+  // 미션 결과 렌더링
   function renderResult(mission) {
     var stepsHTML = mission.steps.map(function (s, i) {
       return '<li class="mission-result__step"><span class="mission-result__step-num">' + (i + 1) + '</span>' + s + '</li>';
@@ -164,7 +129,6 @@
 
     modalOverlay.classList.add('is-active');
 
-    // 확인 버튼
     var confirmBtn = document.getElementById('mission-modal-confirm');
     if (confirmBtn) {
       confirmBtn.addEventListener('click', function () {
@@ -173,102 +137,15 @@
     }
   }
 
-  // 스크래치 상태
-  var isDrawing   = false;
-  var revealed    = false;
-  var lastPos     = null;
-
-  // 스크래치 처리
-  function getPos(e) {
-    var rect = canvas.getBoundingClientRect();
-    var scaleX = canvas.width  / rect.width;
-    var scaleY = canvas.height / rect.height;
-    if (e.touches) {
-      return {
-        x: (e.touches[0].clientX - rect.left) * scaleX,
-        y: (e.touches[0].clientY - rect.top)  * scaleY
-      };
-    }
-    return {
-      x: (e.clientX - rect.left) * scaleX,
-      y: (e.clientY - rect.top)  * scaleY
-    };
-  }
-
-  function scratch(pos) {
-    ctx.globalCompositeOperation = 'destination-out';
-    ctx.lineWidth   = 36;
-    ctx.lineCap     = 'round';
-    ctx.lineJoin    = 'round';
-
-    if (lastPos) {
-      // 이전 좌표 → 현재 좌표를 선으로 이어 끊김 방지
-      ctx.beginPath();
-      ctx.moveTo(lastPos.x, lastPos.y);
-      ctx.lineTo(pos.x, pos.y);
-      ctx.stroke();
-    } else {
-      // 첫 터치는 점으로 찍기
-      ctx.beginPath();
-      ctx.arc(pos.x, pos.y, 18, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    lastPos = pos;
-  }
-
-  function checkReveal() {
-    if (revealed) return;
-    var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var pixels = imageData.data;
-    var transparent = 0;
-    for (var i = 3; i < pixels.length; i += 4) {
-      if (pixels[i] < 128) transparent++;
-    }
-    var ratio = transparent / (canvas.width * canvas.height);
-    if (ratio > 0.45) {
-      revealed = true;
-      canvas.style.transition = 'opacity 0.6s ease';
-      canvas.style.opacity = '0';
-      hintEl.style.display = 'none';
-      setTimeout(function () {
-        canvas.style.display = 'none';
-        retryWrap.style.display = 'block';
-        showModal(currentMission);
-      }, 600);
-    }
-  }
-
-  // 이벤트 바인딩
-  canvas.addEventListener('mousedown', function (e) {
-    if (revealed) return;
-    isDrawing = true;
-    lastPos   = null;
-    hintEl.style.opacity = '0';
-    scratch(getPos(e));
+  // 블러 덮개 클릭/터치 → 해제
+  blurCover.addEventListener('click', function () {
+    if (blurCover.classList.contains('is-revealed')) return;
+    blurCover.classList.add('is-revealed');
+    setTimeout(function () {
+      retryWrap.style.display = 'block';
+      showModal(currentMission);
+    }, 800);
   });
-  canvas.addEventListener('mousemove', function (e) {
-    if (!isDrawing || revealed) return;
-    scratch(getPos(e));
-    checkReveal();
-  });
-  canvas.addEventListener('mouseup',   function () { isDrawing = false; lastPos = null; });
-  canvas.addEventListener('mouseleave', function () { isDrawing = false; lastPos = null; });
-
-  canvas.addEventListener('touchstart', function (e) {
-    e.preventDefault();
-    if (revealed) return;
-    isDrawing = true;
-    lastPos   = null;
-    hintEl.style.opacity = '0';
-    scratch(getPos(e));
-  }, { passive: false });
-  canvas.addEventListener('touchmove', function (e) {
-    e.preventDefault();
-    if (!isDrawing || revealed) return;
-    scratch(getPos(e));
-    checkReveal();
-  }, { passive: false });
-  canvas.addEventListener('touchend', function () { isDrawing = false; lastPos = null; });
 
   // 모달 닫기
   modalClose.addEventListener('click', function () {
@@ -283,23 +160,11 @@
   // 다시하기
   retryBtn.addEventListener('click', function () {
     currentMission = pickMission();
-    revealed  = false;
-    isDrawing = false;
-    lastPos   = null;
-
-    canvas.style.display = '';
-    canvas.style.opacity = '1';
-    canvas.style.transition = '';
-    hintEl.style.display = '';
-    hintEl.style.opacity = '1';
     retryWrap.style.display = 'none';
-
+    blurCover.classList.remove('is-revealed');
     renderResult(currentMission);
-    resizeCanvas();
   });
 
   // 초기화
   renderResult(currentMission);
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
 }());

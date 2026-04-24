@@ -5888,42 +5888,72 @@ button {
 }
 
 /* =========================================
-   시크릿 글로우 미션 (Scratch Card)
+   시크릿 글로우 미션 (Blur Cover)
    ========================================= */
 
-/* 스크래치 카드 래퍼 */
-.scratch-wrap {
+/* 미션 카드 래퍼 */
+.mission-card-wrap {
   position: relative;
   width: 100%;
   max-width: 56rem;
-  height: 28rem;
+  min-height: 28rem;
+  height: auto;
   margin: 3.2rem auto 0;
   border-radius: 2rem;
   overflow: hidden;
-  cursor: crosshair;
   box-shadow: 0 0.8rem 4rem rgba(126, 193, 255, 0.2), 0 0.2rem 1.2rem rgba(0,0,0,0.4);
 }
 
-/* 뒷면: 결과 카드 */
-.scratch-result {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(15,23,42,0.98) 0%, rgba(30,41,59,0.98) 100%);
-  border: 0.15rem solid rgba(126, 193, 255, 0.3);
-  border-radius: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2.4rem;
-}
-
-.scratch-result__inner {
+/* 미션 결과 본체 */
+.mission-result-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
+  padding: 3.2rem 2.4rem;
+  background: linear-gradient(135deg, rgba(15,23,42,0.98) 0%, rgba(30,41,59,0.98) 100%);
+  border: 0.15rem solid rgba(126, 193, 255, 0.3);
+  border-radius: 2rem;
   text-align: center;
   width: 100%;
+  word-break: keep-all;
+  line-height: 1.6;
+}
+
+/* 블러 덮개 */
+.mission-blur-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 2rem;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  z-index: 2;
+}
+
+.mission-blur-cover.is-revealed {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mission-blur-cover__text {
+  margin: 0;
+  padding: 0 2.4rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  word-break: keep-all;
+  text-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.5);
 }
 
 .mission-result__tag {
@@ -5994,48 +6024,46 @@ button {
   font-style: italic;
 }
 
-/* 앞면: 스크래치 캔버스 */
-.scratch-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 2rem;
-  touch-action: none;
-  cursor: crosshair;
-  transition: opacity 0.8s ease;
-}
-
-/* 힌트 텍스트 */
-.scratch-hint {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-
-.scratch-hint__icon {
-  font-size: 2rem;
-  color: rgba(255,255,255,0.7);
-}
-
-.scratch-hint__text {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.85);
-  letter-spacing: 0.04em;
-}
-
 /* 다시하기 버튼 래퍼 */
 .scratch-retry-wrap {
   text-align: center;
   margin-top: 2.4rem;
+}
+
+/* ── 모바일 반응형 ── */
+@media (max-width: 768px) {
+  .mission-card-wrap {
+    min-height: 20rem;
+    height: auto;
+  }
+
+  .mission-result-body {
+    padding: 2.4rem 1.6rem;
+    gap: 1.2rem;
+  }
+
+  .mission-blur-cover__text {
+    font-size: 1.5rem;
+    padding: 0 1.6rem;
+  }
+
+  .mission-result__title {
+    font-size: 1.9rem;
+    word-break: keep-all;
+    line-height: 1.5;
+  }
+
+  .mission-result__step {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+
+  .mission-result__tip {
+    font-size: 1.2rem;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
 }
 
 /* ── 결과 모달 ── */

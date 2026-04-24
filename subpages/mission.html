@@ -77,27 +77,21 @@
   <main>
     <h1 class="visually-hidden">시크릿 글로우 미션: 오늘의 피부 습관 카드</h1>
 
-    <!-- [Tool] 스크래치 카드 -->
+    <!-- [Tool] 시크릿 글로우 미션 -->
     <section class="ingredient-tool" id="tool-area">
       <div class="ingredient-tool__container">
         <h2 class="ingredient-tool__title">🎯 시크릿 글로우 미션</h2>
-        <p class="ingredient-tool__subtitle">카드를 문질러 오늘의 피부 미션을 공개하세요.</p>
+        <p class="ingredient-tool__subtitle">카드를 터치해 오늘의 피부 미션을 공개하세요.</p>
 
-        <!-- 스크래치 카드 래퍼 -->
-        <div class="scratch-wrap" id="scratch-wrap">
-          <!-- 뒷면: 미션 결과 (캔버스 아래에 위치) -->
-          <div class="scratch-result" id="scratch-result">
-            <div class="scratch-result__inner" id="scratch-result-inner">
-              <!-- JS로 채워짐 -->
-            </div>
+        <!-- 미션 카드 래퍼 -->
+        <div class="mission-card-wrap" id="mission-card-wrap">
+          <!-- 미션 결과 (뒷면) -->
+          <div class="mission-result-body" id="mission-result-inner">
+            <!-- JS로 채워짐 -->
           </div>
-          <!-- 앞면: 스크래치 캔버스 -->
-          <canvas class="scratch-canvas" id="scratch-canvas"></canvas>
-          <!-- 힌트 텍스트 -->
-          <div class="scratch-hint" id="scratch-hint">
-            <span class="scratch-hint__icon">✦</span>
-            <p class="scratch-hint__text">문질러서 미션 공개</p>
-            <span class="scratch-hint__icon">✦</span>
+          <!-- 블러 덮개 -->
+          <div class="mission-blur-cover" id="mission-blur-cover">
+            <p class="mission-blur-cover__text">가볍게 터치하여 오늘의 시크릿 확인하기</p>
           </div>
         </div>
 
