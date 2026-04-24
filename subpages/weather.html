@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -77,10 +77,10 @@
     <h1 class="visually-hidden">오늘의 피부 타로: 3장의 카드로 보는 내 피부 운세</h1>
 
     <!-- [Tool] 오늘의 피부 타로 -->
-    <section class="ingredient-tool" id="tool-area">
+    <section class="ingredient-tool reveal" id="tool-area">
       <div class="ingredient-tool__container">
-        <h2 class="ingredient-tool__title">🔮 오늘의 피부 타로</h2>
-        <p class="ingredient-tool__subtitle">지금 내 피부가 가장 듣고 싶은 말은? 3장의 카드 중 하나를 선택해 보세요.</p>
+        <h2 class="ingredient-tool__title reveal">🔮 오늘의 피부 타로</h2>
+        <p class="ingredient-tool__subtitle reveal reveal-delay-1">지금 내 피부가 가장 듣고 싶은 말은? 3장의 카드 중 하나를 선택해 보세요.</p>
 
         <!-- 카드 선택 영역 -->
         <div class="tarot-stage" id="tarot-stage">
@@ -141,7 +141,7 @@
     </section>
 
     <!-- 목차 -->
-    <nav class="toc" aria-label="페이지 목차">
+    <nav class="toc reveal" aria-label="페이지 목차">
       <div class="toc__inner">
         <p class="toc__label">📋 목차</p>
         <ol class="toc__list">
@@ -154,10 +154,9 @@
       </div>
     </nav>
 
-    <!-- [Article 1] 데일리 스킨케어 시크릿 -->
-    <article id="daily-secret" class="seo-article">
+    <article id="daily-secret" class="seo-article reveal">
       <div class="seo-article__container">
-        <h2 class="seo-article__title">✨ 내 피부의 운명을 바꾸는 데일리 스킨케어 시크릿</h2>
+        <h2 class="seo-article__title reveal">✨ 내 피부의 운명을 바꾸는 데일리 스킨케어 시크릿</h2>
         <div class="seo-article__body">
           <p>피부는 매일 다른 얼굴을 합니다. 어제는 촉촉했던 피부가 오늘은 당기고, 지난주에 잘 맞던 제품이 이번 주에는 트러블을 일으키기도 합니다. 이 변화의 핵심에는 <strong>온도·습도,
               스트레스, 수면</strong>이라는 3가지 변수가 있습니다.</p>
@@ -172,10 +171,9 @@
       </div>
     </article>
 
-    <!-- [Article 2] 피부가 매일 달라지는 3가지 이유 -->
-    <article id="skin-change-reasons" class="seo-article">
+    <article id="skin-change-reasons" class="seo-article reveal">
       <div class="seo-article__container">
-        <h2 class="seo-article__title">🌡️ 피부가 매일 달라지는 3가지 이유</h2>
+        <h2 class="seo-article__title reveal">🌡️ 피부가 매일 달라지는 3가지 이유</h2>
         <div class="seo-article__body">
 
           <!-- 인포그래픽 카드 3개 -->
@@ -209,10 +207,9 @@
       </div>
     </article>
 
-    <!-- [Article 3] 아침 vs 저녁 루틴 -->
-    <article id="morning-night" class="seo-article">
+    <article id="morning-night" class="seo-article reveal">
       <div class="seo-article__container">
-        <h2 class="seo-article__title">🌅 아침 vs 저녁 루틴의 결정적 차이</h2>
+        <h2 class="seo-article__title reveal">🌅 아침 vs 저녁 루틴의 결정적 차이</h2>
         <div class="seo-article__body">
           <p>많은 사람들이 아침과 저녁에 같은 루틴을 반복합니다. 하지만 피부의 목적은 시간대마다 다릅니다. 아침은 <strong>방어</strong>, 저녁은 <strong>재생</strong>이
             핵심입니다.</p>
@@ -243,10 +240,9 @@
       </div>
     </article>
 
-    <!-- FAQ -->
-    <section id="faq-section" class="seo-article">
+    <section id="faq-section" class="seo-article reveal">
       <div class="seo-article__container">
-        <h2 class="seo-article__title">❓ 자주 묻는 질문 (FAQ)</h2>
+        <h2 class="seo-article__title reveal">❓ 자주 묻는 질문 (FAQ)</h2>
         <div class="seo-article__body">
           <div class="faq-item">
             <h3 class="faq-question">Q. 타로 카드 결과가 매번 다른 이유는 무엇인가요?</h3>
@@ -331,6 +327,7 @@
     ]
   }
   </script>
+  <script src="../assets/js/scroll-reveal.js" defer></script>
 </body>
 
 </html>
