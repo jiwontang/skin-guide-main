@@ -348,7 +348,7 @@ button {
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.3rem;
-  font-weight: 800;
+  font-weight: 500;
   border-radius: 2rem;
   letter-spacing: 0.05em;
 }
@@ -4977,6 +4977,20 @@ button {
   border-radius: 2rem;
   overflow: hidden;
   height: auto !important;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 비활성 슬라이드 — 텍스트 겹침 방지 */
+.pc-swiper-slide:not(.swiper-slide-active) {
+  pointer-events: none;
+}
+
+.pc-swiper-slide:not(.swiper-slide-active) .pc-swiper-card > *:not(.pc-card__match-badge) {
+  visibility: hidden;
 }
 
 /* 카드 본체 */
@@ -4991,6 +5005,9 @@ button {
   backdrop-filter: blur(1.2rem);
   -webkit-backdrop-filter: blur(1.2rem);
   min-height: 56rem;
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* 나의 톤 배지 */

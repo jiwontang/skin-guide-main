@@ -178,7 +178,7 @@ window.addEventListener('load', () => {
         perSlideOffset: 9,
         perSlideRotate: 3,
         rotate: true,
-        slideShadows: true,
+        slideShadows: false,
       },
     });
   }
