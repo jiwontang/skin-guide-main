@@ -69,3 +69,86 @@ window.addEventListener('load', () => {
     });
   });
 });
+
+// ── 쿨링 버튼 리플 + 모달 ──
+(function () {
+  const STEPS = {
+    1: {
+      badge: 'Step 1 · 0~5분',
+      icon: '🧊',
+      title: '즉시 쿨링',
+      desc: '<strong>냉장고에 보관한 스푼</strong>이나 <strong>얼음을 감싼 거즈</strong>를 붉은 부위에 5초씩 대고 떼기를 반복하세요. 직접 얼음을 피부에 대면 동상 위험이 있으니 반드시 천으로 감싸야 합니다. 피부 온도를 낮춰 염증 반응을 억제하는 것이 최우선입니다.'
+    },
+    2: {
+      badge: 'Step 2 · 5~15분',
+      icon: '💧',
+      title: '진정 토너 팩',
+      desc: '<strong>알코올 프리 진정 토너</strong>를 화장솜에 충분히 적셔 얼굴 전체에 올려두세요. <strong>센텔라 아시아티카</strong>, <strong>알란토인</strong>, <strong>판테놀</strong> 성분이 포함된 제품이 효과적입니다. 10분 후 화장솜을 제거하고 가볍게 두드려 흡수시키세요.'
+    },
+    3: {
+      badge: 'Step 3 · 15~20분',
+      icon: '🌿',
+      title: '진정 세럼 도포',
+      desc: '피부가 어느 정도 진정되면 <strong>시카 세럼</strong>이나 <strong>나이아신아마이드 함유 앰플</strong>을 얇게 펴 발라주세요. 문지르지 말고 손바닥으로 가볍게 눌러 흡수시키는 것이 중요합니다. 과도한 마찰은 염증을 악화시킬 수 있습니다.'
+    },
+    4: {
+      badge: 'Step 4 · 20~25분',
+      icon: '🛡️',
+      title: '수분 장벽 코팅',
+      desc: '마지막으로 <strong>세라마이드</strong>나 <strong>히알루론산</strong>이 풍부한 수분 크림을 얇게 펴 발라 장벽을 보호하세요. 유분기가 많은 크림은 피하고 젤 타입이나 수분 크림을 선택하는 것이 좋습니다. 이후 최소 30분은 피부를 만지지 마세요.'
+    }
+  };
+
+  const overlay = document.getElementById('coolingModalOverlay');
+  const modalBody = document.getElementById('coolingModalBody');
+  const closeBtn = document.getElementById('coolingModalClose');
+  if (!overlay || !modalBody) return;
+
+  function openModal(step) {
+    const s = STEPS[step];
+    modalBody.innerHTML = `
+      <span class="cooling-modal__step-badge">${s.badge}</span>
+      <span class="cooling-modal__icon">${s.icon}</span>
+      <h3 class="cooling-modal__title">${s.title}</h3>
+      <p class="cooling-modal__desc">${s.desc}</p>
+    `;
+    overlay.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // 버튼 클릭 — 리플 → 모달
+  document.querySelectorAll('.cooling-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      // 리플 생성
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const size = Math.max(rect.width, rect.height);
+      const ripple = document.createElement('span');
+      ripple.className = 'cooling-ripple';
+      ripple.style.cssText = `width:${size}px;height:${size}px;left:${x - size / 2}px;top:${y - size / 2}px;`;
+      btn.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+
+      // 리플 끝난 직후 모달 오픈
+      const step = parseInt(btn.dataset.step, 10);
+      setTimeout(() => openModal(step), 420);
+    });
+  });
+
+  // 닫기
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+})();

@@ -78,12 +78,41 @@
     <!-- Semantic SEO H1 -->
     <h1 class="visually-hidden">여드름 흉터 및 색소침착 케어 가이드: 흔적 없는 피부를 위한 과학적 루틴</h1>
 
-    <section class="ingredient-tool reveal" id="tool-area">
+    <!-- ===== 스포트라이트 섹션 ===== -->
+    <section class="trace-spotlight-section" id="tool-area" aria-label="흔적 케어 스포트라이트">
+      <!-- 밝은 콘텐츠 레이어 (항상 아래에 깔림) -->
+      <div class="trace-spotlight__bright" id="traceSpotlightBright">
+        <div class="trace-spotlight__content">
+          <p class="trace-spotlight__eyebrow">🩹 흔적 케어 루틴</p>
+          <h2 class="trace-spotlight__title">어두운 흔적 너머<br>투명한 피부가 있습니다</h2>
+          <p class="trace-spotlight__desc">나이아신아마이드 · 비타민C · 트라넥삼산<br>빛을 되찾는 3가지 핵심 성분</p>
+          <div class="trace-spotlight__chips">
+            <span class="trace-chip trace-chip--red">🔴 PIE 붉은 자국</span>
+            <span class="trace-chip trace-chip--brown">🟤 PIH 갈색 자국</span>
+            <span class="trace-chip trace-chip--glow">✨ 맑은 피부톤</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 어두운 오버레이 (마스킹 대상 — bright 위에 올라감) -->
+      <div class="trace-spotlight__dark" id="traceSpotlightDark" aria-hidden="true">
+        <p class="trace-spotlight__hint">✦ 커서를 움직여 흔적을 지워보세요 ✦</p>
+        <!-- 모바일 안내 -->
+        <p class="trace-spotlight__mobile-hint">손가락으로 문질러 흔적을 지워보세요</p>
+      </div>
+
+      <!-- 전체 보기 버튼 (오버레이 위, z-index 최상위) -->
+      <button class="trace-reveal-btn" id="traceRevealBtn" type="button">
+        전체 흔적 확인하기
+      </button>
+    </section>
+
+    <!-- 흔적 컬러 매칭 (기존 처방전 유지) -->
+    <section class="ingredient-tool reveal" id="trace-match-area">
       <div class="ingredient-tool__container">
         <h2 class="ingredient-tool__title reveal">🩹 흔적 컬러 매칭</h2>
         <p class="ingredient-tool__subtitle reveal reveal-delay-1">지금 남아 있는 흔적의 색상을 선택하면 전용 케어 루틴을 드립니다.</p>
 
-        <!-- 흔적 색상 선택 카드 -->
         <div class="concern-grid" id="trace-concern-grid"
           style="grid-template-columns: repeat(2, 1fr); max-width: 64rem; margin-inline: auto;">
           <div class="concern-card" data-type="red">
@@ -98,7 +127,6 @@
           </div>
         </div>
 
-        <!-- 블러 리빌 처방전 -->
         <div class="prescription-area hidden" id="trace-prescription"></div>
       </div>
     </section>

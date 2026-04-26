@@ -61,3 +61,57 @@ window.addEventListener('load', () => {
     });
   });
 });
+
+// ── 스포트라이트 마스킹 ──
+(function () {
+  const section = document.querySelector('.trace-spotlight-section');
+  const dark = document.getElementById('traceSpotlightDark');
+  const btn = document.getElementById('traceRevealBtn');
+  if (!section || !dark) return;
+
+  const RADIUS = '15rem';
+  let isRevealed = false;
+
+  function applyMask(x, y) {
+    if (isRevealed) return;
+    const val = `radial-gradient(circle at ${x}px ${y}px, transparent 0%, black ${RADIUS})`;
+    dark.style.maskImage = val;
+    dark.style.webkitMaskImage = val;
+  }
+
+  // 마우스 (데스크탑)
+  section.addEventListener('mousemove', function (e) {
+    const rect = section.getBoundingClientRect();
+    applyMask(e.clientX - rect.left, e.clientY - rect.top);
+  });
+
+  section.addEventListener('mouseleave', function () {
+    if (isRevealed) return;
+    dark.style.maskImage = `radial-gradient(circle at -999px -999px, transparent 0%, black 0%)`;
+    dark.style.webkitMaskImage = `radial-gradient(circle at -999px -999px, transparent 0%, black 0%)`;
+  });
+
+  // 터치 (모바일) — passive: false 로 스크롤 방지
+  section.addEventListener('touchmove', function (e) {
+    if (isRevealed) return;
+    e.preventDefault();
+    const rect = section.getBoundingClientRect();
+    const touch = e.touches[0];
+    applyMask(touch.clientX - rect.left, touch.clientY - rect.top);
+  }, { passive: false });
+
+  // 전체 보기 토글
+  if (btn) {
+    btn.addEventListener('click', function () {
+      isRevealed = !isRevealed;
+      section.classList.toggle('is-all-revealed', isRevealed);
+      btn.textContent = isRevealed ? '다시 숨기기' : '전체 흔적 확인하기';
+
+      if (!isRevealed) {
+        // 숨기기로 돌아올 때 마스크 초기화
+        dark.style.maskImage = `radial-gradient(circle at -999px -999px, transparent 0%, black 0%)`;
+        dark.style.webkitMaskImage = `radial-gradient(circle at -999px -999px, transparent 0%, black 0%)`;
+      }
+    });
+  }
+})();

@@ -123,50 +123,39 @@
     <section id="emergency-steps" class="seo-article reveal" style="margin-top: 6rem;">
       <div class="seo-article__container">
         <h2 class="seo-article__title reveal" style="text-align: center; margin-bottom: 3.2rem;">🆘 긴급 진정 4단계 응급처치</h2>
-        <p style="text-align: center; color: var(--text-secondary); font-size: 1.7rem; margin-bottom: 4rem;">
-          갑작스러운 피부 트러블과 붉은기를 빠르게 잠재우는 단계별 SOS 케어
+        <p style="text-align: center; color: var(--text-secondary); font-size: 1.7rem; margin-bottom: 4rem; word-break: keep-all; line-height: 1.6;">
+          달아오른 피부에 떨어지는 시원한 수분 한 방울 — 버튼을 눌러 쿨링 솔루션을 확인하세요
         </p>
 
-        <div class="emergency-steps">
-          <div class="emergency-card">
-            <span class="step-badge">Step 1</span>
-            <div class="emergency-card__icon">🧊</div>
-            <h3 class="emergency-card__title">즉시 쿨링 (0~5분)</h3>
-            <p class="emergency-card__desc">
-              <strong>냉장고에 보관한 스푼</strong>이나 <strong>얼음을 감싼 거즈</strong>를 붉은 부위에 5초씩 대고 떼기를 반복하세요.
-              직접 얼음을 대면 동상 위험이 있으니 반드시 천으로 감싸야 합니다. 피부 온도를 낮춰 염증 반응을 억제하는 것이 최우선입니다.
-            </p>
-          </div>
+        <!-- 둥근 버튼 그리드 -->
+        <div class="cooling-btn-grid">
+          <button class="cooling-btn" data-step="1">
+            <span class="cooling-btn__icon">🧊</span>
+            <span class="cooling-btn__label">Step 1<br>즉시 쿨링</span>
+            <span class="cooling-btn__time">0~5분</span>
+          </button>
+          <button class="cooling-btn" data-step="2">
+            <span class="cooling-btn__icon">💧</span>
+            <span class="cooling-btn__label">Step 2<br>토너 팩</span>
+            <span class="cooling-btn__time">5~15분</span>
+          </button>
+          <button class="cooling-btn" data-step="3">
+            <span class="cooling-btn__icon">🌿</span>
+            <span class="cooling-btn__label">Step 3<br>세럼 도포</span>
+            <span class="cooling-btn__time">15~20분</span>
+          </button>
+          <button class="cooling-btn" data-step="4">
+            <span class="cooling-btn__icon">🛡️</span>
+            <span class="cooling-btn__label">Step 4<br>장벽 코팅</span>
+            <span class="cooling-btn__time">20~25분</span>
+          </button>
+        </div>
 
-          <div class="emergency-card">
-            <span class="step-badge">Step 2</span>
-            <div class="emergency-card__icon">💧</div>
-            <h3 class="emergency-card__title">진정 토너 팩 (5~15분)</h3>
-            <p class="emergency-card__desc">
-              <strong>알코올 프리 진정 토너</strong>를 화장솜에 충분히 적셔 얼굴 전체에 올려두세요.
-              <strong>센텔라 아시아티카</strong>, <strong>알란토인</strong>, <strong>판테놀</strong> 성분이 포함된 제품이 효과적입니다.
-              10분 후 화장솜을 제거하고 가볍게 두드려 흡수시키세요.
-            </p>
-          </div>
-
-          <div class="emergency-card">
-            <span class="step-badge">Step 3</span>
-            <div class="emergency-card__icon">🌿</div>
-            <h3 class="emergency-card__title">진정 세럼 도포 (15~20분)</h3>
-            <p class="emergency-card__desc">
-              피부가 어느 정도 진정되면 <strong>시카 세럼</strong>이나 <strong>나이아신아마이드 함유 앰플</strong>을 얇게 펴 발라주세요.
-              문지르지 말고 손바닥으로 가볍게 눌러 흡수시키는 것이 중요합니다. 과도한 마찰은 염증을 악화시킬 수 있습니다.
-            </p>
-          </div>
-
-          <div class="emergency-card">
-            <span class="step-badge">Step 4</span>
-            <div class="emergency-card__icon">🛡️</div>
-            <h3 class="emergency-card__title">수분 장벽 코팅 (20~25분)</h3>
-            <p class="emergency-card__desc">
-              마지막으로 <strong>세라마이드</strong>나 <strong>히알루론산</strong>이 풍부한 수분 크림을 얇게 펴 발라 장벽을 보호하세요.
-              유분기가 많은 크림은 피하고, 젤 타입이나 수분 크림을 선택하는 것이 좋습니다. 이후 최소 30분은 피부를 만지지 마세요.
-            </p>
+        <!-- 모달 오버레이 -->
+        <div class="cooling-modal-overlay" id="coolingModalOverlay" aria-hidden="true">
+          <div class="cooling-modal" id="coolingModal" role="dialog" aria-modal="true">
+            <button class="cooling-modal__close" id="coolingModalClose" aria-label="닫기">✕</button>
+            <div class="cooling-modal__body" id="coolingModalBody"></div>
           </div>
         </div>
       </div>
