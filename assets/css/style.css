@@ -1,4 +1,69 @@
-/* 기준: html 62.5% → 1rem = 10px */
+@font-face {
+  font-family: 'Paperozi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-1Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperozi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-2ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperozi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperozi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperozi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperozi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperozi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperozi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Paperozi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}
+
+/* =========================================
+   기준: html 62.5% → 1rem = 10px
+   ========================================= */
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -31,9 +96,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo",
-    "Noto Sans KR", system-ui, sans-serif;
+  font-family: 'Paperozi', sans-serif !important;
   font-size: 1.6rem;
+  font-weight: 400;
   line-height: 1.7;
   color: var(--text-primary);
   background-color: var(--bg-primary);
@@ -50,7 +115,35 @@ button {
   border: none;
   background: none;
   cursor: pointer;
-  font-family: inherit;
+  font-family: 'Paperozi', sans-serif !important;
+}
+
+/* ── 타이포그래피 위계 ── */
+h1, h2 {
+  font-family: 'Paperozi', sans-serif !important;
+  font-weight: 700;
+}
+
+h3, h4 {
+  font-family: 'Paperozi', sans-serif !important;
+  font-weight: 500;
+}
+
+p, span, li, a, label, input, textarea, select {
+  font-family: 'Paperozi', sans-serif !important;
+  font-weight: 400;
+}
+
+article p,
+.seo-article__body p,
+.seo-article__body li,
+.faq-answer,
+.ingredient-desc,
+.result-description,
+.feature-card__desc,
+.tool-card__desc,
+.hero-subtitle {
+  font-weight: 300;
 }
 
 /* —— Header —— */
@@ -5843,28 +5936,114 @@ button {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .tarot-stage {
-    gap: 1.2rem;
-    padding: 2.4rem 0 1.6rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.6rem;
+    padding: 2.4rem 2rem 2.4rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* 스크롤바 숨김 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tarot-stage::-webkit-scrollbar {
+    display: none;
   }
 
   .tarot-card {
-    width: calc((100% - 2.4rem) / 3);
-    min-width: 10rem;
-    height: 18rem;
+    min-width: 72vw;
+    width: 72vw;
+    height: 36rem;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+
+  .tarot-card__back-pattern {
+    padding: 2rem;
+    gap: 1.4rem;
+  }
+
+  .tarot-card__back-text {
+    font-size: 1.4rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .tarot-card__back-icon {
+    font-size: 2rem;
+  }
+
+  .tarot-card__front {
+    padding: 2rem;
+  }
+
+  .tarot-card__front-content {
+    gap: 1.2rem;
+  }
+
+  .tarot-front__emoji {
+    font-size: 4.4rem;
+  }
+
+  .tarot-front__title {
+    font-size: 1.6rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .tarot-front__text {
+    font-size: 1.45rem;
+    line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  .tarot-card {
+    min-width: 78vw;
+    width: 78vw;
+    height: 32rem;
+  }
+
+  .tarot-card__back-text {
+    font-size: 1.3rem;
+  }
+
+  .tarot-front__emoji {
+    font-size: 3.8rem;
+  }
+
+  .tarot-front__title {
+    font-size: 1.5rem;
+  }
+
+  .tarot-front__text {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .tarot-card {
+    min-width: 82vw;
+    width: 82vw;
+    height: 30rem;
   }
 
   .tarot-card__back-text {
     font-size: 1.2rem;
   }
 
-  .tarot-card__back-icon {
-    font-size: 1.8rem;
-  }
-
   .tarot-front__emoji {
-    font-size: 3.2rem;
+    font-size: 3.4rem;
   }
 
   .tarot-front__title {
@@ -5873,17 +6052,7 @@ button {
 
   .tarot-front__text {
     font-size: 1.3rem;
-    line-height: 1.5;
-  }
-}
-
-@media (max-width: 400px) {
-  .tarot-card {
-    height: 16rem;
-  }
-
-  .tarot-front__text {
-    font-size: 1.2rem;
+    line-height: 1.55;
   }
 }
 
