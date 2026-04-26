@@ -226,9 +226,9 @@ article p,
   /* Increased size for emphasis */
   font-size: clamp(5.6rem, 9vw, 8rem);
   /* Increased from 4.4rem-7.6rem to 5.6rem-9.6rem */
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-weight: 800;
   line-height: 1.25;
+  letter-spacing: -0.03em;
   color: #FFFFFF;
   text-shadow:
     0 2px 12px rgba(0, 0, 0, 0.95),
@@ -355,7 +355,7 @@ article p,
 .toc__label {
   margin: 0 0 2rem;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.05em;
   color: var(--text-primary);
 }
@@ -428,7 +428,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.05em;
 }
@@ -449,14 +449,14 @@ article p,
 /* 인라인 레이블 (추천/기피 성분용) */
 .label-inline {
   color: var(--color-accent);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.05em;
 }
 
 /* 설명 레이블과 본문 강제 줄바꿈 (PC 최적화) */
 .article-label {
   display: block;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.8rem;
   color: var(--color-accent);
   margin-bottom: 0.6rem;
@@ -490,7 +490,7 @@ article p,
 }
 .faq-question {
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 1.2rem;
 }
@@ -1329,7 +1329,7 @@ article p,
 .about-hero__title {
   margin: 0;
   font-size: clamp(4rem, 7vw, 6.4rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.3;
   letter-spacing: -0.03em;
   color: #FFFFFF;
@@ -1428,7 +1428,7 @@ article p,
 .about-values__heading {
   margin: 0;
   font-size: clamp(2.8rem, 4vw, 4rem);
-  font-weight: 700;
+  font-weight: 800;
   text-align: center;
   color: #FFFFFF;
 }
@@ -1498,7 +1498,7 @@ article p,
 .about-content__title {
   margin: 0;
   font-size: clamp(2.4rem, 3.5vw, 3.6rem);
-  font-weight: 700;
+  font-weight: 800;
   color: #FFFFFF;
 }
 
@@ -1539,7 +1539,7 @@ article p,
 .about-principles__title {
   margin: 0;
   font-size: clamp(2.4rem, 3.5vw, 3.6rem);
-  font-weight: 700;
+  font-weight: 800;
   color: #FFFFFF;
 }
 
@@ -1606,7 +1606,7 @@ article p,
 .about-contact__title {
   margin: 0;
   font-size: clamp(2.4rem, 3.5vw, 3.6rem);
-  font-weight: 700;
+  font-weight: 800;
   color: #FFFFFF;
 }
 
@@ -1818,7 +1818,7 @@ article p,
 .policy-hero__title {
   margin: 0;
   font-size: clamp(3.2rem, 5vw, 5.2rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.3;
   letter-spacing: -0.03em;
   color: #FFFFFF;
@@ -1864,7 +1864,7 @@ article p,
 .policy-section__title {
   margin: 0;
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #FFFFFF;
   padding-bottom: 1.2rem;
   border-bottom: 0.15rem solid rgba(126, 193, 255, 0.2);
@@ -2379,7 +2379,7 @@ article p,
 .seo-article__title {
   margin: 0;
   font-size: clamp(2.8rem, 2.5vw, 3.6rem);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
@@ -2392,7 +2392,7 @@ article p,
 .seo-article__body p {
   margin: 0;
   font-size: 1.6rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
   color: var(--text-tertiary);
   text-align: justify;
@@ -3521,7 +3521,7 @@ article p,
 
 .timeline-card__step {
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #4DE9AB;
   letter-spacing: 0.1em;
   margin-bottom: 1.2rem;
@@ -3601,7 +3601,7 @@ article p,
 
 .summary-card__title {
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   margin: 0;
 }
@@ -3777,7 +3777,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.05em;
 }
@@ -3883,7 +3883,7 @@ article p,
 .result-card__type {
   margin: 0;
   font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-accent);
   letter-spacing: -0.02em;
   line-height: 1.4;
@@ -4217,7 +4217,7 @@ article p,
 
 .prescription-card__catchphrase {
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-accent);
   letter-spacing: -0.02em;
   line-height: 1.3;
@@ -4476,7 +4476,7 @@ article p,
 .pc-result__persona {
   margin: 0 0 1.2rem;
   font-size: clamp(2.4rem, 3.5vw, 3.2rem);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-primary);
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -4803,7 +4803,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.06em;
 }
@@ -4834,7 +4834,7 @@ article p,
 .wx-result__alert {
   margin: 0;
   font-size: clamp(2rem, 3vw, 2.8rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.3;
   letter-spacing: -0.02em;
 }
@@ -4876,7 +4876,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.06em;
   align-self: flex-start;
@@ -5121,7 +5121,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.04em;
   z-index: 1;
@@ -5137,7 +5137,7 @@ article p,
 .pc-card__persona {
   margin: 0;
   font-size: clamp(1.6rem, 2.5vw, 2rem);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-primary);
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -5191,7 +5191,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.06em;
 }
@@ -5346,7 +5346,7 @@ article p,
 
 .tx-slider-value {
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 800;
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -5484,7 +5484,7 @@ article p,
 .tx-result__title {
   margin: 0;
   font-size: clamp(2.2rem, 3vw, 2.8rem);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-primary);
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -5581,7 +5581,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.06em;
   align-self: flex-start;
@@ -5853,7 +5853,7 @@ article p,
 .tarot-front__title {
   display: block;
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #7EC1FF;
   letter-spacing: -0.01em;
   line-height: 1.3;
@@ -6131,7 +6131,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.06em;
 }
@@ -6145,7 +6145,7 @@ article p,
 .mission-result__title {
   margin: 0;
   font-size: 2.2rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #ffffff;
   letter-spacing: -0.02em;
 }
@@ -6177,7 +6177,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -6313,7 +6313,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.06em;
 }
@@ -6327,7 +6327,7 @@ article p,
 .mission-modal__title {
   margin: 0;
   font-size: clamp(2.4rem, 4vw, 3.2rem);
-  font-weight: 700;
+  font-weight: 800;
   color: #ffffff;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -6363,7 +6363,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -6389,7 +6389,7 @@ article p,
   margin-top: 0.8rem;
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%) !important;
   color: #0F172A !important;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 /* ── 인포그래픽 카드 3개 ── */
@@ -6481,7 +6481,7 @@ article p,
   background: linear-gradient(135deg, #7EC1FF 0%, #4DE9AB 100%);
   color: #0F172A;
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -6497,7 +6497,7 @@ article p,
 
 .mission-stepbar__title {
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #7EC1FF;
   line-height: 1.2;
 }
@@ -6663,352 +6663,4 @@ article p,
   opacity: 1 !important;
   transform: none !important;
   transition: none !important;
-}
-
-
-/* =========================================
-   D-1 타임라인 페이지
-   ========================================= */
-
-/* ── 히어로 ── */
-.d1-hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
-  background-color: #0F172A;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 45px 45px;
-  border-bottom: 0.1rem solid rgba(148,163,184,0.1);
-  padding-block: clamp(4rem, 8vw, 8rem);
-  text-align: center;
-}
-
-.d1-hero__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.6rem;
-  max-width: 80rem;
-  padding-inline: clamp(2.4rem, 6vw, 10rem);
-}
-
-.d1-hero__eyebrow {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--color-accent);
-  text-transform: uppercase;
-}
-
-.d1-hero__title {
-  margin: 0;
-  font-size: clamp(3.6rem, 6vw, 6rem);
-  font-weight: 700;
-  line-height: 1.25;
-  color: #FFFFFF;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.9);
-}
-
-.d1-hero__sub {
-  margin: 0;
-  font-size: clamp(1.6rem, 2vw, 2rem);
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  max-width: 60rem;
-}
-
-/* ── 타임라인 섹션 래퍼 ── */
-.d1-timeline-section {
-  padding-block: clamp(6rem, 10vw, 12rem);
-  background-color: var(--bg-primary);
-}
-
-.d1-timeline__wrap {
-  position: relative;
-  max-width: 110rem;
-  margin-inline: auto;
-  padding-inline: clamp(2.4rem, 6vw, 6rem);
-}
-
-/* ── 세로 선 ── */
-.d1-timeline__line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0.2rem;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(126,193,255,0.25) 5%,
-    rgba(126,193,255,0.25) 95%,
-    transparent 100%
-  );
-}
-
-/* ── 타임라인 아이템 ── */
-.d1-timeline__item {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 8rem;
-  width: 100%;
-}
-
-/* 좌측 배치 */
-.d1-timeline__item[data-side="left"] {
-  justify-content: flex-start;
-  padding-right: calc(50% + 4rem);
-}
-
-/* 우측 배치 */
-.d1-timeline__item[data-side="right"] {
-  justify-content: flex-end;
-  padding-left: calc(50% + 4rem);
-}
-
-/* ── 점(Dot) ── */
-.d1-timeline__dot {
-  position: absolute;
-  top: 2.4rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-  background: #334155;
-  border: 0.3rem solid #475569;
-  transition:
-    background 0.5s ease,
-    border-color 0.5s ease,
-    box-shadow 0.5s ease;
-  z-index: 2;
-}
-
-/* active 상태 — 글로우 */
-.d1-timeline__item.active .d1-timeline__dot {
-  background: #7EC1FF;
-  border-color: #7EC1FF;
-  box-shadow:
-    0 0 0.8rem rgba(126,193,255,0.9),
-    0 0 2rem rgba(126,193,255,0.6),
-    0 0 4rem rgba(126,193,255,0.3);
-}
-
-/* ── 카드 ── */
-.d1-timeline__card {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  padding: 2.8rem 3.2rem;
-  background: rgba(30,41,59,0.7);
-  backdrop-filter: blur(1.2rem);
-  -webkit-backdrop-filter: blur(1.2rem);
-  border: 0.15rem solid rgba(126,193,255,0.12);
-  border-radius: 1.6rem;
-  max-width: 46rem;
-  width: 100%;
-
-  /* 초기 숨김 상태 */
-  opacity: 0;
-  transform: translateY(3rem);
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
-}
-
-/* active 상태 — 카드 등장 */
-.d1-timeline__item.active .d1-timeline__card {
-  opacity: 1;
-  transform: translateY(0);
-  border-color: rgba(126,193,255,0.25);
-  box-shadow: 0 0.8rem 3.2rem rgba(126,193,255,0.08);
-}
-
-/* 우측 카드 딜레이 */
-.d1-timeline__item[data-side="right"].active .d1-timeline__card {
-  transition-delay: 0.1s;
-}
-
-.d1-timeline__time {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--color-accent);
-  text-transform: uppercase;
-}
-
-.d1-timeline__icon {
-  font-size: 3.2rem;
-  line-height: 1;
-  filter: drop-shadow(0 0 0.8rem rgba(126,193,255,0.3));
-}
-
-.d1-timeline__title {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.4;
-}
-
-.d1-timeline__desc {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--text-secondary);
-}
-
-.d1-timeline__tips {
-  list-style: none;
-  padding: 0;
-  margin: 0.4rem 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.d1-timeline__tips li {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: var(--text-tertiary);
-}
-
-/* ── SOS 섹션 ── */
-.d1-sos-section {
-  padding-block: clamp(6rem, 10vw, 10rem);
-  background: rgba(15,23,42,0.95);
-  border-top: 0.1rem solid rgba(148,163,184,0.1);
-}
-
-.d1-sos__inner {
-  max-width: 110rem;
-  margin-inline: auto;
-  padding-inline: clamp(2.4rem, 6vw, 6rem);
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
-
-.d1-sos__title {
-  margin: 0;
-  font-size: clamp(2.8rem, 4vw, 4rem);
-  font-weight: 700;
-  color: #FFFFFF;
-  text-align: center;
-}
-
-.d1-sos__sub {
-  margin: -2rem 0 0;
-  font-size: 1.7rem;
-  font-weight: 300;
-  color: var(--text-secondary);
-  text-align: center;
-}
-
-.d1-sos__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-  gap: 2.4rem;
-}
-
-.d1-sos__card {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  padding: 2.8rem 2.4rem;
-  background: rgba(30,41,59,0.6);
-  border: 0.15rem solid rgba(126,193,255,0.15);
-  border-radius: 1.6rem;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.d1-sos__card:hover {
-  transform: translateY(-0.6rem);
-  border-color: rgba(126,193,255,0.35);
-  box-shadow: 0 1.2rem 3.2rem rgba(126,193,255,0.1);
-}
-
-.d1-sos__num {
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--color-accent);
-}
-
-.d1-sos__card-icon {
-  font-size: 3.2rem;
-  line-height: 1;
-}
-
-.d1-sos__card-title {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.d1-sos__card-desc {
-  margin: 0;
-  font-size: 1.45rem;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--text-secondary);
-}
-
-/* ── 모바일: 선 좌측, 콘텐츠 우측 ── */
-@media (max-width: 768px) {
-  .d1-timeline__line {
-    left: 2rem;
-    transform: none;
-  }
-
-  .d1-timeline__item[data-side="left"],
-  .d1-timeline__item[data-side="right"] {
-    justify-content: flex-end;
-    padding-left: 5.6rem;
-    padding-right: 0;
-  }
-
-  .d1-timeline__dot {
-    left: 2rem;
-    transform: translate(-50%, -50%);
-  }
-
-  .d1-timeline__card {
-    max-width: 100%;
-  }
-}
-
-/* ── 피부 비상 알람 섹션 래퍼 ── */
-.ingredient-tool__container {
-  max-width: 86rem;
-  margin-inline: auto;
-  padding: clamp(4rem, 8vw, 8rem) clamp(2.4rem, 6vw, 6rem);
-}
-
-.ingredient-tool__title {
-  margin: 0 0 1.2rem;
-  font-size: clamp(2.8rem, 4vw, 4rem);
-  font-weight: 700;
-  color: #FFFFFF;
-  text-align: center;
-}
-
-.ingredient-tool__subtitle {
-  margin: 0 0 3.2rem;
-  font-size: 1.7rem;
-  font-weight: 300;
-  color: var(--text-secondary);
-  text-align: center;
-  line-height: 1.7;
 }
