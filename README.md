@@ -1,186 +1,68 @@
-# 스킨케어 유틸리티 (Skincare Vibe)
+✨ 프로젝트명: Skincare Lab (스킨케어 랩)
+"피부 타입 분석부터 성분 궁합까지, 당신만을 위한 스마트 홈케어 가이드"
 
-내 피부를 위한 스마트 가이드 - 화장품 성분 분석부터 홈케어 루틴까지
+Skincare Lab은 복잡한 화장품 성분과 피부 관리법을 누구나 쉽게 이해하고 즐길 수 있도록 메타포(Metaphor)와 인터랙티브 기술을 결합한 맞춤형 스킨케어 큐레이션 웹 서비스입니다.
 
-## 🚀 주요 기능
+🎯 프로젝트 목적 (AdSense & UX Strategy)
+YMYL 준수: 구글의 YMYL(Your Money Your Life) 정책에 맞춰 전문적이고 신뢰할 수 있는 스킨케어 정보 제공.
 
-### 1. 🚦 화장품 성분 신호등
-- 화장품 전성분을 붙여넣으면 주의 성분을 즉시 확인
-- 위험도별 색상 구분 (높음/중간/낮음)
-- 성분별 상세 설명 제공
+E-E-A-T 강화: 500자 이상의 고품질 텍스트 데이터를 동적으로 생성하여 정보성 가치 극대화.
 
-### 2. 🔍 피부 특징 확인 가이드
-- 세안 후 증상으로 알아보는 피부 성향
+체류 시간 최적화: '성분 소개팅' 등 게임화(Gamification) 요소를 도입하여 사용자 경험(UX)과 체류 시간 향상.
 
-### 3. 💆‍♀️ 0원 셀프 홈케어 가이드
-- 전문가 도움 없이 집에서 하는 림프 마사지
+🛠 기술 스택 (Tech Stack)
+Frontend: HTML5, CSS3 (BEM 방법론 지향), JavaScript (ES6+)
 
-### 4. ✨ D-1 중요날 찰떡 루틴
-- 화장이 잘 먹는 최상의 피부 컨디션 만들기
+Animation: GSAP (GreenSock Animation Platform)
 
-### 5. 🚨 오늘 밤 긴급 진정 가이드
-- 갑작스러운 피부 고민을 위한 화장품 사용 순서
+Workflow: Vibe Coding (Cursor AI & Kiro 활용), Local LLM 최적화
 
-### 6. 🩹 흔적 & 케어 루틴 가이드
-- 맑은 피부톤을 위한 부위별 스킨케어 팁
+Deployment: Netlify (HTTPS 보안 적용 및 자동 배포)
 
-## 🛠️ 기술 스택
+🚀 주요 기능 (Key Features)
+1. 피부 분석 및 진단 (Analysis)
+내 피부 타입 확인 가이드: 자가 진단을 통한 정밀 피부 타입 분석.
 
-- **HTML5** - 시맨틱 마크업
-- **CSS3** - 다크 네이비 테마, 반응형 디자인
-- **Vanilla JavaScript** - CORS 문제 해결 (내장 데이터 방식)
+퍼스널 무드 팔레트: 피부 톤에 맞는 화장품 제형 및 컬러 추천.
 
-## 📦 설치 및 실행
+2. 성분 및 루틴 가이드 (Ingredients & Routine)
+성분 소개팅 (Ingredient Merge Lab): [핵심 기능] 성분 간의 궁합을 소개팅 메타포로 풀어낸 인터랙티브 분석 도구.
 
-### 로컬 환경에서 실행
+화장품 성분 신호등: 성분 안전도를 시각적으로 상징화하여 정보 전달.
 
-1. 저장소 클론
-```bash
-git clone https://github.com/yourusername/skincarevibe.git
-cd skincarevibe
-```
+텍스트 레이어링 슬라이더: 제형별 올바른 사용 순서 가이드.
 
-2. 브라우저에서 열기
-```bash
-# macOS
-open index.html
+3. 긴급 및 스페셜 케어 (Special Care)
+오늘 밤 긴급 진정 가이드: 갑작스러운 트러블 발생 시 SOS 솔루션.
 
-# Windows
-start index.html
+D-1 중요날 찰떡 루틴: 중요한 일정을 앞둔 사용자를 위한 집중 케어 플랜.
 
-# Linux
-xdg-open index.html
-```
+오늘의 피부 타로: 날씨와 환경 데이터를 결합한 데일리 스킨케어 메시지.
 
-또는 간단한 로컬 서버 실행:
-```bash
-# Python 3
-python -m http.server 8000
+🎨 UI/UX 디자인 컨셉
+Dark Mode Aesthetic: 사용자 눈의 피로를 줄이고 전문적인 'Lab' 분위기를 조성하는 다크 테마.
 
-# Node.js (http-server 설치 필요)
-npx http-server
-```
+Responsive GNB: * PC: 호버(Hover) 시 부드럽게 슬라이드되는 드롭다운 메뉴로 접근성 향상.
 
-그 다음 브라우저에서 `http://localhost:8000` 접속
+Mobile: 햄버거 메뉴 및 아코디언 UI를 통한 모바일 최적화 탐색 제공.
 
-## 🧪 테스트 방법
+Micro Interactions: GSAP를 활용한 부드러운 카드 전환 및 요소 애니메이션.
 
-### 전성분 분석기 테스트
-
-1. `ingredient.html` 페이지 열기
-2. 아래 테스트 성분을 입력창에 붙여넣기:
-
-```
-정제수, 글리세린, 부틸렌글리콜, 나이아신아마이드, 페녹시에탄올, 파라벤, 향료, 소듐라우릴설페이트, 시어버터, 에탄올
-```
-
-3. "주의 성분 확인하기" 버튼 클릭
-4. 결과 확인:
-   - 🔴 높은 주의: 파라벤, 향료, 소듐라우릴설페이트
-   - 🟡 중간 주의: 페녹시에탄올, 시어버터, 에탄올
-
-### 간단 테스트 페이지
-
-프로젝트에 `test-ingredient.html` 파일이 포함되어 있습니다. 이 파일을 브라우저에서 열면 최소한의 스타일로 기능을 테스트할 수 있습니다.
-
-```bash
-# macOS
-open test-ingredient.html
-
-# Windows
-start test-ingredient.html
-```
-
-### 디버깅 방법
-
-브라우저 개발자 도구(F12)의 콘솔을 열면 상세한 로그를 확인할 수 있습니다:
-
-```
-✅ 전성분 분석기 로드 완료
-📊 내장 데이터 개수: 35 개
-✅ 모든 요소 연결 완료
-  - 버튼 ID: analyze-btn
-  - 입력창 ID: ingredient-input
-  - 결과창 ID: result-area
-✅ 이벤트 리스너 등록 완료
-🖱️ 버튼 클릭 감지됨!
-🔍 분석 시작
-  - 입력 길이: 123 자
-🔬 analyzeIngredients 함수 실행
-📋 분리된 성분 개수: 10
-  ⚠️ 매칭됨: 페녹시에탄올 → 페녹시에탄올
-  ⚠️ 매칭됨: 파라벤 → 파라벤
-⚠️ 발견된 주의 성분: 6 개
-  - 높은 위험: 3 개
-  - 중간 위험: 3 개
-  - 낮은 위험: 0 개
-📜 결과 영역으로 스크롤 완료
-```
-
-만약 버튼이 작동하지 않는다면:
-1. 콘솔에서 에러 메시지 확인
-2. 요소 ID가 올바른지 확인
-3. JavaScript 파일이 제대로 로드되었는지 확인
-
-## 🔧 CORS 문제 해결
-
-이 프로젝트는 **로컬 환경에서 fetch API 사용 시 발생하는 CORS 에러를 해결**하기 위해 다음과 같은 방식을 사용합니다:
-
-### 문제
-```javascript
-// ❌ 로컬에서 작동하지 않음
-fetch('ingredients.json')
-  .then(res => res.json())
-  .then(data => console.log(data));
-```
-
-### 해결책
-```javascript
-// ✅ 데이터를 JavaScript 파일에 직접 내장
-const ingredientData = [
-  { name: '에탄올', risk: 'medium', ... },
-  { name: '파라벤', risk: 'high', ... }
-];
-```
-
-이 방식으로 **외부 파일 로드 없이** 모든 기능이 정상 작동합니다.
-
-## 📁 프로젝트 구조
-
-```
-skincarevibe/
-├── index.html              # 메인 페이지
-├── ingredient.html         # 성분 분석 페이지
+📁 디렉토리 구조 (Directory Structure)
+project-root/
+├── index.html              # 메인 페이지 (기능 그리드 레이아웃)
 ├── assets/
 │   ├── css/
-│   │   └── style.css      # 통합 스타일시트
-│   └── js/
-│       ├── script.js      # 메인 페이지 로직
-│       ├── ingredient.js  # 성분 분석 로직 (내장 데이터)
-│       └── menu.js        # 햄버거 메뉴 로직
-└── README.md
-```
+│   │   └── style.css       # 전역 스타일 및 컴포넌트 디자인
+│   ├── js/
+│   │   ├── match-logic.js  # 성분 소개팅 게임 로직 및 데이터
+│   │   └── main.js         # 공통 UI 및 GNB 로직
+│   └── images/             # 로고 및 파비콘 에셋
+├── subpages/               # 15개 이상의 개별 기능 페이지
+│   ├── skintype.html
+│   ├── ingredient-match.html
+│   └── ...
+└── robots.txt, sitemap.xml # SEO 최적화 파일
 
-## 🎨 디자인 특징
-
-- **다크 네이비 테마**: 눈의 피로를 줄이는 고급스러운 색상
-- **KV 배경 애니메이션**: 부드러운 그라데이션 효과
-- **반응형 디자인**: 모바일부터 데스크톱까지 완벽 대응
-- **접근성**: ARIA 레이블, 시맨틱 HTML 사용
-
-## 🚫 제거된 기능
-
-- ~~compatibility.html~~ (폐기됨)
-- ~~compatibility.js~~ (폐기됨)
-
-## 📝 라이선스
-
-MIT License
-
-## 👨‍💻 개발자
-
-스킨케어 유틸리티 팀
-
----
-
-**Note**: 이 프로젝트는 교육 및 정보 제공 목적으로 제작되었습니다. 피부 문제가 심각한 경우 전문의와 상담하세요.
+⚖️ 면책 조항 (Disclaimer)
+본 서비스에서 제공하는 정보는 일반적인 가이드라인이며, 의학적 진단이나 처방을 대신할 수 없습니다. 특정 피부 질환이 있는 경우 반드시 전문가와 상담하십시오.

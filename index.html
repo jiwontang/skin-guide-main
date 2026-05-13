@@ -2,106 +2,237 @@
 <html lang="ko">
 
 <head>
+  <!-- 기본 설정 -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>스킨케어 가이드 - 내 피부를 위한 스마트 가이드</title>
-  <meta name="description" content="피부 타입 확인부터 화장품 성분 분석, 홈케어 루틴까지 - 전문가 수준의 스킨케어 가이드를 무료로 제공합니다." />
-  <meta name="keywords" content="피부 타입, 스킨케어, 화장품 성분, 홈케어, 피부 진단, 뷰티 가이드" />
 
-  <meta property="og:title" content="스킨케어 유틸리티 - 내 피부를 위한 스마트 가이드" />
-  <meta property="og:description" content="피부 타입 확인부터 화장품 성분 분석, 홈케어 루틴까지 - 전문가 수준의 스킨케어 가이드를 무료로 제공합니다." />
+  <!-- SEO -->
+  <title>스킨케어 가이드 | 피부 타입 분석 & 홈케어 루틴</title>
+  <meta name="description" content="피부 타입 진단부터 화장품 성분 분석, 홈케어 루틴 추천까지. 내 피부를 위한 스마트 스킨케어 가이드를 무료로 제공합니다." />
+  <meta name="keywords" content="스킨케어, 피부 타입 테스트, 화장품 성분 분석, 홈케어 루틴, 피부 진단, 민감성 피부, 건성 피부, 지성 피부" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Skincare Lab" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://skincare-lab.com/" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://skincare-guide.netlify.app/" />
-  <meta property="og:image" content="https://skincare-guide.netlify.app/assets/images/og-img.webp" />
+  <meta property="og:site_name" content="Skincare Lab" />
+  <meta property="og:title" content="스킨케어 가이드 | 피부 타입 분석 & 홈케어 루틴" />
+  <meta property="og:description" content="피부 타입 진단부터 화장품 성분 분석, 홈케어 루틴 추천까지. 내 피부를 위한 스마트 스킨케어 가이드." />
+  <meta property="og:url" content="https://skincare-lab.com/" />
+  <meta property="og:image" content="https://skincare-lab.com/assets/images/og-img.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="피부 성향 가이드 & 홈케어 도우미 - 스킨케어 유틸리티" />
+
+  <meta property="og:image:alt" content="스킨케어 가이드 대표 이미지" />
   <meta property="og:locale" content="ko_KR" />
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="스킨케어 유틸리티 - 내 피부를 위한 스마트 가이드" />
-  <meta name="twitter:description" content="피부 타입 확인부터 화장품 성분 분석, 홈케어 루틴까지 - 전문가 수준의 스킨케어 가이드를 무료로 제공합니다." />
-  <meta name="twitter:image" content="https://skincare-guide.netlify.app/assets/images/og-img.webp" />
+  <meta name="twitter:title" content="스킨케어 가이드 | 피부 타입 분석 & 홈케어 루틴" />
+  <meta name="twitter:description" content="피부 타입 진단부터 화장품 성분 분석, 홈케어 루틴 추천까지." />
+  <meta name="twitter:image" content="https://skincare-lab.com/assets/images/og-img.webp" />
 
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="피부 성향 가이드 & 홈케어 도우미" />
-  <link rel="canonical" href="https://skincare-guide.netlify.app/" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="icon" href="assets/images/icon/favicon.png" type="image/png">
-  <link rel="shortcut icon" href="assets/images/icon/favicon.ico" type="image/x-icon">
+  <!-- 파비콘 -->
+  <link rel="icon" href="/assets/images/icon/favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="/assets/images/icon/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/assets/images/icon/favicon.png" />
 
-  <!-- Search Engine Verification -->
-  <meta name="google-site-verification" content="UA1KobkCGarO5EUPSF1ypSLV_5jZ20ePpMEkCXF855A" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- 검색 엔진 인증 -->
+  <meta name="google-site-verification" content="d4TjgtVO11m6cxb4ALhMTwOVMs3rDJTlG9wr2DAsKCQ" />
+  <meta name="naver-site-verification" content="d5554b91040277127e8c3b7fe5d3ea3ae1c281d9" />
   <meta name="msvalidate.01" content="50BC6D00FF6BF8F5C32CBB675BA2DE04" />
-  <meta name="naver-site-verification" content="694db6952c1e90a040919a514680d38a9fe4e2b4" />
+
+  <!-- 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Skincare Lab",
+    "url": "https://skincare-lab.com/"
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5403651401497969"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <h1 class="site-header__logo"><a href="index.html">✨ 피부 성향 가이드 & 홈케어 도우미</a></h1>
+
+      <!-- 로고 -->
+      <h1 class="site-header__logo">
+        <a href="index.html" class="site-header__logo-link">
+          <img src="assets/images/icon/favicon.png" alt="Skincare Lab 로고" class="site-header__favicon" width="28" height="28" />
+          <span class="site-header__logo-text">Skincare Lab</span>
+        </a>
+      </h1>
+
+      <!-- PC GNB (드롭다운) -->
+      <nav class="gnb" aria-label="주요 카테고리 메뉴">
+        <ul class="gnb__list">
+
+          <li class="gnb__item gnb__item--has-dropdown">
+            <button class="gnb__btn" aria-haspopup="true" aria-expanded="false">
+              피부 진단
+              <svg class="gnb__arrow" aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="gnb__dropdown" role="menu">
+              <li role="none"><a href="subpages/skintype.html" class="gnb__dropdown-link" role="menuitem">🔍 피부 타입 가이드</a></li>
+            </ul>
+          </li>
+
+          <li class="gnb__item gnb__item--has-dropdown">
+            <button class="gnb__btn" aria-haspopup="true" aria-expanded="false">
+              성분 및 루틴
+              <svg class="gnb__arrow" aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="gnb__dropdown" role="menu">
+              <li role="none"><a href="subpages/ingredient.html" class="gnb__dropdown-link" role="menuitem">🚦 성분 신호등</a></li>
+              <li role="none"><a href="subpages/homecare.html"   class="gnb__dropdown-link" role="menuitem">💆 나쁜 습관 파괴하기</a></li>
+              <li role="none"><a href="subpages/texture.html"    class="gnb__dropdown-link" role="menuitem">🧴 텍스처 레이어링</a></li>
+              <li role="none"><a href="subpages/weather.html"    class="gnb__dropdown-link" role="menuitem">🔮 오늘의 피부 타로</a></li>
+            </ul>
+          </li>
+
+          <li class="gnb__item gnb__item--has-dropdown">
+            <button class="gnb__btn" aria-haspopup="true" aria-expanded="false">
+              트러블 케어
+              <svg class="gnb__arrow" aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="gnb__dropdown" role="menu">
+              <li role="none"><a href="subpages/soothing.html" class="gnb__dropdown-link" role="menuitem">🚨 긴급 진정 가이드</a></li>
+              <li role="none"><a href="subpages/trace.html"    class="gnb__dropdown-link" role="menuitem">🩹 흔적 케어 루틴</a></li>
+            </ul>
+          </li>
+
+          <li class="gnb__item gnb__item--has-dropdown">
+            <button class="gnb__btn" aria-haspopup="true" aria-expanded="false">
+              스페셜
+              <svg class="gnb__arrow" aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="gnb__dropdown" role="menu">
+              <li role="none"><a href="subpages/d-1.html"           class="gnb__dropdown-link" role="menuitem">✨ D-1 찰떡 루틴</a></li>
+              <li role="none"><a href="subpages/personal-color.html" class="gnb__dropdown-link" role="menuitem">🎨 퍼스널 무드 팔레트</a></li>
+              <li role="none"><a href="subpages/mission.html"        class="gnb__dropdown-link" role="menuitem">🎯 시크릿 글로우 미션</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </nav>
+
+      <!-- 햄버거 (모바일 전용) -->
       <div class="site-header__right">
-        <span class="current-location">🏠 홈</span>
-        <button class="hamburger-menu" id="hamburger-btn" aria-label="메뉴 열기">
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
         </button>
       </div>
+
     </div>
   </header>
 
-  <!-- Navigation Menu Overlay -->
-  <div class="menu-overlay" id="menu-overlay">
-    <nav class="menu-nav">
-      <div class="menu-header">
-        <h2 class="menu-title">모든 기능</h2>
-        <button class="menu-close" id="menu-close-btn" aria-label="메뉴 닫기">✕</button>
+  <!-- 모바일 메뉴 오버레이 -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav class="mobile-menu__nav">
+
+      <div class="mobile-menu__header">
+        <span class="mobile-menu__title">메뉴</span>
+        <button class="mobile-menu__close" id="menu-close-btn" aria-label="메뉴 닫기">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
 
-      <ul class="menu-list">
-        <li class="menu-item">
-          <a href="index.html" class="menu-link current">🏠 홈</a>
+      <ul class="mobile-menu__list">
+
+        <!-- 피부 진단 -->
+        <li class="mobile-menu__item mobile-menu__item--accordion">
+          <button class="mobile-menu__accordion-btn" aria-expanded="false">
+            <span>피부 진단</span>
+            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="mobile-menu__sub">
+            <li><a href="subpages/skintype.html" class="mobile-menu__sub-link">🔍 피부 타입 가이드</a></li>
+          </ul>
         </li>
-        <li class="menu-item">
-          <a href="subpages/skintype.html" class="menu-link">🔍 내 피부 타입 확인 가이드</a>
+
+        <!-- 성분 및 루틴 -->
+        <li class="mobile-menu__item mobile-menu__item--accordion">
+          <button class="mobile-menu__accordion-btn" aria-expanded="false">
+            <span>성분 및 루틴</span>
+            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="mobile-menu__sub">
+            <li><a href="subpages/ingredient.html" class="mobile-menu__sub-link">🚦 성분 신호등</a></li>
+            <li><a href="subpages/homecare.html"   class="mobile-menu__sub-link">💆 나쁜 습관 파괴하기</a></li>
+            <li><a href="subpages/texture.html"    class="mobile-menu__sub-link">🧴 텍스처 레이어링</a></li>
+            <li><a href="subpages/weather.html"    class="mobile-menu__sub-link">� 오늘의 피부 타로</a></li>
+          </ul>
         </li>
-        <li class="menu-item">
-          <a href="subpages/ingredient.html" class="menu-link">🚦 화장품 성분 신호등</a>
+
+        <!-- 트러블 케어 -->
+        <li class="mobile-menu__item mobile-menu__item--accordion">
+          <button class="mobile-menu__accordion-btn" aria-expanded="false">
+            <span>트러블 케어</span>
+            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="mobile-menu__sub">
+            <li><a href="subpages/soothing.html" class="mobile-menu__sub-link">🚨 긴급 진정 가이드</a></li>
+            <li><a href="subpages/trace.html"    class="mobile-menu__sub-link">🩹 흔적 케어 루틴</a></li>
+          </ul>
         </li>
-        <li class="menu-item">
-          <a href="subpages/homecare.html" class="menu-link">💆‍♀️ 0원 나쁜 습관 파괴기</a>
+
+        <!-- 스페셜 -->
+        <li class="mobile-menu__item mobile-menu__item--accordion">
+          <button class="mobile-menu__accordion-btn" aria-expanded="false">
+            <span>스페셜</span>
+            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="mobile-menu__sub">
+            <li><a href="subpages/d-1.html"            class="mobile-menu__sub-link">✨ D-1 찰떡 루틴</a></li>
+            <li><a href="subpages/personal-color.html"  class="mobile-menu__sub-link">🎨 퍼스널 무드 팔레트</a></li>
+            <li><a href="subpages/mission.html"         class="mobile-menu__sub-link">🎯 시크릿 글로우 미션</a></li>
+          </ul>
         </li>
-        <li class="menu-item">
-          <a href="subpages/d-1.html" class="menu-link">✨ D-1 중요날 찰떡 루틴</a>
+
+        <!-- 기타 링크 -->
+        <li class="mobile-menu__item mobile-menu__item--link">
+          <a href="subpages/about.html" class="mobile-menu__link">📖 사이트 소개</a>
         </li>
-        <li class="menu-item">
-          <a href="subpages/soothing.html" class="menu-link">🚨 오늘 밤 긴급 진정 가이드</a>
+        <li class="mobile-menu__item mobile-menu__item--link">
+          <a href="subpages/contact.html" class="mobile-menu__link">📧 문의하기</a>
         </li>
-        <li class="menu-item">
-          <a href="subpages/trace.html" class="menu-link">🩹 흔적 & 케어 루틴 가이드</a>
-        </li>
-        <li class="menu-item">
-          <a href="subpages/personal-color.html" class="menu-link">🎨 퍼스널 무드 팔레트</a>
-        </li>
-        <li class="menu-item">
-          <a href="subpages/weather.html" class="menu-link">🔮 피부 타로</a>
-        </li>
-        <li class="menu-item">
-          <a href="subpages/mission.html" class="menu-link">🎯 시크릿 글로우 미션</a>
-        </li>
-        <li class="menu-item">
-          <a href="subpages/texture.html" class="menu-link">🧴 텍스처 레이어링 슬라이더</a>
-        </li>
-        <li class="menu-item">
-          <a href="subpages/about.html" class="menu-link">📖 사이트 소개</a>
-        </li>
-        <li class="menu-item">
-          <a href="subpages/contact.html" class="menu-link">📧 문의하기</a>
-        </li>
+
       </ul>
     </nav>
   </div>
+  <!-- 모바일 메뉴 딤 배경 -->
+  <div class="mobile-menu__backdrop" id="mobile-menu-backdrop" aria-hidden="true"></div>
 
   <main>
     <!-- Hero Section -->
@@ -117,64 +248,73 @@
 
     <!-- Main Feature Cards -->
     <section class="feature-cards" aria-labelledby="features-heading">
+      <h2 id="features-heading" class="visually-hidden">주요 기능 목록</h2>
       <div class="feature-cards__container">
         <div class="feature-grid">
 
-          <a href="subpages/skintype.html" class="feature-card reveal" id="skin-type-guide">
+          <!-- 피부 진단 -->
+          <a href="subpages/skintype.html" class="feature-card reveal" id="skin-type-guide" data-category="피부 진단">
             <div class="feature-card__icon">🔍</div>
             <h3 class="feature-card__title">내 피부 타입 확인 가이드</h3>
             <p class="feature-card__desc">그래서 건성, 지성, 복합성 중 난 뭔데? 세안 후 증상으로 1분 만에 알아보기</p>
           </a>
 
-          <a href="subpages/ingredient.html" class="feature-card reveal reveal-delay-1">
+          <!-- 성분 및 루틴 -->
+          <a href="subpages/ingredient.html" class="feature-card reveal reveal-delay-1" data-category="성분 및 루틴">
             <div class="feature-card__icon">🚦</div>
             <h3 class="feature-card__title">화장품 성분 신호등</h3>
             <p class="feature-card__desc">내 피부 타입에 맞는 성분인지 색상으로 확인</p>
           </a>
 
-          <a href="subpages/homecare.html" class="feature-card reveal reveal-delay-2" id="homecare-guide">
+          <a href="subpages/homecare.html" class="feature-card reveal reveal-delay-2" id="homecare-guide" data-category="성분 및 루틴">
             <div class="feature-card__icon">💆‍♀️</div>
-            <h3 class="feature-card__title">0원 나쁜 습관 파괴기</h3>
+            <h3 class="feature-card__title">0원 나쁜 습관 파괴하기</h3>
             <p class="feature-card__desc">내 피부를 망치는 생활 습관 5가지 체크리스트</p>
           </a>
 
-          <a href="subpages/d-1.html" class="feature-card reveal reveal-delay-3" id="dday-routine">
+          <!-- 스페셜 -->
+          <a href="subpages/d-1.html" class="feature-card reveal reveal-delay-3" id="dday-routine" data-category="스페셜">
             <div class="feature-card__icon">✨</div>
             <h3 class="feature-card__title">D-1 중요날 찰떡 루틴</h3>
             <p class="feature-card__desc">화장이 잘 먹는 최상의 피부 컨디션 만들기</p>
           </a>
 
-          <a href="subpages/soothing.html" class="feature-card reveal" id="emergency-guide">
+          <!-- 트러블 케어 -->
+          <a href="subpages/soothing.html" class="feature-card reveal" id="emergency-guide" data-category="트러블 케어">
             <div class="feature-card__icon">🚨</div>
             <h3 class="feature-card__title">오늘 밤 긴급 진정 가이드</h3>
             <p class="feature-card__desc">갑작스러운 고민을 잠재우는 화장품 순서</p>
           </a>
 
-          <a href="subpages/trace.html" class="feature-card reveal reveal-delay-1" id="scar-care">
+          <a href="subpages/trace.html" class="feature-card reveal reveal-delay-1" id="scar-care" data-category="트러블 케어">
             <div class="feature-card__icon">🩹</div>
-            <h3 class="feature-card__title">흔적 & 케어 루틴 가이드</h3>
+            <h3 class="feature-card__title">흔적 &amp; 케어 루틴 가이드</h3>
             <p class="feature-card__desc">맑은 피부톤을 위한 스킨케어 팁</p>
           </a>
 
-          <a href="subpages/personal-color.html" class="feature-card feature-card--new reveal reveal-delay-2">
+          <!-- 스페셜 NEW -->
+          <a href="subpages/personal-color.html" class="feature-card feature-card--new reveal reveal-delay-2" data-category="스페셜">
             <div class="feature-card__icon">🎨</div>
             <h3 class="feature-card__title">퍼스널 무드 팔레트</h3>
             <p class="feature-card__desc">3가지 컬러 칩으로 나의 퍼스널 컬러를 찾고 어울리는 화장품 제형을 추천받으세요</p>
           </a>
 
-          <a href="subpages/weather.html" class="feature-card feature-card--new feature-card--tarot reveal reveal-delay-3">
+          <!-- 성분 및 루틴 NEW -->
+          <a href="subpages/weather.html" class="feature-card feature-card--new feature-card--tarot reveal reveal-delay-3" data-category="성분 및 루틴">
             <div class="feature-card__icon">🔮</div>
             <h3 class="feature-card__title">오늘의 피부 타로</h3>
             <p class="feature-card__desc">3장의 카드 중 하나를 선택해 지금 내 피부가 가장 듣고 싶은 스킨케어 메시지를 확인하세요</p>
           </a>
 
-          <a href="subpages/mission.html" class="feature-card feature-card--new feature-card--mission reveal">
+          <!-- 스페셜 NEW -->
+          <a href="subpages/mission.html" class="feature-card feature-card--new feature-card--mission reveal" data-category="스페셜">
             <div class="feature-card__icon">🎯</div>
             <h3 class="feature-card__title">시크릿 글로우 미션</h3>
             <p class="feature-card__desc">스크래치 카드를 긁어 오늘의 피부 습관 미션을 공개하세요. 매일 새로운 스킨케어 챌린지</p>
           </a>
 
-          <a href="subpages/texture.html" class="feature-card feature-card--new reveal reveal-delay-1">
+          <!-- 성분 및 루틴 NEW -->
+          <a href="subpages/texture.html" class="feature-card feature-card--new reveal reveal-delay-1" data-category="성분 및 루틴">
             <div class="feature-card__icon">🧴</div>
             <h3 class="feature-card__title">텍스처 레이어링 슬라이더</h3>
             <p class="feature-card__desc">수분감·유분감·쿨링감 슬라이더로 지금 피부에 맞는 최적의 제형 레이어링 루틴을 찾아보세요</p>
@@ -202,6 +342,20 @@
 
   <footer class="site-footer">
     <div class="footer-container">
+      <!-- Medical Disclaimer -->
+      <div class="medical-disclaimer" style="background: rgba(239, 68, 68, 0.1); border-left: 0.4rem solid #EF4444; padding: 2rem; margin-bottom: 2.4rem; border-radius: 0.8rem;">
+        <h3 style="color: #EF4444; font-size: 1.6rem; font-weight: 700; margin-bottom: 1.2rem;">⚠️ 의료 면책 조항 (Medical Disclaimer)</h3>
+        <p style="color: #CBD5E1; font-size: 1.3rem; line-height: 1.7; margin-bottom: 1rem;">
+          본 사이트에서 제공하는 피부 타입 진단, 화장품 성분 분석, 스킨케어 가이드 등의 정보는 <strong style="color: #F87171;">일반적인 교육 및 정보 제공 목적</strong>으로만 제공되며, 의학적 조언, 진단 또는 치료를 대체할 수 없습니다.
+        </p>
+        <p style="color: #CBD5E1; font-size: 1.3rem; line-height: 1.7; margin-bottom: 1rem;">
+          피부 질환, 알레르기 반응, 또는 심각한 피부 문제가 있는 경우 반드시 피부과 전문의의 진료를 받으시기 바랍니다. 본 사이트의 정보를 바탕으로 한 개인적 판단이나 화장품 사용으로 인한 부작용, 피부 반응 등에 대해 본 사이트는 법적 책임을 지지 않습니다.
+        </p>
+        <p style="color: #CBD5E1; font-size: 1.3rem; line-height: 1.7;">
+          화장품 사용 전 제품의 전성분을 확인하고, 민감한 피부를 가진 경우 패치 테스트를 실시하시기 바랍니다.
+        </p>
+      </div>
+
       <p class="footer-about" style="color: #94A3B8; font-size: 1.4rem; margin-bottom: 1.6rem; text-align: center;">
         피부 성향 가이드 & 홈케어 도우미는 복잡한 화장품 성분과 뷰티 정보를 누구나 알기 쉽게 번역하여, 건강한 피부 장벽 관리를 돕는 웹사이트입니다.
       </p>
@@ -218,25 +372,84 @@
   <script src="assets/js/script.js" defer></script>
   <script src="assets/js/menu.js" defer></script>
   <script src="assets/js/scroll-reveal.js" defer></script>
+  <script src="assets/js/filter.js" defer></script>
 
-  <!-- JSON-LD: WebSite + Sitelinks Searchbox -->
+  <!-- JSON-LD: WebSite + Organization + BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "피부 성향 가이드 & 홈케어 도우미",
-    "url": "https://skincare-guide.netlify.app/",
-    "description": "피부 타입 확인부터 화장품 성분 분석, 홈케어 루틴까지 전문가 수준의 스킨케어 가이드를 무료로 제공합니다.",
-    "inLanguage": "ko-KR",
-    "publisher": {
-      "@type": "Organization",
-      "name": "피부 성향 가이드 & 홈케어 도우미",
-      "url": "https://skincare-guide.netlify.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://skincare-guide.netlify.app/assets/images/icon/favicon.png"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Skincare Lab 스킨케어 가이드",
+        "alternateName": "Skincare Lab",
+        "url": "https://skincare-lab.com/",
+        "description": "피부 타입 확인부터 화장품 성분 분석, 홈케어 루틴까지 전문가 수준의 스킨케어 가이드를 무료로 제공합니다.",
+        "inLanguage": "ko-KR",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Skincare Lab",
+          "alternateName": "Skincare Lab",
+          "url": "https://skincare-lab.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://skincare-lab.com/assets/images/icon/favicon.png",
+            "width": 512,
+            "height": 512
+          },
+          "description": "과학적 근거에 기반한 스킨케어 정보를 제공하는 전문 플랫폼",
+          "foundingDate": "2024",
+          "areaServed": "KR",
+          "knowsAbout": ["스킨케어", "화장품 성분 분석", "피부 타입 진단", "홈케어 루틴", "피부 과학", "뷰티"]
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://skincare-lab.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "Skincare Lab",
+        "url": "https://skincare-lab.com/",
+        "logo": "https://skincare-lab.com/assets/images/icon/favicon.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "email": "jiwontang9794@gmail.com",
+          "availableLanguage": "Korean"
+        },
+        "sameAs": [
+          "https://skincare-lab.com"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "name": "스킨케어 가이드 홈",
+        "url": "https://skincare-lab.com/",
+        "description": "피부 타입 분석, 화장품 성분 신호등, 홈케어 루틴 등 다양한 스킨케어 도구를 제공합니다.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "url": "https://skincare-lab.com/"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "스킨케어",
+          "description": "피부 건강과 관리에 관한 종합 정보"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "홈",
+              "item": "https://skincare-lab.com/"
+            }
+          ]
+        }
       }
-    }
+    ]
   }
   </script>
 </body>

@@ -1,15 +1,11 @@
-# =============================================
-# robots.txt — 피부 성향 가이드 & 홈케어 도우미
-# https://skincare-guide.netlify.app/
+﻿# =============================================
+# robots.txt — Skincare Lab
+# https://skincare-lab.com/
 # =============================================
 
-# 모든 크롤러 허용
+# 전체 크롤링 허용
 User-agent: *
 Allow: /
-
-# 불필요한 에셋 크롤링 차단 (크롤 예산 절약)
-Disallow: /assets/js/
-Disallow: /assets/css/
 
 # ── Google ──────────────────────────────────
 User-agent: Googlebot
@@ -39,7 +35,7 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-# ── 악성 크롤러 차단 ─────────────────────────
+# ── 악성/SEO 스크래핑 봇 차단 ─────────────────
 User-agent: AhrefsBot
 Disallow: /
 
@@ -53,4 +49,4 @@ User-agent: DotBot
 Disallow: /
 
 # ── Sitemap ──────────────────────────────────
-Sitemap: https://skincare-guide.netlify.app/sitemap.xml
+Sitemap: https://skincare-lab.com/sitemap.xml
