@@ -9366,3 +9366,361 @@ article p,
   color: #F87171;
   font-weight: 600;
 }
+
+/* ????????????????????????????????????????
+   BALANCE GAME SECTION
+   ???????????????????????????????????????? */
+.bg-body {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+.bg-main {
+  padding-top: 10rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bg-hero {
+  padding: 6rem 2.4rem 4rem;
+  text-align: center;
+}
+
+.bg-hero__tag {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: rgba(126, 193, 255, 0.1);
+  color: var(--color-accent);
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.6rem;
+}
+
+.bg-hero__title {
+  font-size: clamp(3.2rem, 5vw, 4.8rem);
+  font-weight: 800;
+  margin-bottom: 1.6rem;
+  line-height: 1.2;
+}
+
+.bg-hero__title em {
+  font-style: normal;
+  color: var(--color-accent);
+  background: linear-gradient(135deg, #7ec1ff 0%, #4de9ab 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-hero__desc {
+  color: #94a3b8;
+  font-size: 1.8rem;
+  line-height: 1.6;
+}
+
+/* Progress Bar */
+.bg-progress {
+  width: 100%;
+  max-width: 60rem;
+  padding: 0 2.4rem;
+  margin-bottom: 4rem;
+}
+
+.bg-progress__bar {
+  height: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.bg-progress__fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7ec1ff, #4de9ab);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-progress__text {
+  display: block;
+  text-align: right;
+  font-size: 1.4rem;
+  color: #64748b;
+}
+
+/* Game Area */
+.bg-game {
+  width: 100%;
+  max-width: 120rem;
+  padding: 0 2.4rem 8rem;
+}
+
+.bg-question {
+  text-align: center;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 6rem;
+  color: #fff;
+}
+
+.bg-cards {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.bg-card {
+  position: relative;
+  background: rgba(30, 41, 59, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2.4rem;
+  padding: 4rem 2rem;
+  min-height: 40rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bg-card:hover {
+  transform: translateY(-1rem);
+  border-color: var(--color-accent);
+  background: rgba(30, 41, 59, 0.9);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.bg-card__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.bg-card__label {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.bg-card__text {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #f8fafc;
+}
+
+.bg-vs {
+  position: relative;
+  z-index: 10;
+}
+
+.bg-vs__circle {
+  width: 8rem;
+  height: 8rem;
+  background: #0f172a;
+  border: 4px solid var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(126, 193, 255, 0.3);
+}
+
+.bg-vs__text {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+/* Result Area */
+.bg-result {
+  width: 100%;
+  max-width: 80rem;
+  padding: 0 2.4rem 8rem;
+}
+
+.bg-result__container {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3.2rem;
+  padding: 6rem 4rem;
+  text-align: center;
+  backdrop-filter: blur(20px);
+}
+
+.bg-result__badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #0f172a;
+  padding: 0.6rem 1.6rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.bg-result__title {
+  font-size: 3.6rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.bg-result__summary {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 4rem;
+}
+
+.bg-result__actions {
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+}
+
+.bg-reset-btn, .bg-home-btn {
+  padding: 1.6rem 3.2rem;
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bg-reset-btn {
+  background: var(--color-accent);
+  color: #0f172a;
+  border: none;
+}
+
+.bg-home-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .bg-cards {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .bg-vs {
+    margin: -3rem 0;
+  }
+  .bg-card {
+    min-height: 24rem;
+  }
+}
+
+/* ????????????????????????????????????????
+   BALANCE GAME RESULT UPGRADE
+   ???????????????????????????????????????? */
+.bg-result__container {
+  padding: 4rem 2rem;
+}
+
+.bg-result__summary-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+  padding: 4rem 3rem;
+  border-radius: 3rem;
+  margin-bottom: 4rem;
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(126, 193, 255, 0.1);
+  text-align: center;
+}
+
+.bg-result__emoji {
+  font-size: 6.4rem;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
+.bg-result__title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.6rem;
+  word-break: keep-all;
+}
+
+.bg-result__intro {
+  font-size: 1.7rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+/* Expert Report Boxes */
+.expert-report {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.report-box {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  padding: 3rem;
+  margin-bottom: 2.4rem;
+  transition: transform 0.3s ease;
+}
+
+.report-box:hover {
+  transform: translateX(10px);
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(126, 193, 255, 0.3);
+}
+
+.report-box__header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.report-box__icon {
+  font-size: 2.4rem;
+}
+
+.report-box__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.report-box__content {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: #e2e8f0;
+}
+
+.report-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.report-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.report-list li::before {
+  content: " ?\;
+ position: absolute;
+ left: 0;
+ color: var(--color-accent);
+ font-weight: bold;
+}

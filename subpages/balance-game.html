@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- 기본 설정 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>스킨케어 밸런스 게임 | 당신의 선택은? | Skincare Lab</title>
+  <meta name="description" content="포기할 수 없는 두 가지 스킨케어 고민! 당신의 선택으로 알아보는 스킨케어 성향 테스트." />
+  <meta name="keywords" content="스킨케어 밸런스 게임, 피부 타입 테스트, 뷰티 게임, 화장품 선택, 스킨케어 루틴" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 파비콘 -->
+  <link rel="icon" href="../assets/images/icon/favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="../assets/images/icon/favicon.ico" type="image/x-icon" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body class="bg-body">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <p class="site-header__logo"><a href="../index.html">✨ 피부 성향 가이드 & 홈케어 도우미</a></p>
+      <div class="site-header__right">
+        <span class="current-location">🎮 밸런스 게임</span>
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="메뉴 열기">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <div class="menu-overlay" id="menu-overlay">
+    <nav class="menu-nav" aria-label="주 메뉴">
+      <div class="menu-header">
+        <h2 class="menu-title">모든 기능</h2>
+        <button class="menu-close" id="menu-close-btn" aria-label="메뉴 닫기">✕</button>
+      </div>
+      <ul class="menu-list">
+        <li class="menu-item"><a href="../index.html" class="menu-link">🏠 홈</a></li>
+        <li class="menu-item"><a href="skintype.html" class="menu-link">🔍 내 피부 타입 확인 가이드</a></li>
+        <li class="menu-item"><a href="ingredient.html" class="menu-link">🚦 화장품 성분 신호등</a></li>
+        <li class="menu-item"><a href="homecare.html" class="menu-link">💆‍♀️ 0원 나쁜 습관 파괴기</a></li>
+        <li class="menu-item"><a href="d-1.html" class="menu-link">✨ D-1 중요날 찰떡 루틴</a></li>
+        <li class="menu-item"><a href="soothing.html" class="menu-link">🚨 오늘 밤 긴급 진정 가이드</a></li>
+        <li class="menu-item"><a href="trace.html" class="menu-link">🩹 흔적 & 케어 루틴 가이드</a></li>
+        <li class="menu-item"><a href="personal-color.html" class="menu-link">🎨 퍼스널 무드 팔레트</a></li>
+        <li class="menu-item"><a href="weather.html" class="menu-link">🔮 피부 타로</a></li>
+        <li class="menu-item"><a href="mission.html" class="menu-link">🎯 시크릿 글로우 미션</a></li>
+        <li class="menu-item"><a href="texture.html" class="menu-link">🧴 텍스처 레이어링 슬라이더</a></li>
+        <li class="menu-item"><a href="balance-game.html" class="menu-link current">🎮 밸런스 게임</a></li>
+        <li class="menu-item"><a href="about.html" class="menu-link">📖 사이트 소개</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="bg-main">
+    <!-- Hero / Intro -->
+    <section class="bg-hero">
+      <div class="bg-hero__container">
+        <span class="bg-hero__tag">SKINCARE CHALLENGE</span>
+        <h2 class="bg-hero__title">지독한 <em>밸런스 게임</em></h2>
+        <p class="bg-hero__desc">피부과 의사도 고민한다는 그 선택! <br>당신의 스킨케어 가치관을 확인해보세요.</p>
+      </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="bg-progress">
+      <div class="bg-progress__container">
+        <div class="bg-progress__bar">
+          <div class="bg-progress__fill" id="progress-fill" style="width: 0%;"></div>
+        </div>
+        <span class="bg-progress__text">질문 <span id="current-q">1</span> / <span id="total-q">5</span></span>
+      </div>
+    </div>
+
+    <!-- Game Area -->
+    <section class="bg-game" id="game-area">
+      <div class="bg-game__container">
+        <h3 class="bg-question" id="question-text">평생 한 가지만 발라야 한다면?</h3>
+        
+        <div class="bg-cards">
+          <!-- Card A -->
+          <button class="bg-card bg-card--a" id="choice-a">
+            <div class="bg-card__inner">
+              <span class="bg-card__label">OPTION A</span>
+              <p class="bg-card__text" id="text-a">평생 선크림만 바르기</p>
+              <div class="bg-card__hover-effect"></div>
+            </div>
+          </button>
+
+          <!-- VS Icon -->
+          <div class="bg-vs">
+            <div class="bg-vs__circle">
+              <span class="bg-vs__text">VS</span>
+            </div>
+          </div>
+
+          <!-- Card B -->
+          <button class="bg-card bg-card--b" id="choice-b">
+            <div class="bg-card__inner">
+              <span class="bg-card__label">OPTION B</span>
+              <p class="bg-card__text" id="text-b">평생 보습제만 바르기</p>
+              <div class="bg-card__hover-effect"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result Area (Hidden) -->
+    <section class="bg-result" id="result-area" style="display: none;">
+      <div class="bg-result__container">
+        <!-- 1. 상단 요약 섹션 (Modal View Style) -->
+        <div class="bg-result__summary-card">
+          <div class="bg-result__emoji" id="result-emoji">🛡️</div>
+          <h3 class="bg-result__title" id="result-title">결과를 계산 중입니다...</h3>
+          <p class="bg-result__intro" id="result-intro">잠시만 기다려주세요.</p>
+        </div>
+
+        <!-- 2. 하단 상세 섹션 (Expert Report) -->
+        <article class="expert-report" id="expert-report">
+          <!-- JS에서 .report-box 형태로 동적 삽입됨 -->
+        </article>
+
+        <div class="bg-result__actions">
+          <button class="bg-reset-btn" onclick="location.reload()">🔄 다시 하기</button>
+          <a href="../index.html" class="bg-home-btn">🏠 홈으로</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="medical-disclaimer">
+        <h3>⚠️ 의료 면책 조항</h3>
+        <p>본 게임은 재미와 정보 제공을 목적으로 하며, 실제 피부 상태에 따른 처방은 전문가와 상담하시기 바랍니다.</p>
+      </div>
+      <p class="footer-copy">&copy; 2024 Skincare Lab. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/menu.js" defer></script>
+  <script src="../assets/js/balance-logic.js" defer></script>
+</body>
+
+</html>
