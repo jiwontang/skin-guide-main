@@ -44,6 +44,9 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/style.css" />
 
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   <!-- 검색 엔진 인증 -->
   <meta name="google-site-verification" content="d4TjgtVO11m6cxb4ALhMTwOVMs3rDJTlG9wr2DAsKCQ" />
   <meta name="naver-site-verification" content="d5554b91040277127e8c3b7fe5d3ea3ae1c281d9" />
@@ -69,7 +72,8 @@
       <!-- 로고 -->
       <h1 class="site-header__logo">
         <a href="index.html" class="site-header__logo-link">
-          <img src="assets/images/icon/favicon.png" alt="Skincare Lab 로고" class="site-header__favicon" width="28" height="28" />
+          <img src="assets/images/icon/favicon.png" alt="Skincare Lab 로고" class="site-header__favicon" width="28"
+            height="28" />
           <span class="site-header__logo-text">Skincare Lab</span>
         </a>
       </h1>
@@ -82,11 +86,13 @@
             <button class="gnb__btn" aria-haspopup="true" aria-expanded="false">
               피부 진단
               <svg class="gnb__arrow" aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </button>
             <ul class="gnb__dropdown" role="menu">
-              <li role="none"><a href="subpages/skintype.html" class="gnb__dropdown-link" role="menuitem">🔍 피부 타입 가이드</a></li>
+              <li role="none"><a href="subpages/skintype.html" class="gnb__dropdown-link" role="menuitem">🔍 피부 타입
+                  가이드</a></li>
             </ul>
           </li>
 
@@ -94,15 +100,23 @@
             <button class="gnb__btn" aria-haspopup="true" aria-expanded="false">
               성분 및 루틴
               <svg class="gnb__arrow" aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </button>
             <ul class="gnb__dropdown" role="menu">
-              <li role="none"><a href="subpages/ingredient.html" class="gnb__dropdown-link" role="menuitem">🚦 성분 신호등</a></li>
-              <li role="none"><a href="subpages/ingredient-match.html" class="gnb__dropdown-link" role="menuitem">🧬 성분 소개팅</a></li>
-              <li role="none"><a href="subpages/homecare.html"   class="gnb__dropdown-link" role="menuitem">💆 나쁜 습관 파괴하기</a></li>
-              <li role="none"><a href="subpages/texture.html"    class="gnb__dropdown-link" role="menuitem">🧴 텍스처 레이어링</a></li>
-              <li role="none"><a href="subpages/weather.html"    class="gnb__dropdown-link" role="menuitem">🔮 오늘의 피부 타로</a></li>
+              <li role="none"><a href="subpages/ingredient.html" class="gnb__dropdown-link" role="menuitem">🚦 성분
+                  신호등</a></li>
+              <li role="none"><a href="subpages/ingredient-match.html" class="gnb__dropdown-link" role="menuitem">🧬 성분
+                  소개팅</a></li>
+              <li role="none"><a href="subpages/homecare.html" class="gnb__dropdown-link" role="menuitem">💆 나쁜 습관
+                  파괴하기</a></li>
+              <li role="none"><a href="subpages/texture.html" class="gnb__dropdown-link" role="menuitem">🧴 텍스처 레이어링</a>
+              </li>
+              <li role="none"><a href="subpages/weather.html" class="gnb__dropdown-link" role="menuitem">🌡️ 오늘의 피부
+                  일기예보</a></li>
+              <li role="none"><a href="subpages/skincare-diet.html" class="gnb__dropdown-link" role="menuitem">⚖️ 화장대
+                  다이어트</a></li>
             </ul>
           </li>
 
@@ -110,12 +124,15 @@
             <button class="gnb__btn" aria-haspopup="true" aria-expanded="false">
               트러블 케어
               <svg class="gnb__arrow" aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </button>
             <ul class="gnb__dropdown" role="menu">
-              <li role="none"><a href="subpages/soothing.html" class="gnb__dropdown-link" role="menuitem">🚨 긴급 진정 가이드</a></li>
-              <li role="none"><a href="subpages/trace.html"    class="gnb__dropdown-link" role="menuitem">🩹 흔적 케어 루틴</a></li>
+              <li role="none"><a href="subpages/soothing.html" class="gnb__dropdown-link" role="menuitem">🚨 긴급 진정
+                  가이드</a></li>
+              <li role="none"><a href="subpages/trace.html" class="gnb__dropdown-link" role="menuitem">🩹 흔적 케어 루틴</a>
+              </li>
             </ul>
           </li>
 
@@ -123,14 +140,21 @@
             <button class="gnb__btn" aria-haspopup="true" aria-expanded="false">
               스페셜
               <svg class="gnb__arrow" aria-hidden="true" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </button>
             <ul class="gnb__dropdown" role="menu">
-              <li role="none"><a href="subpages/d-1.html"           class="gnb__dropdown-link" role="menuitem">✨ D-1 찰떡 루틴</a></li>
-              <li role="none"><a href="subpages/balance-game.html"  class="gnb__dropdown-link" role="menuitem">🎮 밸런스 게임</a></li>
-              <li role="none"><a href="subpages/personal-color.html" class="gnb__dropdown-link" role="menuitem">🎨 퍼스널 무드 팔레트</a></li>
-              <li role="none"><a href="subpages/mission.html"        class="gnb__dropdown-link" role="menuitem">🎯 시크릿 글로우 미션</a></li>
+              <li role="none"><a href="subpages/d-1.html" class="gnb__dropdown-link" role="menuitem">✨ D-1 찰떡 루틴</a>
+              </li>
+              <li role="none"><a href="subpages/balance-game.html" class="gnb__dropdown-link" role="menuitem">🎮 밸런스
+                  게임</a></li>
+              <li role="none"><a href="subpages/personal-color.html" class="gnb__dropdown-link" role="menuitem">🎨 퍼스널
+                  무드 팔레트</a></li>
+              <li role="none"><a href="subpages/mission.html" class="gnb__dropdown-link" role="menuitem">🎯 시크릿 글로우
+                  미션</a></li>
+              <li role="none"><a href="subpages/aging-clock.html" class="gnb__dropdown-link" role="menuitem">⏱️ 피부 노화
+                  시계</a></li>
             </ul>
           </li>
 
@@ -139,7 +163,8 @@
 
       <!-- 햄버거 (모바일 전용) -->
       <div class="site-header__right">
-        <button class="hamburger-menu" id="hamburger-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="메뉴 열기" aria-expanded="false"
+          aria-controls="mobile-menu">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -157,7 +182,7 @@
         <span class="mobile-menu__title">메뉴</span>
         <button class="mobile-menu__close" id="menu-close-btn" aria-label="메뉴 닫기">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
           </svg>
         </button>
       </div>
@@ -168,8 +193,10 @@
         <li class="mobile-menu__item mobile-menu__item--accordion">
           <button class="mobile-menu__accordion-btn" aria-expanded="false">
             <span>피부 진단</span>
-            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
-              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"
+              aria-hidden="true">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </button>
           <ul class="mobile-menu__sub">
@@ -181,16 +208,19 @@
         <li class="mobile-menu__item mobile-menu__item--accordion">
           <button class="mobile-menu__accordion-btn" aria-expanded="false">
             <span>성분 및 루틴</span>
-            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
-              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"
+              aria-hidden="true">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </button>
           <ul class="mobile-menu__sub">
             <li><a href="subpages/ingredient.html" class="mobile-menu__sub-link">🚦 성분 신호등</a></li>
             <li><a href="subpages/ingredient-match.html" class="mobile-menu__sub-link">🧬 성분 소개팅</a></li>
-            <li><a href="subpages/homecare.html"   class="mobile-menu__sub-link">💆 나쁜 습관 파괴하기</a></li>
-            <li><a href="subpages/texture.html"    class="mobile-menu__sub-link">🧴 텍스처 레이어링</a></li>
-            <li><a href="subpages/weather.html"    class="mobile-menu__sub-link">🔮 오늘의 피부 타로</a></li>
+            <li><a href="subpages/homecare.html" class="mobile-menu__sub-link">💆 나쁜 습관 파괴하기</a></li>
+            <li><a href="subpages/texture.html" class="mobile-menu__sub-link">🧴 텍스처 레이어링</a></li>
+            <li><a href="subpages/weather.html" class="mobile-menu__sub-link">🌡️ 오늘의 피부 일기예보</a></li>
+            <li><a href="subpages/skincare-diet.html" class="mobile-menu__sub-link">⚖️ 화장대 다이어트</a></li>
           </ul>
         </li>
 
@@ -198,13 +228,15 @@
         <li class="mobile-menu__item mobile-menu__item--accordion">
           <button class="mobile-menu__accordion-btn" aria-expanded="false">
             <span>트러블 케어</span>
-            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
-              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"
+              aria-hidden="true">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </button>
           <ul class="mobile-menu__sub">
             <li><a href="subpages/soothing.html" class="mobile-menu__sub-link">🚨 긴급 진정 가이드</a></li>
-            <li><a href="subpages/trace.html"    class="mobile-menu__sub-link">🩹 흔적 케어 루틴</a></li>
+            <li><a href="subpages/trace.html" class="mobile-menu__sub-link">🩹 흔적 케어 루틴</a></li>
           </ul>
         </li>
 
@@ -212,15 +244,18 @@
         <li class="mobile-menu__item mobile-menu__item--accordion">
           <button class="mobile-menu__accordion-btn" aria-expanded="false">
             <span>스페셜</span>
-            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
-              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="mobile-menu__accordion-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"
+              aria-hidden="true">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </button>
           <ul class="mobile-menu__sub">
-            <li><a href="subpages/d-1.html"            class="mobile-menu__sub-link">✨ D-1 찰떡 루틴</a></li>
-            <li><a href="subpages/balance-game.html"   class="mobile-menu__sub-link">🎮 밸런스 게임</a></li>
-            <li><a href="subpages/personal-color.html"  class="mobile-menu__sub-link">🎨 퍼스널 무드 팔레트</a></li>
-            <li><a href="subpages/mission.html"         class="mobile-menu__sub-link">🎯 시크릿 글로우 미션</a></li>
+            <li><a href="subpages/d-1.html" class="mobile-menu__sub-link">✨ D-1 찰떡 루틴</a></li>
+            <li><a href="subpages/balance-game.html" class="mobile-menu__sub-link">🎮 밸런스 게임</a></li>
+            <li><a href="subpages/personal-color.html" class="mobile-menu__sub-link">🎨 퍼스널 무드 팔레트</a></li>
+            <li><a href="subpages/mission.html" class="mobile-menu__sub-link">🎯 시크릿 글로우 미션</a></li>
+            <li><a href="subpages/aging-clock.html" class="mobile-menu__sub-link">⏱️ 피부 노화 시계</a></li>
           </ul>
         </li>
 
@@ -267,10 +302,11 @@
           <a href="subpages/ingredient.html" class="feature-card reveal reveal-delay-1" data-category="성분 및 루틴">
             <div class="feature-card__icon">🚦</div>
             <h3 class="feature-card__title">화장품 성분 신호등</h3>
-            <p class="feature-card__desc">내 피부 타입에 맞는 성분인지 색상으로 확인</p>
+            <p class="feature-card__desc">단순한 성분 확인을 넘어, EWG 등급과 알레르기 성분까지 깊이 있게 분석한 정밀 리포트를 제공합니다</p>
           </a>
 
-          <a href="subpages/homecare.html" class="feature-card reveal reveal-delay-2" id="homecare-guide" data-category="성분 및 루틴">
+          <a href="subpages/homecare.html" class="feature-card reveal reveal-delay-2" id="homecare-guide"
+            data-category="성분 및 루틴">
             <div class="feature-card__icon">💆‍♀️</div>
             <h3 class="feature-card__title">0원 나쁜 습관 파괴하기</h3>
             <p class="feature-card__desc">내 피부를 망치는 생활 습관 5가지 체크리스트</p>
@@ -290,52 +326,74 @@
             <p class="feature-card__desc">갑작스러운 고민을 잠재우는 화장품 순서</p>
           </a>
 
-          <a href="subpages/trace.html" class="feature-card reveal reveal-delay-1" id="scar-care" data-category="트러블 케어">
+          <a href="subpages/trace.html" class="feature-card reveal reveal-delay-1" id="scar-care"
+            data-category="트러블 케어">
             <div class="feature-card__icon">🩹</div>
             <h3 class="feature-card__title">흔적 &amp; 케어 루틴 가이드</h3>
             <p class="feature-card__desc">맑은 피부톤을 위한 스킨케어 팁</p>
           </a>
 
           <!-- 스페셜 NEW -->
-          <a href="subpages/personal-color.html" class="feature-card feature-card--new reveal reveal-delay-2" data-category="스페셜">
+          <a href="subpages/personal-color.html" class="feature-card feature-card--new reveal reveal-delay-2"
+            data-category="스페셜">
             <div class="feature-card__icon">🎨</div>
             <h3 class="feature-card__title">퍼스널 무드 팔레트</h3>
             <p class="feature-card__desc">3가지 컬러 칩으로 나의 퍼스널 컬러를 찾고 어울리는 화장품 제형을 추천받으세요</p>
           </a>
 
           <!-- 성분 및 루틴 NEW -->
-          <a href="subpages/weather.html" class="feature-card feature-card--new feature-card--tarot reveal reveal-delay-3" data-category="성분 및 루틴">
-            <div class="feature-card__icon">🔮</div>
-            <h3 class="feature-card__title">오늘의 피부 타로</h3>
-            <p class="feature-card__desc">3장의 카드 중 하나를 선택해 지금 내 피부가 가장 듣고 싶은 스킨케어 메시지를 확인하세요</p>
+          <a href="subpages/weather.html"
+            class="feature-card feature-card--new feature-card--tarot reveal reveal-delay-3" data-category="성분 및 루틴">
+            <div class="feature-card__icon">🌡️</div>
+            <h3 class="feature-card__title">오늘의 피부 일기예보</h3>
+            <p class="feature-card__desc">실시간 온도와 습도를 분석해서 수분 손실을 막아주는 최적의 루틴을 추천해 드려요</p>
           </a>
 
           <!-- 스페셜 NEW -->
-          <a href="subpages/mission.html" class="feature-card feature-card--new feature-card--mission reveal" data-category="스페셜">
+          <a href="subpages/mission.html" class="feature-card feature-card--new feature-card--mission reveal"
+            data-category="스페셜">
             <div class="feature-card__icon">🎯</div>
             <h3 class="feature-card__title">시크릿 글로우 미션</h3>
             <p class="feature-card__desc">스크래치 카드를 긁어 오늘의 피부 습관 미션을 공개하세요. 매일 새로운 스킨케어 챌린지</p>
           </a>
 
           <!-- 성분 및 루틴 NEW -->
-          <a href="subpages/texture.html" class="feature-card feature-card--new reveal reveal-delay-1" data-category="성분 및 루틴">
+          <a href="subpages/texture.html" class="feature-card feature-card--new reveal reveal-delay-1"
+            data-category="성분 및 루틴">
             <div class="feature-card__icon">🧴</div>
             <h3 class="feature-card__title">텍스처 레이어링 슬라이더</h3>
             <p class="feature-card__desc">수분감·유분감·쿨링감 슬라이더로 지금 피부에 맞는 최적의 제형 레이어링 루틴을 찾아보세요</p>
           </a>
 
           <!-- 성분 및 루틴 NEW: 성분 소개팅 -->
-          <a href="subpages/ingredient-match.html" class="feature-card feature-card--new reveal reveal-delay-2" data-category="성분 및 루틴">
+          <a href="subpages/ingredient-match.html" class="feature-card feature-card--new reveal reveal-delay-2"
+            data-category="성분 및 루틴">
             <div class="feature-card__icon">🧬</div>
             <h3 class="feature-card__title">성분 소개팅 (성분 매칭)</h3>
             <p class="feature-card__desc">비타민C와 레티놀, 같이 써도 될까? 드래그앤드롭으로 성분 궁합을 1초 만에 분석하세요</p>
           </a>
 
           <!-- 스페셜 NEW: 밸런스 게임 -->
-          <a href="subpages/balance-game.html" class="feature-card feature-card--new reveal reveal-delay-3" data-category="스페셜">
+          <a href="subpages/balance-game.html" class="feature-card feature-card--new reveal reveal-delay-3"
+            data-category="스페셜">
             <div class="feature-card__icon">🎮</div>
             <h3 class="feature-card__title">스킨케어 밸런스 게임</h3>
             <p class="feature-card__desc">지독한 선택의 기로! 당신의 선택으로 알아보는 스킨케어 성향과 전문가 조언</p>
+          </a>
+
+          <!-- 스페셜 NEW: 피부 노화 시계 -->
+          <a href="subpages/aging-clock.html" class="feature-card feature-card--new reveal" data-category="스페셜">
+            <div class="feature-card__icon">🕒</div>
+            <h3 class="feature-card__title">당신의 피부 시계는 몇 시인가요?</h3>
+            <p class="feature-card__desc">생활 습관을 메타포로 분석하여 실제 나이와 피부 나이의 격차를 확인해보세요.</p>
+          </a>
+
+          <!-- 성분 및 루틴 NEW: 화장대 다이어트 -->
+          <a href="subpages/skincare-diet.html" class="feature-card feature-card--new reveal reveal-delay-1"
+            data-category="성분 및 루틴">
+            <div class="feature-card__icon">🧴</div>
+            <h3 class="feature-card__title">내 화장대 위 비만도 테스트</h3>
+            <p class="feature-card__desc">과잉 영양은 독이 됩니다. 현재 사용하는 제품들을 분석하여 피부 장벽을 살리는 미니멀 루틴을 진단합니다.</p>
           </a>
 
         </div>
@@ -361,13 +419,17 @@
   <footer class="site-footer">
     <div class="footer-container">
       <!-- Medical Disclaimer -->
-      <div class="medical-disclaimer" style="background: rgba(239, 68, 68, 0.1); border-left: 0.4rem solid #EF4444; padding: 2rem; margin-bottom: 2.4rem; border-radius: 0.8rem;">
-        <h3 style="color: #EF4444; font-size: 1.6rem; font-weight: 700; margin-bottom: 1.2rem;">⚠️ 의료 면책 조항 (Medical Disclaimer)</h3>
+      <div class="medical-disclaimer"
+        style="background: rgba(239, 68, 68, 0.1); border-left: 0.4rem solid #EF4444; padding: 2rem; margin-bottom: 2.4rem; border-radius: 0.8rem;">
+        <h3 style="color: #EF4444; font-size: 1.6rem; font-weight: 700; margin-bottom: 1.2rem;">⚠️ 의료 면책 조항 (Medical
+          Disclaimer)</h3>
         <p style="color: #CBD5E1; font-size: 1.3rem; line-height: 1.7; margin-bottom: 1rem;">
-          본 사이트에서 제공하는 피부 타입 진단, 화장품 성분 분석, 스킨케어 가이드 등의 정보는 <strong style="color: #F87171;">일반적인 교육 및 정보 제공 목적</strong>으로만 제공되며, 의학적 조언, 진단 또는 치료를 대체할 수 없습니다.
+          본 사이트에서 제공하는 피부 타입 진단, 화장품 성분 분석, 스킨케어 가이드 등의 정보는 <strong style="color: #F87171;">일반적인 교육 및 정보 제공
+            목적</strong>으로만 제공되며, 의학적 조언, 진단 또는 치료를 대체할 수 없습니다.
         </p>
         <p style="color: #CBD5E1; font-size: 1.3rem; line-height: 1.7; margin-bottom: 1rem;">
-          피부 질환, 알레르기 반응, 또는 심각한 피부 문제가 있는 경우 반드시 피부과 전문의의 진료를 받으시기 바랍니다. 본 사이트의 정보를 바탕으로 한 개인적 판단이나 화장품 사용으로 인한 부작용, 피부 반응 등에 대해 본 사이트는 법적 책임을 지지 않습니다.
+          피부 질환, 알레르기 반응, 또는 심각한 피부 문제가 있는 경우 반드시 피부과 전문의의 진료를 받으시기 바랍니다. 본 사이트의 정보를 바탕으로 한 개인적 판단이나 화장품 사용으로 인한 부작용, 피부
+          반응 등에 대해 본 사이트는 법적 책임을 지지 않습니다.
         </p>
         <p style="color: #CBD5E1; font-size: 1.3rem; line-height: 1.7;">
           화장품 사용 전 제품의 전성분을 확인하고, 민감한 피부를 가진 경우 패치 테스트를 실시하시기 바랍니다.

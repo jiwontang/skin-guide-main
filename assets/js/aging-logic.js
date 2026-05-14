@@ -1,0 +1,203 @@
+/**
+ * aging-logic.js
+ * 피부 노화 시계 테스트 (Aging Clock) 핵심 로직
+ */
+
+document.addEventListener('DOMContentLoaded', function () {
+  // -----------------------------------------------------------
+  // 1. 질문 데이터 및 점수 체계
+  // Base Age를 25세로 가정하고 답변에 따라 나이 증감 (+ / -)
+  // -----------------------------------------------------------
+  const questions = [
+    {
+      question: "오늘 당신의 자외선 방패(선크림)는 얼마나 튼튼한가요?",
+      options: [
+        { text: "철통 방어! 외출 전 바르고 수시로 덧바른다", score: -2 },
+        { text: "반쪽 방어. 아침에 한 번 바르거나 가끔 까먹는다", score: 1 },
+        { text: "무방비 상태. 답답해서 거의 바르지 않는다", score: 4 }
+      ]
+    },
+    {
+      question: "어젯밤 피부 배터리(수면)를 몇 % 충전하셨나요?",
+      options: [
+        { text: "100% 완충! 7시간 이상 푹 잤다", score: -1 },
+        { text: "50% 충전. 5~6시간 정도로 아쉽게 잤다", score: 1 },
+        { text: "방전 직전. 5시간 미만이거나 자주 깼다", score: 3 }
+      ]
+    },
+    {
+      question: "하루 동안 피부에 '디지털 피로도(블루라이트)'를 얼마나 쌓으시나요?",
+      options: [
+        { text: "최소화 모드. 업무 외에는 전자기기를 멀리한다", score: 0 },
+        { text: "기본 모드. 하루 4~6시간 정도 시청한다", score: 1 },
+        { text: "과부하 모드. 잠들기 직전까지 스마트폰을 놓지 못한다", score: 3 }
+      ]
+    },
+    {
+      question: "내면의 '노화 가속 페달(스트레스)'을 얼마나 밟고 계신가요?",
+      options: [
+        { text: "브레이크 작동! 취미나 운동으로 잘 털어낸다", score: -1 },
+        { text: "조금씩 가속 중. 스트레스를 받지만 꾹 참는다", score: 2 },
+        { text: "풀 액셀! 항상 피로하고 예민한 상태다", score: 4 }
+      ]
+    },
+    {
+      question: "피부 오아시스에 수분을 공급하고, 당분 폭탄은 피하고 계신가요?",
+      options: [
+        { text: "오아시스 유지! 물을 자주 마시고 건강식을 먹는다", score: -2 },
+        { text: "가뭄의 단비. 물은 적당히 마시고 일반식을 먹는다", score: 0 },
+        { text: "당분 폭격! 물보다 달달한 음료나 디저트를 달고 산다", score: 3 }
+      ]
+    },
+    {
+      question: "피부 시계를 거꾸로 돌리는 산소 도둑(흡연)과 수분 도둑(음주)을 자주 만나시나요?",
+      options: [
+        { text: "출입 금지! 둘 다 철저히 멀리한다", score: -2 },
+        { text: "가끔 면회. 비흡연자이며 가벼운 음주만 즐긴다", score: 1 },
+        { text: "단골 손님. 잦은 음주 또는 흡연 습관이 있다", score: 5 }
+      ]
+    }
+  ];
+
+  let currentQuestionIndex = 0;
+  let totalScore = 0;
+  const baseAge = 25; // 기준 나이
+
+  // -----------------------------------------------------------
+  // 2. DOM 요소 선택
+  // -----------------------------------------------------------
+  const gameArea = document.getElementById('ac-game-area');
+  const questionText = document.getElementById('ac-question-text');
+  const optionsContainer = document.getElementById('ac-options-container');
+  
+  const progressFill = document.getElementById('ac-progress-fill');
+  const currentQSpan = document.getElementById('ac-current-q');
+  const totalQSpan = document.getElementById('ac-total-q');
+  
+  const resultArea = document.getElementById('ac-result-area');
+  const resultAge = document.getElementById('ac-result-age');
+  const resultTitle = document.getElementById('ac-result-title');
+  const resultDesc = document.getElementById('ac-result-desc');
+
+  // 전체 질문 수 초기화
+  totalQSpan.textContent = questions.length;
+
+  // -----------------------------------------------------------
+  // 3. 테스트 시작 및 질문 렌더링
+  // -----------------------------------------------------------
+  function loadQuestion() {
+    const qData = questions[currentQuestionIndex];
+    
+    // 현재 진행률 바 업데이트
+    const progressPercent = (currentQuestionIndex / questions.length) * 100;
+    progressFill.style.width = `${progressPercent}%`;
+    currentQSpan.textContent = currentQuestionIndex + 1;
+
+    // 질문 및 선택지 트랜지션 아웃/인 애니메이션 (GSAP)
+    gsap.to([questionText, optionsContainer], {
+      opacity: 0,
+      y: -20,
+      duration: 0.2,
+      onComplete: () => {
+        // 내용 갱신
+        questionText.textContent = qData.question;
+        optionsContainer.innerHTML = '';
+        
+        qData.options.forEach((opt) => {
+          const btn = document.createElement('button');
+          btn.className = 'ac-option-btn';
+          btn.textContent = opt.text;
+          btn.addEventListener('click', () => handleOptionClick(opt.score));
+          optionsContainer.appendChild(btn);
+        });
+
+        // 다시 나타남
+        gsap.to([questionText, optionsContainer], {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      }
+    });
+  }
+
+  function handleOptionClick(score) {
+    totalScore += score;
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+      loadQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  // -----------------------------------------------------------
+  // 4. 결과 계산 및 표시
+  // -----------------------------------------------------------
+  function showResult() {
+    // 마지막 프로그레스 바 채우기
+    progressFill.style.width = '100%';
+
+    // 게임 영역 숨기기
+    gsap.to(gameArea, {
+      opacity: 0,
+      y: 30,
+      duration: 0.4,
+      onComplete: () => {
+        gameArea.style.display = 'none';
+        
+        // 결과 영역 표시
+        resultArea.style.display = 'block';
+        gsap.fromTo(resultArea, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5 });
+        
+        calculateFinalAge();
+      }
+    });
+  }
+
+  function calculateFinalAge() {
+    // 최종 가상 나이
+    let finalAge = baseAge + totalScore;
+    
+    // 비현실적인 나이 제한 (15세 이하 방지 등)
+    if (finalAge < 18) finalAge = 18;
+
+    // 점수에 따른 코멘트 분기
+    let title = "";
+    let desc = "";
+
+    if (totalScore <= -3) {
+      title = "놀라운 동안 피부! 철벽 방어력 🛡️";
+      desc = "아주 훌륭한 생활 습관을 가지고 계시네요. 현재의 스킨케어와 습관을 계속 유지한다면 오랫동안 건강한 피부를 지킬 수 있습니다.";
+    } else if (totalScore <= 3) {
+      title = "평균적인 피부 나이! 조금만 더 관리해볼까요? 🌱";
+      desc = "비교적 무난한 습관을 가졌지만, 특정 항목에서 노화가 가속화되고 있을 수 있습니다. 자외선 차단이나 수분 섭취에 조금 더 신경 써주세요.";
+    } else if (totalScore <= 8) {
+      title = "노화 시계 가속 중! 긴급 조치가 필요해요 🚨";
+      desc = "현재 생활 습관이 피부 장벽을 무너뜨리고 광노화를 촉진하고 있습니다. 아래 상세 리포트를 확인하고 습관을 반드시 교정하세요.";
+    } else {
+      title = "피부 비상사태! 적극적인 안티에이징 필수 🆘";
+      desc = "위험 신호! 자외선, 스트레스, 식습관이 복합적으로 피부 노화를 급격히 앞당기고 있습니다. 당장 오늘부터 전문가 리포트의 가이드를 실천하세요.";
+    }
+
+    // 결과 텍스트 적용
+    resultTitle.textContent = title;
+    resultDesc.textContent = desc;
+
+    // 나이 카운트업 애니메이션 (GSAP)
+    let startObj = { val: baseAge };
+    gsap.to(startObj, {
+      val: finalAge,
+      duration: 2,
+      ease: 'power3.out',
+      onUpdate: () => {
+        resultAge.textContent = Math.round(startObj.val) + "세";
+      }
+    });
+  }
+
+  // 초기 시작
+  loadQuestion();
+});

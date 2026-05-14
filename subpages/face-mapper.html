@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- 기본 설정 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>얼굴 부위별 트러블 매퍼 | MUO Studio 스킨케어 가이드</title>
+  <meta name="description" content="얼굴 부위별 트러블 매퍼로 내 피부 고민 부위별 원인과 해결책을 확인하세요." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="MUO Studio" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- 파비콘 -->
+  <link rel="icon" href="../assets/images/icon/favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="../assets/images/icon/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../assets/images/icon/favicon.png" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <h1 class="site-header__logo"><a href="../index.html">✨ 피부 성향 가이드 & 홈케어 도우미</a></h1>
+      <div class="site-header__right">
+        <span class="current-location">🗺️ 트러블 매퍼</span>
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="메뉴 열기">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <nav class="menu-nav">
+      <div class="menu-header">
+        <h2 class="menu-title">모든 기능</h2>
+        <button class="menu-close" id="menu-close-btn" aria-label="메뉴 닫기">✕</button>
+      </div>
+
+      <ul class="menu-list">
+        <li class="menu-item">
+          <a href="../index.html" class="menu-link">🏠 홈</a>
+        </li>
+        <li class="menu-item">
+          <a href="skintype.html" class="menu-link">🔍 내 피부 타입 확인 가이드</a>
+        </li>
+        <li class="menu-item">
+          <a href="ingredient.html" class="menu-link">🚦 화장품 성분 신호등</a>
+        </li>
+        <li class="menu-item">
+          <a href="homecare.html" class="menu-link">💆‍♀️ 0원 나쁜 습관 파괴기</a>
+        </li>
+        <li class="menu-item">
+          <a href="d-1.html" class="menu-link">✨ D-1 중요날 찰떡 루틴</a>
+        </li>
+        <li class="menu-item">
+          <a href="soothing.html" class="menu-link">🚨 오늘 밤 긴급 진정 가이드</a>
+        </li>
+        <li class="menu-item">
+          <a href="trace.html" class="menu-link">🩹 흔적 & 케어 루틴 가이드</a>
+        </li>
+        <li class="menu-item">
+          <a href="personal-color.html" class="menu-link">🎨 퍼스널 무드 팔레트</a>
+        </li>
+        <li class="menu-item">
+          <a href="weather.html" class="menu-link">🔮 피부 타로</a>
+        </li>
+        <li class="menu-item">
+          <a href="mission.html" class="menu-link">🎯 시크릿 글로우 미션</a>
+        </li>
+        <li class="menu-item">
+          <a href="texture.html" class="menu-link">🧴 텍스처 레이어링 슬라이더</a>
+        </li>
+        <li class="menu-item">
+          <a href="about.html" class="menu-link">📖 사이트 소개</a>
+        </li>
+        <li class="menu-item">
+          <a href="contact.html" class="menu-link">📧 문의하기</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section class="fm-hero">
+      <div class="fm-hero__container">
+        <h1 class="fm-hero__title">얼굴 부위별 트러블 매퍼</h1>
+        <p class="fm-hero__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </section>
+
+    <section class="fm-mapper-section">
+      <div class="fm-mapper-container">
+        <!-- Base Image and Clickable Areas -->
+        <div class="fm-face-wrapper">
+          <div class="fm-face-base"></div>
+          
+          <button class="fm-area fm-area--forehead" data-area="forehead" aria-label="Forehead"></button>
+          <button class="fm-area fm-area--nose" data-area="nose" aria-label="Nose"></button>
+          <button class="fm-area fm-area--cheeks" data-area="cheeks" aria-label="Cheeks"></button>
+          <button class="fm-area fm-area--chin" data-area="chin" aria-label="Chin"></button>
+        </div>
+        
+        <!-- Result Report Area -->
+        <article id="trouble-report" class="fm-report">
+          <h3 id="report-title">Lorem Ipsum</h3>
+          <div id="report-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-about" style="color: #94A3B8; font-size: 1.4rem; margin-bottom: 1.6rem; text-align: center;">
+        피부 성향 가이드 & 홈케어 도우미는 복잡한 화장품 성분과 뷰티 정보를 누구나 알기 쉽게 번역하여, 건강한 피부 장벽 관리를 돕는 웹사이트입니다.
+      </p>
+      <nav class="footer-nav">
+        <a href="about.html" class="footer-link">사이트 소개</a>
+        <span class="footer-divider">|</span>
+        <a href="privacy.html" class="footer-link">개인정보처리방침</a>
+        <span class="footer-divider">|</span>
+        <a href="terms.html" class="footer-link">이용약관</a>
+        <span class="footer-divider">|</span>
+        <a href="contact.html" class="footer-link">문의하기</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js" defer></script>
+  <script src="../assets/js/menu.js" defer></script>
+  <script src="../assets/js/scroll-reveal.js" defer></script>
+  <script src="../assets/js/face-mapper.js" defer></script>
+</body>
+
+</html>

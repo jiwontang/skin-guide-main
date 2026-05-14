@@ -290,6 +290,18 @@ article p,
   z-index: 200;
 }
 
+/* 드롭다운과 버튼 사이의 투명한 가교 (숨바꼭질 버그 수정) */
+.gnb__dropdown::before {
+  content: '';
+  position: absolute;
+  top: -0.8rem;
+  /* top: calc(100% + 0.8rem)의 간격을 메움 */
+  left: 0;
+  width: 100%;
+  height: 0.8rem;
+  background: transparent;
+}
+
 /* 드롭다운 열림 — hover */
 .gnb__item--has-dropdown:hover>.gnb__dropdown {
   opacity: 1;
@@ -464,19 +476,19 @@ article p,
   transform: rotate(180deg);
 }
 
-/* 서브 메뉴 (아코디언 패널) — max-height 트릭으로 슬라이드 */
+/* 서브 메뉴 (아코디언 패널) — JS(GSAP)로 제어 */
 .mobile-menu__sub {
   margin: 0;
   padding: 0;
   list-style: none;
   overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 0;
+  display: none;
+  /* 초기 상태 */
 }
 
 .mobile-menu__sub.open {
-  max-height: 40rem;
-  /* 충분히 큰 값 */
+  display: block;
 }
 
 .mobile-menu__sub-link {
@@ -9943,3 +9955,687 @@ article p,
   line-height: 1.8;
   word-break: keep-all;
 }
+
+/* =========================================
+   피부 노화 시계 테스트 (Aging Clock)
+   ========================================= */
+
+/* Hero & Title */
+.ac-hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  background: radial-gradient(circle at center, rgba(126, 193, 255, 0.1) 0%, transparent 60%);
+}
+
+.ac-hero__tag {
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-mint);
+  background: rgba(77, 233, 171, 0.15);
+  border-radius: 2rem;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.05em;
+}
+
+.ac-hero__title {
+  font-size: 4rem;
+  margin-bottom: 1.6rem;
+  color: var(--text-primary);
+  text-shadow: 0 0 1.6rem rgba(126, 193, 255, 0.4);
+}
+
+.ac-hero__title em {
+  color: var(--color-accent);
+  font-style: normal;
+}
+
+.ac-hero__desc {
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Progress & Clock Visual */
+.ac-progress {
+  max-width: 80rem;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+}
+
+.ac-progress__container {
+  background: var(--bg-card);
+  border: 0.1rem solid var(--border-light);
+  border-radius: 1.6rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.ac-progress__bar {
+  flex: 1;
+  height: 0.8rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+.ac-progress__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-mint), var(--color-accent));
+  transition: width 0.4s ease;
+}
+
+.ac-progress__text {
+  font-size: 1.4rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+/* Game / Question Area */
+.ac-game {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 8rem;
+}
+
+.ac-game__container {
+  background: rgba(30, 41, 59, 0.7);
+  border: 0.1rem solid rgba(148, 163, 184, 0.2);
+  border-radius: 2.4rem;
+  padding: 4rem;
+  text-align: center;
+  box-shadow: var(--shadow-light);
+}
+
+.ac-question {
+  font-size: 2.4rem;
+  color: var(--text-primary);
+  margin-bottom: 3.2rem;
+  line-height: 1.5;
+  min-height: 7.2rem;
+}
+
+.ac-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.ac-option-btn {
+  width: 100%;
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 0.1rem solid var(--border-light);
+  border-radius: 1.6rem;
+  color: var(--text-secondary);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.ac-option-btn:hover {
+  background: rgba(126, 193, 255, 0.1);
+  border-color: var(--color-accent);
+  color: var(--text-primary);
+  transform: translateY(-0.2rem);
+}
+
+/* Result Area */
+.ac-result {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 8rem;
+}
+
+.ac-result__summary {
+  background: rgba(30, 41, 59, 0.8);
+  border: 0.1rem solid var(--color-accent);
+  border-radius: 2.4rem;
+  padding: 5rem 3rem;
+  text-align: center;
+  margin-bottom: 5rem;
+  box-shadow: var(--shadow-glow);
+}
+
+.ac-result__clock {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  background: conic-gradient(var(--color-accent) 0%, rgba(30, 41, 59, 1) 0%);
+  margin: 0 auto 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ac-result__clock::before {
+  content: '';
+  position: absolute;
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  background: var(--bg-card);
+}
+
+.ac-result__age {
+  position: relative;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ac-result__title {
+  font-size: 2.8rem;
+  color: var(--color-mint);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.ac-result__desc {
+  font-size: 1.6rem;
+  color: var(--text-tertiary);
+  line-height: 1.7;
+}
+
+/* SEO Report Article */
+.ac-report-article {
+  background: var(--bg-card);
+  border-radius: 1.6rem;
+  padding: 4rem;
+  border: 0.1rem solid var(--border-light);
+}
+
+.ac-report-article h2 {
+  font-size: 2.4rem;
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+  text-align: center;
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.6rem;
+}
+
+.ac-report-box {
+  background: rgba(15, 23, 42, 0.5);
+  border-left: 0.4rem solid var(--color-accent);
+  border-radius: 0.8rem;
+  padding: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.ac-report-box:last-child {
+  margin-bottom: 0;
+}
+
+.ac-report-box h3 {
+  font-size: 1.8rem;
+  color: var(--color-accent);
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.ac-report-box p {
+  font-size: 1.5rem;
+  color: var(--text-tertiary);
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.ac-report-box ul {
+  padding-left: 2rem;
+  margin: 0;
+}
+
+.ac-report-box li {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  list-style-type: disc;
+}
+
+@media (max-width: 768px) {
+  .ac-hero__title { font-size: 3.2rem; }
+  .ac-question { font-size: 2rem; }
+  .ac-game__container { padding: 3rem 2rem; }
+  .ac-report-article { padding: 2.4rem 1.6rem; }
+}
+
+/* =========================================
+   화장대 다이어트 시뮬레이터 (Skincare Diet)
+   ========================================= */
+
+.sd-hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  background: radial-gradient(circle at center, rgba(77, 233, 171, 0.1) 0%, transparent 60%);
+}
+
+.sd-hero__tag {
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-mint);
+  background: rgba(77, 233, 171, 0.15);
+  border-radius: 2rem;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.05em;
+}
+
+.sd-hero__title {
+  font-size: 4rem;
+  margin-bottom: 1.6rem;
+  color: var(--text-primary);
+  text-shadow: 0 0 1.6rem rgba(77, 233, 171, 0.3);
+}
+
+.sd-hero__desc {
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 질문 컨테이너 */
+.sd-game {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 8rem;
+}
+
+.sd-game__container {
+  background: rgba(30, 41, 59, 0.7);
+  border: 0.1rem solid rgba(148, 163, 184, 0.2);
+  border-radius: 2.4rem;
+  padding: 4rem;
+  box-shadow: var(--shadow-light);
+}
+
+.sd-step {
+  display: none; /* JS로 제어 */
+}
+
+.sd-step.active {
+  display: block;
+}
+
+.sd-question {
+  font-size: 2.4rem;
+  color: var(--text-primary);
+  margin-bottom: 3.2rem;
+  text-align: center;
+}
+
+/* 다중 선택 체크박스 커스텀 UI */
+.sd-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1.6rem;
+  margin-bottom: 4rem;
+}
+
+.sd-checkbox-label {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 0.1rem solid var(--border-light);
+  border-radius: 1.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sd-checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.sd-checkbox-text {
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  transition: color 0.2s;
+}
+
+.sd-checkbox-label::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(77, 233, 171, 0.1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.sd-checkbox-label input[type="checkbox"]:checked + .sd-checkbox-text {
+  color: var(--color-mint);
+  font-weight: 700;
+}
+
+.sd-checkbox-label:has(input[type="checkbox"]:checked) {
+  border-color: var(--color-mint);
+}
+
+.sd-checkbox-label:has(input[type="checkbox"]:checked)::before {
+  transform: scaleX(1);
+}
+
+.sd-checkbox-label:hover {
+  transform: translateY(-0.2rem);
+  border-color: rgba(77, 233, 171, 0.5);
+}
+
+/* 하단 버튼 영역 */
+.sd-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 2rem;
+}
+
+.sd-btn {
+  padding: 1.6rem 3.2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.sd-btn--primary {
+  background: var(--color-mint);
+  color: var(--bg-primary);
+  box-shadow: 0 0 1rem rgba(77, 233, 171, 0.4);
+}
+
+.sd-btn--primary:hover {
+  background: #3ec891;
+  transform: translateY(-0.2rem);
+}
+
+.sd-btn--secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 0.1rem solid var(--border-light);
+}
+
+.sd-btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 결과 영역 (칼럼형 리포트) */
+.sd-result {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 8rem;
+  display: none;
+}
+
+.sd-result__summary {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 4rem;
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 2.4rem;
+  border: 0.1rem solid var(--color-accent);
+}
+
+.sd-result__icon {
+  font-size: 6rem;
+  margin-bottom: 2rem;
+}
+
+.sd-result__title {
+  font-size: 3.2rem;
+  color: var(--color-mint);
+  margin-bottom: 1.6rem;
+}
+
+.sd-report-article {
+  background: var(--bg-card);
+  padding: 5rem 4rem;
+  border-radius: 2.4rem;
+  border: 0.1rem solid var(--border-light);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.3);
+}
+
+.sd-report-article h3 {
+  font-size: 2.2rem;
+  color: var(--color-accent);
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sd-report-article h3:first-child {
+  margin-top: 0;
+}
+
+.sd-report-article p {
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2.4rem;
+  word-break: keep-all;
+}
+
+.sd-report-article strong {
+  color: var(--color-mint);
+  font-weight: 700;
+  background: rgba(77, 233, 171, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.4rem;
+}
+
+.sd-report-article ul {
+  background: rgba(15, 23, 42, 0.5);
+  border-left: 0.4rem solid var(--color-mint);
+  padding: 2.4rem 2.4rem 2.4rem 4rem;
+  border-radius: 0.8rem;
+  margin-bottom: 3rem;
+}
+
+.sd-report-article li {
+  font-size: 1.5rem;
+  color: var(--text-tertiary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+}
+
+.sd-report-article li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .sd-hero__title { font-size: 3.2rem; }
+  .sd-checkbox-grid { grid-template-columns: 1fr; }
+  .sd-report-article { padding: 3rem 2rem; }
+  .sd-report-article h3 { font-size: 2rem; }
+}
+
+/* —— Face Mapper (얼굴 부위별 트러블 매퍼) —— */
+.fm-hero {
+  padding: 8rem 0 4rem;
+  text-align: center;
+}
+
+.fm-hero__title {
+  font-size: clamp(3.2rem, 5vw, 4.8rem);
+  color: var(--text-primary);
+  margin-bottom: 1.6rem;
+}
+
+.fm-hero__subtitle {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+}
+
+.fm-mapper-section {
+  padding: 0 0 8rem;
+  display: flex;
+  justify-content: center;
+}
+
+.fm-mapper-container {
+  width: 100%;
+  max-width: 80rem;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* Face Image Wrapper */
+.fm-face-wrapper {
+  position: relative;
+  width: 30rem;
+  height: 40rem;
+  background-color: var(--bg-card);
+  border-radius: 15rem 15rem 10rem 10rem;
+  border: 0.2rem solid var(--border-light);
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+}
+
+/* Simulated Face Background */
+.fm-face-base {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(126, 193, 255, 0.1) 0%, transparent 70%);
+}
+
+/* Clickable Areas */
+.fm-area {
+  position: absolute;
+  background: rgba(77, 233, 171, 0.1);
+  border: 0.2rem dashed rgba(77, 233, 171, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.fm-area:hover, .fm-area.active {
+  background: rgba(77, 233, 171, 0.3);
+  border-color: rgba(77, 233, 171, 0.8);
+  box-shadow: 0 0 1.5rem rgba(77, 233, 171, 0.5);
+}
+
+/* Positioning */
+.fm-area--forehead {
+  top: 15%;
+  left: 20%;
+  width: 60%;
+  height: 20%;
+  border-radius: 40%;
+}
+
+.fm-area--nose {
+  top: 40%;
+  left: 40%;
+  width: 20%;
+  height: 25%;
+  border-radius: 30% 30% 40% 40%;
+}
+
+.fm-area--cheeks {
+  top: 45%;
+  left: 15%;
+  width: 70%;
+  height: 20%;
+  background: transparent;
+  border: none;
+}
+.fm-area--cheeks::before, .fm-area--cheeks::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background: rgba(77, 233, 171, 0.1);
+  border: 0.2rem dashed rgba(77, 233, 171, 0.4);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.fm-area--cheeks::before { left: 0; }
+.fm-area--cheeks::after { right: 0; }
+.fm-area--cheeks:hover::before, .fm-area--cheeks:hover::after,
+.fm-area--cheeks.active::before, .fm-area--cheeks.active::after {
+  background: rgba(77, 233, 171, 0.3);
+  border-color: rgba(77, 233, 171, 0.8);
+  box-shadow: 0 0 1.5rem rgba(77, 233, 171, 0.5);
+}
+
+.fm-area--chin {
+  top: 75%;
+  left: 30%;
+  width: 40%;
+  height: 15%;
+  border-radius: 50%;
+}
+
+/* Result Report Area */
+.fm-report {
+  width: 100%;
+  background: var(--bg-card);
+  padding: 4rem;
+  border-radius: 1.6rem;
+  border: 0.1rem solid var(--border-light);
+  box-shadow: var(--shadow-light);
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: none;
+}
+
+.fm-report.visible {
+  display: block;
+}
+.fm-report.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fm-report h3 {
+  font-size: 2.4rem;
+  color: var(--color-mint);
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+}
+
+.fm-report p {
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.fm-report p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .fm-face-wrapper {
+    width: 24rem;
+    height: 32rem;
+  }
+  .fm-report {
+    padding: 2.4rem;
+  }
+}

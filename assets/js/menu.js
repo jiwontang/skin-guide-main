@@ -120,25 +120,68 @@
     const accordionBtns = document.querySelectorAll('.mobile-menu__accordion-btn');
 
     accordionBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        const isOpen   = btn.getAttribute('aria-expanded') === 'true';
-        const sub      = btn.nextElementSibling; // .mobile-menu__sub
+      btn.addEventListener('click', function (e) {
+        e.preventDefault(); // 페이지 이동 방지 (필요 시)
+
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        const sub = btn.nextElementSibling; // .mobile-menu__sub
         if (!sub) return;
 
         if (isOpen) {
           // 닫기
           btn.setAttribute('aria-expanded', 'false');
-          sub.classList.remove('open');
+          if (window.gsap) {
+            gsap.to(sub, {
+              height: 0,
+              duration: 0.3,
+              ease: 'power2.inOut',
+              onComplete: () => {
+                sub.classList.remove('open');
+                sub.style.display = 'none';
+              }
+            });
+          } else {
+            sub.classList.remove('open');
+            sub.style.display = 'none';
+            sub.style.height = '0';
+          }
         } else {
-          // 다른 열린 항목 닫기 (한 번에 하나만)
+          // 다른 열린 항목 닫기 (하나만 열리게)
           document.querySelectorAll('.mobile-menu__accordion-btn[aria-expanded="true"]').forEach(function (other) {
             other.setAttribute('aria-expanded', 'false');
             const otherSub = other.nextElementSibling;
-            if (otherSub) otherSub.classList.remove('open');
+            if (otherSub) {
+              if (window.gsap) {
+                gsap.to(otherSub, {
+                  height: 0,
+                  duration: 0.3,
+                  ease: 'power2.inOut',
+                  onComplete: () => {
+                    otherSub.classList.remove('open');
+                    otherSub.style.display = 'none';
+                  }
+                });
+              } else {
+                otherSub.classList.remove('open');
+                otherSub.style.display = 'none';
+                otherSub.style.height = '0';
+              }
+            }
           });
+
           // 현재 열기
           btn.setAttribute('aria-expanded', 'true');
+          sub.style.display = 'block';
           sub.classList.add('open');
+
+          if (window.gsap) {
+            gsap.fromTo(sub, 
+              { height: 0 }, 
+              { height: 'auto', duration: 0.4, ease: 'back.out(1.2)' }
+            );
+          } else {
+            sub.style.height = 'auto';
+          }
         }
       });
     });
