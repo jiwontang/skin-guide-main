@@ -5018,10 +5018,6 @@ article p,
 }
 
 
-/* =========================================
-   Weather Page — 오늘의 피부 날씨
-   ========================================= */
-
 /* 로더 영역 */
 .wx-loader {
   display: flex;
@@ -6091,9 +6087,6 @@ article p,
   }
 }
 
-/* =========================================
-   오늘의 피부 일기예보 (Skin Weather Forecast)
-   ========================================= */
 
 /* 카드 스테이지 — 3장 가로 정렬 */
 .tarot-stage {
@@ -10324,23 +10317,6 @@ article p,
   line-height: 1.7;
 }
 
-/* SEO Report Article */
-.ac-report-article {
-  background: var(--bg-card);
-  border-radius: 1.6rem;
-  padding: 4rem;
-  border: 0.1rem solid var(--border-light);
-}
-
-.ac-report-article h2 {
-  font-size: 2.4rem;
-  color: var(--text-primary);
-  margin-bottom: 3rem;
-  text-align: center;
-  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 1.6rem;
-}
-
 .ac-report-box {
   background: rgba(15, 23, 42, 0.5);
   border-left: 0.4rem solid var(--color-accent);
@@ -10701,6 +10677,20 @@ article p,
   background: radial-gradient(circle at center, rgba(126, 193, 255, 0.1) 0%, transparent 70%);
 }
 
+/* 레이저 스캔 라인 */
+.fm-scan-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0.3rem;
+  background: linear-gradient(90deg, transparent 0%, rgba(77, 233, 171, 0.9) 30%, #4de9ab 50%, rgba(77, 233, 171, 0.9) 70%, transparent 100%);
+  box-shadow: 0 0 1.2rem 0.4rem rgba(77, 233, 171, 0.6);
+  pointer-events: none;
+  z-index: 30;
+  display: none;
+  top: 0;
+}
+
 /* Clickable Areas */
 .fm-area {
   position: absolute;
@@ -10733,6 +10723,7 @@ article p,
   width: 20%;
   height: 25%;
   border-radius: 30% 30% 40% 40%;
+  z-index: 20; /* cheeks 가상 요소보다 위에 위치 */
 }
 
 .fm-area--cheeks {
@@ -10742,6 +10733,7 @@ article p,
   height: 20%;
   background: transparent;
   border: none;
+  pointer-events: none; /* 중앙 투명 영역이 코 클릭을 막지 않도록 */
 }
 .fm-area--cheeks::before, .fm-area--cheeks::after {
   content: '';
@@ -10753,6 +10745,7 @@ article p,
   border: 0.2rem dashed rgba(77, 233, 171, 0.4);
   border-radius: 50%;
   transition: all 0.3s ease;
+  pointer-events: all; /* 가상 요소는 클릭 가능하게 복원 */
 }
 .fm-area--cheeks::before { left: 0; }
 .fm-area--cheeks::after { right: 0; }

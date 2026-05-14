@@ -1,6 +1,6 @@
 /**
  * aging-logic.js
- * 피부 노화 시계 테스트 (Aging Clock) 핵심 로직
+ * 피부 노화 시계 테스트 (Aging Clock) — GSAP 의존성 제거, CSS transition 기반으로 동작
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let currentQuestionIndex = 0;
   let totalScore = 0;
-  const baseAge = 25; // 기준 나이
+  const baseAge = 25;
 
   // -----------------------------------------------------------
   // 2. DOM 요소 선택
@@ -69,65 +69,116 @@ document.addEventListener('DOMContentLoaded', function () {
   const gameArea = document.getElementById('ac-game-area');
   const questionText = document.getElementById('ac-question-text');
   const optionsContainer = document.getElementById('ac-options-container');
-  
+
   const progressFill = document.getElementById('ac-progress-fill');
   const currentQSpan = document.getElementById('ac-current-q');
   const totalQSpan = document.getElementById('ac-total-q');
-  
+
   const resultArea = document.getElementById('ac-result-area');
   const resultAge = document.getElementById('ac-result-age');
   const resultTitle = document.getElementById('ac-result-title');
   const resultDesc = document.getElementById('ac-result-desc');
 
-  // 전체 질문 수 초기화
-  totalQSpan.textContent = questions.length;
+  if (totalQSpan) totalQSpan.textContent = questions.length;
 
   // -----------------------------------------------------------
-  // 3. 테스트 시작 및 질문 렌더링
+  // 유틸: CSS transition 기반 애니메이션 헬퍼
   // -----------------------------------------------------------
-  function loadQuestion() {
-    const qData = questions[currentQuestionIndex];
-    
-    // 현재 진행률 바 업데이트
-    const progressPercent = (currentQuestionIndex / questions.length) * 100;
-    progressFill.style.width = `${progressPercent}%`;
-    currentQSpan.textContent = currentQuestionIndex + 1;
+  function setProgress(percent) {
+    if (!progressFill) return;
+    progressFill.style.transition = 'width 0.5s ease';
+    progressFill.style.width = percent + '%';
+  }
 
-    // 질문 및 선택지 트랜지션 아웃/인 애니메이션 (GSAP)
-    gsap.to([questionText, optionsContainer], {
-      opacity: 0,
-      y: -20,
-      duration: 0.2,
-      onComplete: () => {
-        // 내용 갱신
-        questionText.textContent = qData.question;
-        optionsContainer.innerHTML = '';
-        
-        qData.options.forEach((opt) => {
-          const btn = document.createElement('button');
-          btn.className = 'ac-option-btn';
-          btn.textContent = opt.text;
-          btn.addEventListener('click', () => handleOptionClick(opt.score));
-          optionsContainer.appendChild(btn);
+  function fadeInElements(elements, duration) {
+    duration = duration || 300;
+    elements.forEach(function (el) {
+      if (!el) return;
+      el.style.transition = 'opacity ' + duration + 'ms ease, transform ' + duration + 'ms ease';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+    });
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        elements.forEach(function (el) {
+          if (!el) return;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
         });
-
-        // 다시 나타남
-        gsap.to([questionText, optionsContainer], {
-          opacity: 1,
-          y: 0,
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      }
+      });
     });
   }
 
+  function fadeOutElements(elements, duration, callback) {
+    duration = duration || 200;
+    elements.forEach(function (el) {
+      if (!el) return;
+      el.style.transition = 'opacity ' + duration + 'ms ease, transform ' + duration + 'ms ease';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-20px)';
+    });
+    setTimeout(callback, duration);
+  }
+
+  // 숫자 카운트업 (requestAnimationFrame 기반)
+  function countUp(el, from, to, duration) {
+    if (!el) return;
+    var start = null;
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      // easeOutCubic
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(from + (to - from) * eased) + '세';
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // -----------------------------------------------------------
+  // 3. 질문 렌더링
+  // -----------------------------------------------------------
+  function renderQuestion() {
+    var qData = questions[currentQuestionIndex];
+
+    setProgress((currentQuestionIndex / questions.length) * 100);
+    if (currentQSpan) currentQSpan.textContent = currentQuestionIndex + 1;
+
+    if (questionText) questionText.textContent = qData.question;
+    if (optionsContainer) {
+      optionsContainer.innerHTML = '';
+      qData.options.forEach(function (opt) {
+        var btn = document.createElement('button');
+        btn.className = 'ac-option-btn';
+        btn.textContent = opt.text;
+        btn.addEventListener('click', function () { handleOptionClick(opt.score); });
+        optionsContainer.appendChild(btn);
+      });
+    }
+  }
+
+  function loadQuestion(isFirst) {
+    if (isFirst) {
+      renderQuestion();
+      fadeInElements([questionText, optionsContainer], 400);
+    } else {
+      fadeOutElements([questionText, optionsContainer], 200, function () {
+        renderQuestion();
+        fadeInElements([questionText, optionsContainer], 300);
+      });
+    }
+  }
+
   function handleOptionClick(score) {
+    // 중복 클릭 방지
+    var btns = optionsContainer ? optionsContainer.querySelectorAll('.ac-option-btn') : [];
+    btns.forEach(function (b) { b.disabled = true; });
+
     totalScore += score;
     currentQuestionIndex++;
 
     if (currentQuestionIndex < questions.length) {
-      loadQuestion();
+      loadQuestion(false);
     } else {
       showResult();
     }
@@ -137,67 +188,62 @@ document.addEventListener('DOMContentLoaded', function () {
   // 4. 결과 계산 및 표시
   // -----------------------------------------------------------
   function showResult() {
-    // 마지막 프로그레스 바 채우기
-    progressFill.style.width = '100%';
+    setProgress(100);
 
-    // 게임 영역 숨기기
-    gsap.to(gameArea, {
-      opacity: 0,
-      y: 30,
-      duration: 0.4,
-      onComplete: () => {
+    if (gameArea) {
+      gameArea.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      gameArea.style.opacity = '0';
+      gameArea.style.transform = 'translateY(30px)';
+      setTimeout(function () {
         gameArea.style.display = 'none';
-        
-        // 결과 영역 표시
-        resultArea.style.display = 'block';
-        gsap.fromTo(resultArea, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5 });
-        
-        calculateFinalAge();
-      }
-    });
+
+        if (resultArea) {
+          resultArea.style.display = 'block';
+          resultArea.style.opacity = '0';
+          resultArea.style.transform = 'translateY(30px)';
+          resultArea.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              resultArea.style.opacity = '1';
+              resultArea.style.transform = 'translateY(0)';
+            });
+          });
+          calculateFinalAge();
+        }
+      }, 400);
+    }
   }
 
   function calculateFinalAge() {
-    // 최종 가상 나이
-    let finalAge = baseAge + totalScore;
-    
-    // 비현실적인 나이 제한 (15세 이하 방지 등)
+    var finalAge = baseAge + totalScore;
     if (finalAge < 18) finalAge = 18;
 
-    // 점수에 따른 코멘트 분기
-    let title = "";
-    let desc = "";
+    var title = '';
+    var desc = '';
 
     if (totalScore <= -3) {
-      title = "놀라운 동안 피부! 철벽 방어력 🛡️";
-      desc = "아주 훌륭한 생활 습관을 가지고 계시네요. 현재의 스킨케어와 습관을 계속 유지한다면 오랫동안 건강한 피부를 지킬 수 있습니다.";
+      title = '놀라운 동안 피부! 철벽 방어력 🛡️';
+      desc = '아주 훌륭한 생활 습관을 가지고 계시네요. 현재의 스킨케어와 습관을 계속 유지한다면 오랫동안 건강한 피부를 지킬 수 있습니다.';
     } else if (totalScore <= 3) {
-      title = "평균적인 피부 나이! 조금만 더 관리해볼까요? 🌱";
-      desc = "비교적 무난한 습관을 가졌지만, 특정 항목에서 노화가 가속화되고 있을 수 있습니다. 자외선 차단이나 수분 섭취에 조금 더 신경 써주세요.";
+      title = '평균적인 피부 나이! 조금만 더 관리해볼까요? 🌱';
+      desc = '비교적 무난한 습관을 가졌지만, 특정 항목에서 노화가 가속화되고 있을 수 있습니다. 자외선 차단이나 수분 섭취에 조금 더 신경 써주세요.';
     } else if (totalScore <= 8) {
-      title = "노화 시계 가속 중! 긴급 조치가 필요해요 🚨";
-      desc = "현재 생활 습관이 피부 장벽을 무너뜨리고 광노화를 촉진하고 있습니다. 아래 상세 리포트를 확인하고 습관을 반드시 교정하세요.";
+      title = '노화 시계 가속 중! 긴급 조치가 필요해요 🚨';
+      desc = '현재 생활 습관이 피부 장벽을 무너뜨리고 광노화를 촉진하고 있습니다. 아래 상세 리포트를 확인하고 습관을 반드시 교정하세요.';
     } else {
-      title = "피부 비상사태! 적극적인 안티에이징 필수 🆘";
-      desc = "위험 신호! 자외선, 스트레스, 식습관이 복합적으로 피부 노화를 급격히 앞당기고 있습니다. 당장 오늘부터 전문가 리포트의 가이드를 실천하세요.";
+      title = '피부 비상사태! 적극적인 안티에이징 필수 🆘';
+      desc = '위험 신호! 자외선, 스트레스, 식습관이 복합적으로 피부 노화를 급격히 앞당기고 있습니다. 당장 오늘부터 전문가 리포트의 가이드를 실천하세요.';
     }
 
-    // 결과 텍스트 적용
-    resultTitle.textContent = title;
-    resultDesc.textContent = desc;
+    if (resultTitle) resultTitle.textContent = title;
+    if (resultDesc) resultDesc.textContent = desc;
 
-    // 나이 카운트업 애니메이션 (GSAP)
-    let startObj = { val: baseAge };
-    gsap.to(startObj, {
-      val: finalAge,
-      duration: 2,
-      ease: 'power3.out',
-      onUpdate: () => {
-        resultAge.textContent = Math.round(startObj.val) + "세";
-      }
-    });
+    // 나이 카운트업 애니메이션 (requestAnimationFrame 기반)
+    countUp(resultAge, baseAge, finalAge, 2000);
   }
 
-  // 초기 시작
-  loadQuestion();
+  // -----------------------------------------------------------
+  // 5. 초기 시작
+  // -----------------------------------------------------------
+  loadQuestion(true);
 });
