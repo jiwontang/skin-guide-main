@@ -10638,4 +10638,24 @@ article p,
   .fm-report {
     padding: 2.4rem;
   }
+}
+
+/* Medical Disclaimer */
+.medical-disclaimer {
+  padding: 4rem 2rem;
+  background-color: transparent;
+  border-top: 0.1rem solid var(--border-light);
+}
+
+.disclaimer-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.medical-disclaimer p {
+  font-size: 1.4rem;
+  color: #94A3B8;
+  line-height: 1.6;
+  word-break: keep-all;
 }
