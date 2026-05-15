@@ -1627,8 +1627,9 @@ article p,
   gap: 1.2rem;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: 100%;
-  max-width: 144rem;
+  max-width: 100rem;
   padding-inline: clamp(2.4rem, 6vw, 10rem);
 }
 
@@ -10192,10 +10193,11 @@ article p,
 .ac-progress__bar {
   flex: 1;
   height: 0.8rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 0.4rem;
-  overflow: hidden;
+  background: rgba(148, 163, 184, 0.2);   /* 트랙 배경색 추가 */
+  border-radius: 0.4rem;                   /* 둥근 모서리 */
+  overflow: hidden;                        /* 주석 제거 → 반드시 필요 */
 }
+
 
 .ac-progress__fill {
   height: 100%;
@@ -10499,6 +10501,8 @@ article p,
   justify-content: center;
   gap: 1.6rem;
   margin-top: 2rem;
+  position: relative;
+  z-index: 10;
 }
 
 .sd-btn {
@@ -10509,6 +10513,10 @@ article p,
   cursor: pointer;
   transition: all 0.2s;
   border: none;
+  position: relative;
+  z-index: 10;
+  min-height: 4.8rem;
+  touch-action: manipulation;
 }
 
 .sd-btn--primary {

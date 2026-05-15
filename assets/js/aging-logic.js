@@ -81,14 +81,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (totalQSpan) totalQSpan.textContent = questions.length;
 
+  // 초기 진행률 설정 (첫 질문 = 1/6)
+  // renderQuestion에서 setProgress가 호출되므로 별도 초기화 불필요
+
+  var progressBar = document.querySelector('.ac-progress__bar');
+  if (progressBar) {
+    progressBar.style.background = 'rgba(148, 163, 184, 0.2)';
+    progressBar.style.borderRadius = '9999px';
+    progressBar.style.overflow = 'hidden';
+  }
+
   // -----------------------------------------------------------
   // 유틸: CSS transition 기반 애니메이션 헬퍼
   // -----------------------------------------------------------
+
   function setProgress(percent) {
     if (!progressFill) return;
-    progressFill.style.transition = 'width 0.5s ease';
     progressFill.style.width = percent + '%';
   }
+
 
   function fadeInElements(elements, duration) {
     duration = duration || 300;
@@ -141,7 +152,14 @@ document.addEventListener('DOMContentLoaded', function () {
   function renderQuestion() {
     var qData = questions[currentQuestionIndex];
 
-    setProgress((currentQuestionIndex / questions.length) * 100);
+    // 진행률 계산
+    var pct = ((currentQuestionIndex + 1) / questions.length) * 100;
+
+    // fill에 직접 강제 주입 (transition 없이 즉시 적용)
+    var fill = document.getElementById('ac-progress-fill');
+    if (fill) {
+      fill.style.cssText = 'width:' + pct + '%; height:100%; background:linear-gradient(90deg,#4de9ab,#7ec1ff); display:block; transition:width 0.5s ease;';
+    }
     if (currentQSpan) currentQSpan.textContent = currentQuestionIndex + 1;
 
     if (questionText) questionText.textContent = qData.question;
@@ -156,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   }
+
 
   function loadQuestion(isFirst) {
     if (isFirst) {
