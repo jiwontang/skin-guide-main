@@ -1,93 +1,106 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- 메인 -->
   <url>
-    <loc>https://skincare-lab.com/</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- 피부 타입 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/skintype.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/ingredient-match.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- 성분 분석 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/ingredient.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/aging-clock.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- 홈케어 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/homecare.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/skincare-diet.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skinguide-lab.com/subpages/skintype.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skinguide-lab.com/subpages/ingredient.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skinguide-lab.com/subpages/mission.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skinguide-lab.com/subpages/texture.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- D-1 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/d-1.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/homecare.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- 진정 케어 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/soothing.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/d-1.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- 피부 흔적 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/trace.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/soothing.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- 퍼스널 컬러 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/personal-color.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/trace.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- 소개 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/about.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/personal-color.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skinguide-lab.com/subpages/about.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-
-  <!-- 개인정보처리방침 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/privacy.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/contact.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://skinguide-lab.com/subpages/privacy.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
-  <!-- 이용약관 -->
   <url>
-    <loc>https://skincare-lab.com/subpages/terms.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://skinguide-lab.com/subpages/terms.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
 </urlset>

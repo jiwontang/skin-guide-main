@@ -1,41 +1,34 @@
 ﻿# =============================================
 # robots.txt — Skincare Lab
-# https://skincare-lab.com/
+# https://skinguide-lab.com/
 # =============================================
 
-# 전체 크롤링 허용
-User-agent: *
+# ── 1. 구글 애드센스 전용 로봇 ──
+User-agent: Mediapartners-Google
 Allow: /
 
-# ── Google ──────────────────────────────────
+# ── 2. 전체 크롤러 공통 규칙 ──
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# ── 3. 구글 검색 로봇 ──
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Googlebot-Image
 Allow: /assets/images/
 
-# ── Naver ───────────────────────────────────
+# ── 4. 네이버 검색 로봇 ──
 User-agent: Yeti
 Allow: /
-Crawl-delay: 1
 
-# ── Bing / Microsoft ────────────────────────
+# ── 5. 마이크로소프트 빙 로봇 ──
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
-User-agent: msnbot
-Allow: /
-
-# ── 기타 주요 크롤러 ─────────────────────────
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-# ── 악성/SEO 스크래핑 봇 차단 ─────────────────
+# ── 6. 악성 스크래핑 및 불필요한 SEO 봇 차단 ──
 User-agent: AhrefsBot
 Disallow: /
 
@@ -48,5 +41,5 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-# ── Sitemap ──────────────────────────────────
-Sitemap: https://skincare-lab.com/sitemap.xml
+# ── 7. XML 사이트맵 위치 지정 ──
+Sitemap: https://skinguide-lab.com/sitemap.xml
